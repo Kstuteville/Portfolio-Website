@@ -12,7 +12,7 @@
     font-style: normal;
 }
 
-body{
+body.home{
     font-family: "Poppins", sans-serif;
     
     background: black;
@@ -27,6 +27,11 @@ body{
   }
 } 
 
+/* All other pages */
+body {
+  font-family: "Poppins", sans-serif;
+  background: black;
+}
 
 
 ::selection{
