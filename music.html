@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Veilbound Music</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+        audio {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" src="assets/After The Storm.mp3" autoplay loop controls></audio>
+    <script>
+        const music = document.getElementById('bg-music');
+        music.volume = 0.3;
+
+        // Some browsers block autoplay until a user clicks
+        window.addEventListener('click', () => music.play(), { once: true });
+    </script>
+</body>
+</html>
