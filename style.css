@@ -535,6 +535,7 @@ main{
 
 
 @media (max-width: 725px){
+
     .text h2{
         font-size: 5rem;
         line-height: 1.1;
@@ -572,6 +573,15 @@ main{
 
 }
 }
+
+@media (max-width: 520px){
+    .text h2{
+        font-size: 3.3rem;
+    
+    }
+}
+
+
 
 
 
@@ -670,3 +680,5 @@ header nav ul li a:hover {
         overflow-x: hidden;
     }
 }
+
+
