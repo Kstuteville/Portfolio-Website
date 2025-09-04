@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veilbound - Experience</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;800&display=swap");
+        
+        @font-face {
+            font-family: "Highwind";
+            src: url("./fonts/Highwind.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Highwind", sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            letter-spacing: 0.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav ul a {
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 0.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul a:hover {
+            color: #ccc;
+        }
+
+        nav ul a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        nav ul a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+
+        .experience-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .experience-container h1 {
+            font-family: "Highwind", sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            letter-spacing: 0.3rem;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #8a8aff;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.1rem;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #8a8aff 0%, #6666dd 100%);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            margin-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: #8a8aff;
+            border-radius: 50%;
+            border: 3px solid #1a1a1a;
+        }
+
+        .experience-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-item h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #8a8aff;
+            letter-spacing: 0.1rem;
+        }
+
+        .experience-item .company {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .experience-item .date {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .experience-item p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .experience-item li {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .skills {
+            margin-top: 2rem;
+        }
+
+        .skills h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(138, 138, 255, 0.2) 0%, rgba(102, 102, 221, 0.2) 100%);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(138, 138, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, rgba(138, 138, 255, 0.3) 0%, rgba(102, 102, 221, 0.3) 100%);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav ul a {
+                font-size: 0.8rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .experience-container h1 {
+                font-size: 3rem;
+            }
+
+            .experience-container {
+                padding: 1rem;
+            }
+
+            .experience-timeline {
+                padding-left: 1rem;
+            }
+
+            .experience-item {
+                margin-left: 1rem;
+                padding: 1.5rem;
+            }
+
+            .experience-item::before {
+                left: -2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .experience-container h1 {
+                font-size: 2.5rem;
+            }
+
+            .experience-timeline::before {
+                display: none;
+            }
+
+            .experience-item::before {
+                display: none;
+            }
+
+            .experience-item {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Kaylie Stuteville</div>
+            <ul>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="process.html">Process</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="experience-container">
+            <h1>Experience</h1>
+            <div class="experience-subtitle">Game Designer · AI Innovation in Interactive Media</div>
+            
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h2>Graduate Research Assistant</h2>
+                    <div class="company">NYU Tandon School of Engineering - Game AI Affordances</div>
+                    <div class="date">2025 - Present</div>
+                    <p>Investigating adaptive AI systems and player affordances to enhance immersion in gameplay while pursuing M.S. in Integrated Design and Media. Focusing on the intersection of game design and deep learning to create emotionally reactive gaming experiences.</p>
+                    <ul>
+                        <li>Researching adaptive AI systems for enhanced player immersion</li>
+                        <li>Collaborating on projects bridging AI, design, and player experience</li>
+                        <li>Developing thesis project exploring immersive AI integration in games</li>
+                    </ul>
+                    
+                    <div class="skills">
+                        <h3>Focus Areas</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Game Design</span>
+                            <span class="skill-tag">Adaptive AI Systems</span>
+                            <span class="skill-tag">Player Affordances</span>
+                            <span class="skill-tag">Interactive Storytelling</span>
+                            <span class="skill-tag">Immersive Media</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <h2>Indie Game Developer</h2>
+                    <div class="company">Veilbound Studios</div>
+                    <div class="date">2024 - Present</div>
+                    <p>Leading the design and development of Veilbound, a 3D RPG vertical slice showcasing innovative AI integration in game design. Creating cinematic gameplay experiences with adaptive AI systems that respond dynamically to player choices and emotions.</p>
+                    <ul>
+                        <li>Designing adaptive AI systems for emotionally responsive NPCs</li>
+                        <li>Implementing cinematic storytelling with technical innovation</li>
+                        <li>Developing vertical slice for thesis research and portfolio presentation</li>
+                    </ul>
+                    
+                    <div class="skills">
+                        <h3>Technologies & Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Unreal Engine</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Game Design</span>
+                            <span class="skill-tag">AI/ML Integration</span>
+                            <span class="skill-tag">Cinematic Design</span>
+                            <span class="skill-tag">Level Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <h2>Creative Work Developer</h2>
+                    <div class="company">NYU Tandon</div>
+                    <div class="date">2024 - Present</div>
+                    <p>Building real-time immersive experiences that combine cinematic storytelling, interactive systems, and technical implementation in game engines. Focusing on innovative uses of AI to enhance player engagement and narrative depth.</p>
+                    
+                    <div class="skills">
+                        <h3>Core Competencies</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Real-time Systems</span>
+                            <span class="skill-tag">Interactive Design</span>
+                            <span class="skill-tag">Technical Implementation</span>
+                            <span class="skill-tag">Cinematic Storytelling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <h2>Software Developer & ML Engineer</h2>
+                    <div class="company">Colorado College</div>
+                    <div class="date">2024</div>
+                    <p>Developed AssessAI in a 4.5-week sprint-based team environment, applying agile workflows, version control, and testing practices. Gained valuable experience in collaborative development and rapid prototyping methodologies.</p>
+                    
+                    <div class="skills">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Agile Development</span>
+                            <span class="skill-tag">Version Control</span>
+                            <span class="skill-tag">Team Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
