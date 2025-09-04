@@ -4,6 +4,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root{
+    --bg-color: #000;
+    --text-color: #fff;
+    --main-color: rgb(120, 120, 204);
+}
+
+
 
 @font-face {
     font-family: "Highwind";
@@ -20,6 +27,12 @@ body.home{
   animation: clearBlur 1s ease-out forwards;
   animation-delay: 0.5s; /* wait 1s, then clear */
 }
+/* Add this to your CSS */
+body.home .text h2 {
+    font-family: "Highwind", sans-serif; /* Highwind first, fallback to sans-serif */
+    font-size: 120px; /* fixed size in px, won't change with html font-size */
+    letter-spacing: 1.5rem; /* keep your spacing */
+}
 
 @keyframes clearBlur {
   to {
@@ -31,6 +44,28 @@ body.home{
 body {
   font-family: "Poppins", sans-serif;
   background: black;
+}
+
+html{
+    font-size: 75.5%;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.btn{
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.2rem;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 
@@ -78,6 +113,16 @@ header ul a{
     font-weight: 300;
     font-size: 0.83rem;
 }
+
+.nav a:hover{
+    color: #bfbfbf;
+}
+
+.about-image {
+    width: 25vw; 
+    border: 2px;
+}
+
 .hamburger{
     padding-left: 1.5rem;
 }
@@ -274,7 +319,7 @@ main{
 }
 
 .text h2{
-   font-family: "Highwind", sans-serif;
+   font-family: "poppins", sans-serif;
     font-size: 6.5rem;
     font-weight: 200;
     letter-spacing: 1.5rem;
@@ -594,25 +639,27 @@ header nav ul li a:hover {
 }
 
 /* Page containers */
-.contact-container, .about-container, .projects-container {
+.contact-container, .about-container, .process-container, .projects-container {
     position: relative;
     z-index: 10;
     padding: 150px 5%;
     max-width: 1200px;
     margin: 0 auto;
     color: #fff;
-    font-family: "Highwind", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Section headings */
 .contact-container h1,
 .about-container h1,
+.process-container h1,
 .projects-container h1 {
     font-size: 4rem;
     letter-spacing: 0.5rem;
     margin-bottom: 2rem;
 }
 
+.process-container h2,
 .contact-container h2,
 .about-container h2 {
     font-size: 2.5rem;
@@ -622,7 +669,7 @@ header nav ul li a:hover {
 }
 
 /* Text styling */
-.contact-text, .about-text {
+.contact-text, .process-container, .about-text {
     font-size: 1.5rem;
     line-height: 2rem;
     margin-bottom: 1.5rem;
@@ -669,9 +716,52 @@ header nav ul li a:hover {
     scale: 1.1;
     overflow : hidden;
 
-    html, body {
-        overflow-x: hidden;
-    }
+   html, body {
+    overflow: auto;
+}
 }
 
 
+/* Only About page */
+body.about-page {
+    font-size: 0.95rem; /* smaller text */
+    background-color: #000; /* solid black background */
+    color: #fff;           /* default text color white */
+}
+
+/* Scrollable wrapper */
+.about-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 150px 2rem;
+    height: calc(100vh - 150px); /* adjust for header/padding */
+    overflow-y: auto;
+    background-color: transparent; /* let body background show */
+}
+
+/* Text container styling */
+.about-container {
+    max-width: 65%;
+}
+
+.about-container h1, .about-container h2, .about-container h3,
+.about-container p, .about-text {
+    color: #fff; /* ensure text stays white */
+}
+
+/* Image styling */
+.about-image {
+    flex: 0 0 25%;
+    position: sticky;
+    top: 50px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
