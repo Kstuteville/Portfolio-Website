@@ -252,9 +252,161 @@
             animation: pulse 2s infinite;
         }
 
+        .character-showcase {
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .character-art {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 15px;
+            border: 2px solid rgba(138, 138, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .character-art:hover {
+            border-color: rgba(138, 138, 255, 0.6);
+            box-shadow: 0 15px 40px rgba(138, 138, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .character-caption {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #8a8aff;
+            font-style: italic;
+            letter-spacing: 0.05rem;
+        }
+
         @keyframes pulse {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.5; }
+        }
+
+        .project-documents {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-documents h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #8a8aff;
+            text-align: center;
+            letter-spacing: 0.1rem;
+        }
+
+        .document-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .document-preview {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(138, 138, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .document-preview:hover {
+            background: rgba(0, 0, 0, 0.6);
+            border-color: rgba(138, 138, 255, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .document-header {
+            padding: 1.5rem;
+            background: rgba(138, 138, 255, 0.1);
+            border-bottom: 1px solid rgba(138, 138, 255, 0.2);
+        }
+
+        .document-header h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            letter-spacing: 0.05rem;
+        }
+
+        .document-type {
+            font-size: 0.9rem;
+            color: #8a8aff;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .preview-content {
+            padding: 1.5rem;
+        }
+
+        .slide-preview {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slide-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .slide-subtitle {
+            font-size: 0.95rem;
+            color: #8a8aff;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .slide-details {
+            margin-top: 1rem;
+        }
+
+        .slide-details p {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin: 0.4rem 0;
+            padding-left: 0.5rem;
+            border-left: 2px solid rgba(138, 138, 255, 0.3);
+        }
+
+        .document-actions {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .doc-link:hover {
+            background: linear-gradient(135deg, #9999ff 0%, #7777ee 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(138, 138, 255, 0.3);
+        }
+
+        .doc-link svg {
+            flex-shrink: 0;
         }
 
         .other-projects {
@@ -392,6 +544,15 @@
             .project-details {
                 grid-template-columns: 1fr;
             }
+
+            .document-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .document-preview {
+                margin-bottom: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -476,6 +637,69 @@
                 </div>
 
                 <p><strong>Key Innovations:</strong> Veilbound features emotionally reactive AI that adapts to player behavior, creating unique narrative branches and character interactions. The game combines traditional RPG mechanics with cutting-edge machine learning to deliver a truly personalized horror-fantasy experience.</p>
+
+                <div class="project-documents">
+                    <h3>Project Documentation</h3>
+                    <div class="document-grid">
+                        <div class="document-preview">
+                            <div class="document-header">
+                                <h4>Pitch Deck</h4>
+                                <span class="document-type">PDF • 25 slides</span>
+                            </div>
+                            <div class="preview-content">
+                                <div class="slide-preview">
+                                    <div class="slide-title">Veilbound: A Fantasy-Horror Action Adventure</div>
+                                    <div class="slide-subtitle">A Thesis on Emotionally Adaptive AI in Game Design</div>
+                                    <div class="slide-details">
+                                        <p>• Exorcism combat with sword and charm mechanics</p>
+                                        <p>• Spirit taming and companion systems</p>
+                                        <p>• Dynamic NPC interactions based on player morality</p>
+                                        <p>• Adaptive boss AI that learns player patterns</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <a href="https://docs.google.com/presentation/d/1d23Y1c2wNJHQz5nqCQzt24Z-GAnZP8G0-G9jZN7hc2Y/edit?usp=sharing" class="doc-link" target="_blank">
+                                    <span>View Pitch Deck</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-preview">
+                            <div class="document-header">
+                                <h4>Game Design Document</h4>
+                                <span class="document-type">PDF • 40+ pages</span>
+                            </div>
+                            <div class="preview-content">
+                                <div class="slide-preview">
+                                    <div class="slide-title">Complete Design Documentation</div>
+                                    <div class="slide-subtitle">Technical specifications, narrative design, and AI systems</div>
+                                    <div class="slide-details">
+                                        <p>• Core gameplay systems and mechanics</p>
+                                        <p>• Adaptive AI research and implementation</p>
+                                        <p>• Character backstories and world lore</p>
+                                        <p>• Technical architecture and production plan</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <a href="https://docs.google.com/document/d/11dXGJwID2weyYfPIP6mY6Zkc3c2imUN4PH9LMKYySfs/edit?usp=sharing" class="doc-link" target="_blank">
+                                    <span>View Design Document</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="other-projects">
