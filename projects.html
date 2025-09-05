@@ -503,6 +503,14 @@
             line-height: 1.7;
         }
 
+        .env-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .env-image-container img {
+            transition: transform 0.3s ease;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
@@ -638,6 +646,11 @@
 
                 <p><strong>Key Innovations:</strong> Veilbound features emotionally reactive AI that adapts to player behavior, creating unique narrative branches and character interactions. The game combines traditional RPG mechanics with cutting-edge machine learning to deliver a truly personalized horror-fantasy experience.</p>
 
+                <div class="character-showcase">
+                    <img src="websitepngs/character-art.jpg" alt="Inara - Veilbound Protagonist Concept Art" class="character-art">
+                    <p class="character-caption">Inara, the exorcist protagonist of Veilbound</p>
+                </div>
+
                 <div class="project-documents">
                     <h3>Project Documentation</h3>
                     <div class="document-grid">
@@ -710,12 +723,47 @@
                         <h3>AssessAI</h3>
                         <div class="project-type">Machine Learning</div>
                         <p>Developed during a 4.5-week intensive sprint at Colorado College, AssessAI demonstrates rapid prototyping and agile development practices in machine learning applications. Built with a team using version control and testing methodologies.</p>
+                        
+                        <div style="margin-top: 1.5rem;">
+                            <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
+                                    <img src="websitepngs/assessai-img.png" alt="Assessai-img" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                </div>
+                            <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
+                                    <img src="websitepngs/capstone-poster.png" alt="capstone-poster" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                </div>
+                            <a href="https://github.com/Kstuteville/assess.ai" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); color: #fff; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                View on GitHub
+                            </a>
+                        </div>
                     </div>
 
                     <div class="project-card">
                         <h3>Immersive Interactive Experiences</h3>
                         <div class="project-type">Academic Work - NYU</div>
                         <p>Real-time immersive experiences combining cinematic storytelling with interactive systems. These projects explore the intersection of technical implementation and creative design in game engines.</p>
+                        
+                        <div class="project-subsection" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <h4 style="color: #8a8aff; margin-bottom: 1rem; font-size: 1.2rem;">Week 1 - Expressive Environments</h4>
+                            <p style="margin-bottom: 1rem; font-size: 0.95rem; color: #ccc;">Homework - Create an Ambient 1st Person Experience</p>
+                            
+                            <div class="environment-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
+                                    <img src="websitepngs/environment-1.png" alt="Ambient Environment - Scene 1" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                </div>
+                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
+                                    <img src="websitepngs/environment-2.png" alt="Ambient Environment - Scene 2" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                </div>
+                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
+                                    <img src="websitepngs/environment-3.png" alt="Ambient Environment - Scene 3" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                </div>
+                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
+                                    <img src="websitepngs/environment-4.png" alt="Ambient Environment - Scene 4" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="project-card">
