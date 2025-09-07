@@ -70,26 +70,7 @@
     <script src="js/app.js"></script>
 
     <script>
-    // Check if music window is already open
-    let musicWindow;
 
-   /* function openMusicPlayer() {
-        if (!musicWindow || musicWindow.closed) {
-            musicWindow = window.open(
-                'music.html',
-                'musicWindow',
-                'width=400,height=100,resizable=no'
-            );
-        } else {
-            // Focus the already open music window
-            musicWindow.focus();
-        }
-    }
-
-    // Optionally, auto-open when the page loads
-    window.addEventListener('load', () => {
-        openMusicPlayer();
-    });*/
 
     
 </script>
@@ -103,7 +84,65 @@
 
     
     </script>
+    <!-- Music Player -->
+<div class="music-player">
+    <button class="music-toggle" id="musicToggle">▶️</button>
+    <div class="music-info">
+        <div class="music-title">Atmospheric Ambience</div>
+        <div class="music-artist">Portfolio Soundtrack</div>
+    </div>
+    <div class="volume-control">
+        <span class="volume-icon">🔊</span>
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="25">
+    </div>
+</div>
 
+<!-- Audio Element -->
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="your-music-file.mp3" type="audio/mpeg">
+    <source src="your-music-file.ogg" type="audio/ogg">
+</audio>
+
+<script>
+// Music player functionality
+const audio = document.getElementById('backgroundMusic');
+const toggleBtn = document.getElementById('musicToggle');
+const volumeSlider = document.getElementById('volumeSlider');
+
+let isPlaying = false;
+
+// Set initial volume (25%)
+audio.volume = 0.25;
+
+// Toggle play/pause
+toggleBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        audio.pause();
+        toggleBtn.textContent = '▶️';
+        isPlaying = false;
+    } else {
+        audio.play().catch(e => {
+            console.log('Audio play prevented by browser policy');
+        });
+        toggleBtn.textContent = '⏸️';
+        isPlaying = true;
+    }
+});
+
+// Volume control
+volumeSlider.addEventListener('input', (e) => {
+    audio.volume = e.target.value / 100;
+});
+
+// Handle audio events
+audio.addEventListener('canplay', () => {
+    console.log('Audio ready to play');
+});
+
+audio.addEventListener('error', (e) => {
+    console.error('Audio error:', e);
+});
+</script>
     
     
 </body>
