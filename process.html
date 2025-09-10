@@ -265,6 +265,77 @@
             color: #ccc;
         }
 
+        .literature-section {
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .literature-section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #8a8aff;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .reading-response {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .reading-response:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-2px);
+        }
+
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .response-header h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin: 0;
+        }
+
+        .response-date {
+            font-size: 0.9rem;
+            color: #8a8aff;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .response-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .response-content p:last-child {
+            margin-bottom: 0;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
@@ -302,6 +373,16 @@
 
             .philosophy-section {
                 padding: 2rem;
+            }
+
+            .literature-section {
+                padding: 2rem;
+            }
+
+            .response-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
             }
         }
 
@@ -447,6 +528,27 @@
             <div class="coming-soon">
                 <h2>Process Documentation Coming Soon</h2>
                 <p>Detailed case studies, development diaries, and behind-the-scenes content showcasing my creative process in action. Stay tuned for deep dives into Veilbound's development and other immersive projects!</p>
+            </div>
+
+            <div class="literature-section">
+                <h2>Literature Reflections & Reading Responses</h2>
+                <p class="section-subtitle">Academic explorations connecting design theory with practice</p>
+                
+                <div class="reading-response">
+                    <div class="response-header">
+                        <h3>Week 1 Reading Response</h3>
+                        <span class="response-date">Art, Design & Social Responsibility</span>
+                    </div>
+                    <div class="response-content">
+                        <p>A key takeaway from these three readings is that both Art and Design, which go hand and hand arguably impact us daily. Both are used uniquely to challenge and critique our everyday lives. What I have learned is that being an artist or a designer is not a calling only for a special few who are just "born" with these gifts. Everyone has the ability to create, to do art, to design.</p>
+                        
+                        <p>I think something to keep in mind as a designer and an artist there are social responsibilities in addressing societal and environmental issues. Working actively to influence positive change and the importance of understanding the needs of the world is key.</p>
+                        
+                        <p>As I was reading, I reflected back on the videos I also watched this week. We are in an artificial world now. Amazing, and It makes me think about design, whether by an architect, artist, or technologist, which carries immense social responsibility. Considering the artificial worlds we now live in, largely shaped by design decisions, it intensifies the ethical questions surrounding nowadays emerging tech.</p>
+                        
+                        <p>We are in an unknown era; truly, any design can be brought to life. But with no policies or restrictions, emerging tech like Artificial Intelligence could do harm as well. I question how to combat this, even though we are taught through these readings that we are not powerless; how can we influence the direction of technology? I often feel powerless, although I engage in responsible innovation and participate in policy discussions, how can I shape and remind others in higher power of moral design efforts?</p>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
