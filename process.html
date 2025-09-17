@@ -245,6 +245,225 @@
             margin: 0 auto;
         }
 
+        /* 50 Shades Project Section */
+        .project-showcase {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(138, 138, 255, 0.08) 0%, rgba(102, 102, 221, 0.08) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(138, 138, 255, 0.2);
+        }
+
+        .project-showcase h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #8a8aff;
+            font-family: "Highwind", sans-serif;
+            text-align: center;
+        }
+
+        .project-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .project-hero {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-showcase-image {
+            width: 100%;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(138, 138, 255, 0.3);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .project-main-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: rgba(138, 138, 255, 0.15);
+            border: 1px solid rgba(138, 138, 255, 0.3);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: rgba(138, 138, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(138, 138, 255, 0.2);
+        }
+
+        .link-icon {
+            font-size: 1.2rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        .project-goal h3,
+        .project-process h3 {
+            font-size: 1.5rem;
+            color: #8a8aff;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(138, 138, 255, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .project-mediums h4 {
+            font-size: 1.2rem;
+            color: #8a8aff;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-goal p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #ddd;
+        }
+
+        .medium-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .medium-tag {
+            background: rgba(138, 138, 255, 0.2);
+            color: #fff;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(138, 138, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .medium-tag:hover {
+            background: rgba(138, 138, 255, 0.3);
+        }
+
+        .process-scroll {
+            max-height: 500px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .process-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .process-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        .process-scroll::-webkit-scrollbar-thumb {
+            background: rgba(138, 138, 255, 0.5);
+            border-radius: 4px;
+        }
+
+        .process-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(138, 138, 255, 0.7);
+        }
+
+        .process-phase {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .process-phase:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .process-phase h4 {
+            font-size: 1.2rem;
+            color: #8a8aff;
+            margin-bottom: 0.8rem;
+        }
+
+        .process-phase p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        .process-reflection {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(138, 138, 255, 0.3);
+        }
+
+        .process-reflection h4 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .process-reflection p {
+            margin-bottom: 1rem;
+        }
+
+        .process-reflection em {
+            color: #8a8aff;
+            font-style: italic;
+        }
+
+        /* Figma Embed */
+        .figma-embed {
+            width: 100%;
+            height: 600px;
+            border: 1px solid rgba(138, 138, 255, 0.3);
+            border-radius: 15px;
+            margin: 2rem 0;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .figma-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
         .coming-soon {
             text-align: center;
             padding: 3rem;
@@ -379,10 +598,35 @@
                 padding: 2rem;
             }
 
+            .project-showcase {
+                padding: 2rem;
+            }
+
+            .project-hero {
+                padding: 1.5rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .process-scroll {
+                max-height: 400px;
+            }
+
+            .medium-tags {
+                justify-content: center;
+            }
+
             .response-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0.5rem;
+            }
+
+            .figma-embed {
+                height: 500px;
             }
         }
 
@@ -398,6 +642,27 @@
 
             .philosophy-section h2 {
                 font-size: 2rem;
+            }
+
+            .project-showcase {
+                padding: 1.5rem;
+            }
+
+            .project-showcase h2 {
+                font-size: 2rem;
+            }
+
+            .project-hero {
+                padding: 1.5rem;
+            }
+
+            .process-scroll {
+                max-height: 300px;
+                padding: 1rem;
+            }
+
+            .figma-embed {
+                height: 400px;
             }
         }
     </style>
@@ -421,114 +686,98 @@
             <h1>Game Design Process</h1>
             <p class="process-subtitle">How I bring ideas to life through structured creativity and iterative design</p>
             
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h2>Ideation & Concept</h2>
-                    <p>Every great game starts with a small idea in my brain. I begin by exploring core concepts, asking "What if?" and diving deep into the emotional experience I want to create. This phase involves extensive research, mood boarding, and defining the game's soul.</p>
-                    
-                    <div class="process-tools">
-                        <h4>Tools & Methods</h4>
-                        <div class="tool-tags">
-                            <span class="tool-tag">Concept Art</span>
-                            <span class="tool-tag">AGILE design</span>
-                            <span class="tool-tag">Mood Boards</span>
-                            <span class="tool-tag">Research</span>
-                            <span class="tool-tag">Brainstorming</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h2>Prototyping & Systems</h2>
-                    <p>Ideas become reality through rapid prototyping. I create core gameplay loops, test mechanics, and build the foundation systems that will support the entire experience. This is where theory meets practice.</p>
-                    
-                    <div class="process-tools">
-                        <h4>Tools & Methods</h4>
-                        <div class="tool-tags">
-                            <span class="tool-tag">Unreal Engine</span>
-                            <span class="tool-tag">Unity</span>
-                            <span class="tool-tag">C++</span>
-                            <span class="tool-tag">Blueprints</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h2>Iteration & Testing</h2>
-                    <p>Through continuous playtesting, feedback collection, and iterative refinement, I polish mechanics, balance systems, and ensure every element serves the player experience.</p>
-                    
-                    <div class="process-tools">
-                        <h4>Tools & Methods</h4>
-                        <div class="tool-tags">
-                            <span class="tool-tag">Playtesting</span>
-                            <span class="tool-tag">Analytics</span>
-                            <span class="tool-tag">User Feedback</span>
-                           
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h2>Documentation & Communication</h2>
-                    <p>Great ideas mean nothing if they can't be shared. I create comprehensive design documents, maintain clear version control, and ensure every team member understands the vision and their role in bringing it to life.</p>
-                    
-                    <div class="process-tools">
-                        <h4>Tools & Methods</h4>
-                        <div class="tool-tags">
-                            <span class="tool-tag">Design Documents</span>
-                            <span class="tool-tag">Git/GitHub</span>
-                            <span class="tool-tag">Team Communication</span>
-                            <span class="tool-tag">Process Documentation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h2>AI Integration & Innovation</h2>
-                    <p>Modern games demand intelligent systems. I integrate adaptive AI, create emotionally responsive NPCs, and develop systems that learn and evolve with player behavior, pushing the boundaries of interactive storytelling.</p>
-                    
-                    <div class="process-tools">
-                        <h4>Tools & Methods</h4>
-                        <div class="tool-tags">
-                            <span class="tool-tag">Machine Learning</span>
-                            <span class="tool-tag">Python</span>
-                            <span class="tool-tag">Adaptive AI</span>
-                            <span class="tool-tag">Behavioral Systems</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">6</div>
-                    <h2>Polish & Presentation</h2>
-                    <p>The final phase brings everything together. I focus on visual polish, cinematic presentation, and ensuring the player's journey is seamless, memorable, and emotionally impactful from start to finish.</p>
-                    
-                    <div class="process-tools">
-                        <h4>Tools & Methods</h4>
-                        <div class="tool-tags">
-                            <span class="tool-tag">Adobe Creative Suite</span>
-                            <span class="tool-tag">Cinematic Design</span>
-                            <span class="tool-tag">Visual Polish</span>
-                            <span class="tool-tag">User Experience</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="philosophy-section">
                 <h2>My Design Philosophy</h2>
                 <p>I believe games are more than entertainment, they're emotional experiences that can inspire, challenge, and transform players. Every system I design, every mechanic I implement, serves the greater goal of creating meaningful connections between player and world. Through the marriage of technical excellence and creative vision, I craft experiences that resonate long after the game ends.</p>
             </div>
 
-            <div class="coming-soon">
-                <h2>Process Documentation Coming Soon</h2>
-                <p>Detailed case studies, development diaries, and behind-the-scenes content showcasing my creative process in action. Stay tuned for deep dives into Veilbound's development and other immersive projects!</p>
+            <!-- 50 Shades Project Section -->
+            <div class="project-showcase">
+                <h2>50 Shades Project</h2>
+                <p class="project-subtitle">Combat System & Weapon Design Prototypes</p>
+                
+                <div class="project-hero">
+                    <div class="project-showcase-image">
+                        <img src="websitepngs/Veilbound UI.png" alt="50 Shades Project - Complete Process Documentation" class="project-main-image">
+                    </div>
+                    <div class="project-links">
+            
+                        <a href="websitepngs/Combat System.pdf" class="project-link doc-link">
+                            <span class="link-icon">📄</span>
+                            Combat System Design Document
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="project-details">
+                    <div class="project-goal">
+                        <h3>Project Goal</h3>
+                        <p>To develop concepts for weapon design and a combat system, with a focus on the design process and bringing my ideas to life through multiple mediums. Secondly, to get comfortable with using uncomfortable media.</p>
+                    </div>
+
+                    <div class="project-process">
+                        <h3>Process & Exploration</h3>
+                        
+                        <div class="project-mediums">
+                            <h4>Mediums Explored</h4>
+                            <div class="medium-tags">
+                                <span class="medium-tag">Freehand Sketching</span>
+                                <span class="medium-tag">Lineart & B&W Concept Sheets</span>
+                                <span class="medium-tag">AI Art</span>
+                                <span class="medium-tag">Pixel Art</span>
+                                <span class="medium-tag">UI Design</span>
+                                <span class="medium-tag">Creative Writing</span>
+                            </div>
+                        </div>
+
+                        <div class="process-scroll">
+                            <div class="scroll-content">
+                                <div class="process-phase">
+                                    <h4>Phase 1: Initial Ideation (24 renderings)</h4>
+                                    <p>I began with 24 initial renderings of freehand sketching, filling 95% of the page with two versions of sword sketches in different sizes. My focus at this stage was on raw ideation, sketching whatever came to mind and experimenting with a wide range of forms and styles. Many pages combined a full sword with a zoomed-in detail study to flesh out key features. I also included some bulkier swords that I could potentially use for villains.</p>
+                                </div>
+
+                                <div class="process-phase">
+                                    <h4>Phase 2: Refinement & Character Integration (15 renderings)</h4>
+                                    <p>From all these sketches, I selected my top 3 and my friends' top 2 favorites out of all of them. I refined them using Procreate to lineart drawings in black and white concept sheets. This step allowed me to practice my technical art skills and try to draw swords from different angles. I drew some 90-degree orthographic projections as well. I also placed the swords alongside my character for a better idea of how they fit, and wrote descriptive narrative/notes for each, giving them distinct personalities. Incorporating narrative writing as a medium added depth, helping me think about the swords not just as objects but as extensions of lore and character. Also, I incorporated feedback from my friends and got advice on how to improve the designs. Which is important to the design process.</p>
+                                </div>
+
+                                <div class="process-phase">
+                                    <h4>Phase 3: AI Experimentation (5 renderings)</h4>
+                                    <p>Next, since I am also in an AI Art class exploring the history and ethics, I decided to try using ChatGPT as a prototyping tool for color. I fed it my lineart and gave it precise color instructions (because I am picky, and trying to have a bot reflect my ideas is hard). While some results felt inaccurate of what I wanted, this experiment was valuable. I learned how to put my ideas into words and communicate very clearly. I ended up painting over some of the generations because the AI refused to color my sword vines green and somehow purple meant orange on the katana.</p>
+                                </div>
+
+                                <div class="process-phase">
+                                    <h4>Phase 4: Pixel Art Translation (5 renderings)</h4>
+                                    <p>Then, I reimagined my designs into pixel art using Procreate. This was fun and much more lighthearted, and it forced me to simplify forms into readable silhouettes while trying to also keep the sword's details and elements recognizable.</p>
+                                </div>
+
+                                <div class="process-phase">
+                                    <h4>Phase 5: UI Integration (3 renderings)</h4>
+                                    <p>To explore more mediums I am unfamiliar with, I created UI wireframes in Figma (3 versions) that showed how these swords might appear in the game interface I am making. This gave me practice in thinking about gameplay integration as part of the design process, not just the visuals. Also I have been meaning to learn figma. I hope to learn how to animate next in it.</p>
+                                </div>
+
+                                <div class="process-phase">
+                                    <h4>Phase 6: Systems Design (1 rendering)</h4>
+                                    <p>I also wrote a combat system design document outlining how players might view and interact with the swords in-game. This served as both a design exercise and a way to frame my concepts in relation to mechanics and systems.</p>
+                                </div>
+
+                                <div class="process-reflection">
+                                    <h4>Reflection & Future Development</h4>
+                                    <p>I did not get to finish this due to time, but I am in the middle of trying to make a 3d sword model on Blender. I hope to finish it soon and maybe add it to this project.</p>
+                                    <p>Overall, I thought this was a very successful project. I explored a wide range of tools and mediums, and stepped into art tools I do not use, such as Rapid prototyping, AI art, and Figma. By pushing myself into unfamiliar territory, I not only practiced new skills but also learned to embrace discomfort as part of the creative process.</p>
+                                    <p>Secondly, I got to practice my writing skills as well as being creative and making concept art prototypes. This entire project gave me the chance to merge my interests: concept art, storytelling, system design, and technical experimentation!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+        
 
             <div class="literature-section">
                 <h2>Literature Reflections & Reading Responses</h2>
