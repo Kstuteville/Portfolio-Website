@@ -480,6 +480,71 @@
             letter-spacing: 0.1rem;
         }
 
+        .project-subsection {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-subsection h4 {
+            color: #8a8aff;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .project-subsection .video-container {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-container {
+            margin: 2rem 0 3rem 0;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 2px solid rgba(138, 138, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(138, 138, 255, 0.2);
+            width: 100%;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .environment-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .env-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid rgba(138, 138, 255, 0.3);
+            aspect-ratio: 16/9;
+        }
+
+        .env-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .env-image-container:hover img {
+            transform: scale(1.05);
+        }
+
         .coming-soon-section {
             text-align: center;
             padding: 4rem 2rem;
@@ -502,14 +567,6 @@
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.7;
-        }
-
-        .env-image-container:hover img {
-            transform: scale(1.05);
-        }
-
-        .env-image-container img {
-            transition: transform 0.3s ease;
         }
 
         /* Responsive Design */
@@ -648,11 +705,8 @@
                 <p><strong>Key Innovations:</strong> Veilbound features emotionally reactive AI that adapts to player behavior, creating unique narrative branches and character interactions. The game combines traditional RPG mechanics with cutting-edge machine learning to deliver a truly personalized horror-fantasy experience.</p>
 
                 <div class="character-showcase">
-                   
-                <div class="character-showcase">
                     <img src="websitepngs/veilboundconceptart.jpg" alt="Inara - Veilbound Protagonist Concept Art" class="character-art" style="max-width: 800px; width: 100%; height: auto; margin: 0 auto 2rem auto; display: block; border-radius: 20px; box-shadow: 0 20px 60px rgba(138, 138, 255, 0.3);">
                     <p class="character-caption" style="font-size: 1.2rem; margin-top: 1.5rem;">Inara, the exorcist protagonist of Veilbound concept art</p>
-                </div>
                 </div>
 
                 <div class="project-documents">
@@ -735,7 +789,7 @@
                                 </div>
                             </div>
                             <div class="document-actions">
-                                <a href="https://docs.google.com/document/d/1J90REsnFf2WUxGx2oETkiwl6gs72y2fR_XGzF3J_MpQ/edit?usp=sharing" class="doc-link"  target="_blank">
+                                <a href="https://docs.google.com/document/d/1J90REsnFf2WUxGx2oETkiwl6gs72y2fR_XGzF3J_MpQ/edit?usp=sharing" class="doc-link" target="_blank">
                                     <span>View Level Design Document</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -752,68 +806,85 @@
             <div class="other-projects">
                 <h2>Academic & Research Projects</h2>
                 
-              <div class="projects-grid">                                           
-    <div class="project-card">                         
-        <h3>Immersive Interactive Experiences</h3>                         
-        <div class="project-type">Academic Work - NYU</div>                         
-        <p>Real-time immersive experiences combining cinematic storytelling with interactive systems. These projects explore the intersection of technical implementation and creative design in game engines.</p>                                                  
-        
-        <div class="project-subsection" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">                             
-            <h4 style="color: #8a8aff; margin-bottom: 1.5rem; font-size: 1.4rem;">Week 1 - Expressive Environments</h4>                             
-            <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #ccc; line-height: 1.6;"> 
-                For this assignment, I created an ambient first-person experience centered around exploration and atmosphere rather than objectives. The player awakens within one of Inara's visions, a surreal, dreamlike forest at sunset, where crimson trees, drifting fog, and fractured ruins create a haunting yet enchanted mood. I designed the environment to guide the player organically toward a foggy clearing where ancient pillars stand as remnants of forgotten times. 
-            </p>                             
-           
-            <!-- Video Section -->
-            <div class="video-container" style="margin-bottom: 2rem; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid rgba(138, 138, 255, 0.3);">
-                <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" controls>
-                    <source src="websitepngs/KaylieStutevilleImmersiveExperience.mp4" type="video/mp4">
-                    <source src="videos/your-video-file.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-             <p style="margin-bottom: 2rem; font-size: 0.85rem; color: #ccc; line-height: 1.5;"> 
-                This project connects to my overarching story, Veilbound, where Inara drifts between dreams and reality. The environment represents the first glimpse into her visions, spaces that are both beautiful and unsettling, memories of a world long gone that she alone can witness.  
-            </p>                                                           
-            
-            
-            <!-- Image Gallery -->
-            <div class="environment-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">                                 
-                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(138, 138, 255, 0.3); aspect-ratio: 16/9;">                                     
-                    <img src="websitepngs/environment-1.png" alt="Ambient Environment - Scene 1" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">                                 
-                </div>                                 
-                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(138, 138, 255, 0.3); aspect-ratio: 16/9;">                                     
-                    <img src="websitepngs/environment-2.png" alt="Ambient Environment - Scene 2" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">                                 
-                </div>                                 
-                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(138, 138, 255, 0.3); aspect-ratio: 16/9;">                                     
-                    <img src="websitepngs/environment-3.png" alt="Ambient Environment - Scene 3" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">                                 
-                </div>                                 
-                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(138, 138, 255, 0.3); aspect-ratio: 16/9;">                                     
-                    <img src="websitepngs/environment-4.png" alt="Ambient Environment - Scene 4" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">                                 
-                </div>                             
-            </div>                         
-        </div>                     
-    </div>
-</div>
-                    
+                <div class="projects-grid">                                           
+                    <div class="project-card">                         
+                        <h3>Immersive Interactive Experiences</h3>                         
+                        <div class="project-type">Academic Work - NYU</div>                         
+                        <p>Real-time immersive experiences combining cinematic storytelling with interactive systems. These projects explore the intersection of technical implementation and creative design in game engines.</p>                                                  
+                        
+                        <div class="project-subsection">                             
+                            <h4>Week 1 - Expressive Environments</h4>                             
+                            <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #ccc; line-height: 1.6;"> 
+                                For this assignment, I created an ambient first-person experience centered around exploration and atmosphere rather than objectives. The player awakens within one of Inara's visions, a surreal, dreamlike forest at sunset, where crimson trees, drifting fog, and fractured ruins create a haunting yet enchanted mood. I designed the environment to guide the player organically toward a foggy clearing where ancient pillars stand as remnants of forgotten times. 
+                            </p>                             
+                           
+                            <!-- YouTube Video Embed - Week 1 -->
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/kImayamy1RY" 
+                                        title="Week 1 - Expressive Environments" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                             <p style="margin-bottom: 2rem; font-size: 0.85rem; color: #ccc; line-height: 1.5;"> 
+                                This project connects to my overarching story, Veilbound, where Inara drifts between dreams and reality. The environment represents the first glimpse into her visions, spaces that are both beautiful and unsettling, memories of a world long gone that she alone can witness.  
+                            </p>                                                           
+                            
+                            <!-- Image Gallery -->
+                            <div class="environment-gallery">                                 
+                                <div class="env-image-container">                                     
+                                    <img src="websitepngs/environment-1.png" alt="Ambient Environment - Scene 1">                                 
+                                </div>                                 
+                                <div class="env-image-container">                                     
+                                    <img src="websitepngs/environment-2.png" alt="Ambient Environment - Scene 2">                                 
+                                </div>                                 
+                                <div class="env-image-container">                                     
+                                    <img src="websitepngs/environment-3.png" alt="Ambient Environment - Scene 3">                                 
+                                </div>                                 
+                                <div class="env-image-container">                                     
+                                    <img src="websitepngs/environment-4.png" alt="Ambient Environment - Scene 4">                                 
+                                </div>                             
+                            </div>                         
+                        </div>
+                        
+                        <div class="project-subsection">                             
+                            <h4>Week 2 - Cinematic Sequences & Player Control</h4>                             
+                            <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #ccc; line-height: 1.6;"> 
+                                Building on the atmospheric foundation from Week 1, this assignment focused on integrating cinematic storytelling with interactive gameplay. I created a seamless transition from a scripted camera sequence that establishes the environment's mood and narrative context, then hands control to the player for free exploration. The opening cinematic uses carefully choreographed camera movements to guide the viewer's attention and establish the mysterious atmosphere before allowing them to discover the space at their own pace.
+                            </p>                             
+                           
+                            <!-- YouTube Video Embed - Week 2 -->
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/XWVIYm5sEnk" 
+                                        title="Week 2 - Cinematic Environment with Player Control" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                             <p style="margin-bottom: 2rem; font-size: 0.85rem; color: #ccc; line-height: 1.5;"> 
+                                This approach demonstrates the balance between authored narrative moments and player agency, essential elements in modern interactive design. The cinematic sequence establishes emotional investment and spatial understanding, while the transition to player control maintains immersion and allows for personal discovery within the carefully crafted environment.
+                            </p>                                                           
+                        </div>                     
+                    </div>
 
                     <div class="project-card">
                         <h3>Game AI Affordances Research</h3>
                         <div class="project-type">Graduate Research</div>
                         <p>Ongoing research at NYU investigating adaptive AI systems and player affordances to enhance gameplay immersion. Exploring how AI can create more meaningful player-world interactions.</p>
                     </div>
+
                     <div class="project-card">
                         <h3>AssessAI</h3>
                         <div class="project-type">Machine Learning</div>
                         <p>Developed during a 4.5-week intensive sprint at Colorado College, AssessAI demonstrates rapid prototyping and agile development practices in machine learning applications. Built with a team using version control and testing methodologies.</p>
                         
                         <div style="margin-top: 1.5rem;">
-                            <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
-                                    <img src="websitepngs/assessai-img.png" alt="Assessai-img" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
-                                </div>
-                            <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
-                                    <img src="websitepngs/capstone-poster.png" alt="capstone-poster" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
-                                </div>
+                            <div class="env-image-container" style="margin-bottom: 1rem;">
+                                <img src="websitepngs/assessai-img.png" alt="AssessAI Interface">
+                            </div>
+                            <div class="env-image-container" style="margin-bottom: 1.5rem;">
+                                <img src="websitepngs/capstone-poster.png" alt="AssessAI Capstone Poster">
+                            </div>
                             <a href="https://github.com/Kstuteville/assess.ai" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); color: #fff; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);">
                                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
@@ -839,20 +910,20 @@
                             
                             <!-- Project Images -->
                             <div class="project-images" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
-                                    <img src="websitepngs/prototype1.png" alt="MuseumEyes app interface showing navigation flow" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                <div class="env-image-container">
+                                    <img src="websitepngs/prototype1.png" alt="MuseumEyes app interface showing navigation flow">
                                 </div>
-                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
-                                    <img src="websitepngs/affinitydiagram.png" alt="Accessibility challenges diagram- designing products require meticulus brainstorming and research" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                <div class="env-image-container">
+                                    <img src="websitepngs/affinitydiagram.png" alt="Accessibility challenges diagram - designing products require meticulous brainstorming and research">
                                 </div>
-                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
-                                    <img src="websitepngs/prototype2.png" alt="Prototype diagrams" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                <div class="env-image-container">
+                                    <img src="websitepngs/prototype2.png" alt="Prototype diagrams">
                                 </div>
-                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3);">
-                                    <img src="websitepngs/storyboard1.jpg" alt="Storyboard designing for product" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                <div class="env-image-container">
+                                    <img src="websitepngs/storyboard1.jpg" alt="Storyboard designing for product">
                                 </div>
-                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 8px; border: 1px solid rgba(138, 138, 255, 0.3); grid-column: 1 / -1;">
-                                    <img src="websitepngs/demo.png" alt="User testing demonstration photos" style="width: 100%; height: auto; display: block; transition: transform 0.3s ease;">
+                                <div class="env-image-container" style="grid-column: 1 / -1;">
+                                    <img src="websitepngs/demo.png" alt="User testing demonstration photos">
                                 </div>
                             </div>
                             
@@ -875,21 +946,19 @@
                         </div>
                     </div>
 
-
                     <div class="project-card">
                         <h3>D1-D3 Athletic Graphics</h3>
                         <div class="project-type">Freelance Design</div>
                         <p>Professional graphic design work for collegiate athletics programs, delivering high-quality visual content under tight deadlines. Demonstrates skills in Adobe Creative Suite and visual communication.</p>
-                          <div style="margin-top: 2rem;">
+                        <div style="margin-top: 2rem;">
                             <h4 style="color: #8a8aff; margin-bottom: 1rem; font-size: 1.2rem;">Featured Work</h4>
                             <div class="graphics-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
-                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(138, 138, 255, 0.3); aspect-ratio: 1/1;">
-                                    <img src="websitepngs/gameday1.PNG" alt="Gameday Graphic Volleyball" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">
+                                <div class="env-image-container" style="aspect-ratio: 1/1;">
+                                    <img src="websitepngs/gameday1.PNG" alt="Gameday Graphic Volleyball">
                                 </div>
-                                <div class="env-image-container" style="position: relative; overflow: hidden; border-radius: 12px; border: 1px solid rgba(138, 138, 255, 0.3); aspect-ratio: 1/1;">
-                                    <img src="websitepngs/IMG_2163.PNG" alt="Gameday Graphic Lacrosse" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease;">
+                                <div class="env-image-container" style="aspect-ratio: 1/1;">
+                                    <img src="websitepngs/IMG_2163.PNG" alt="Gameday Graphic Lacrosse">
                                 </div>
-                                <!-- Add more graphics here as you have them -->
                             </div>
                             
                             <div style="margin-top: 1.5rem;">
@@ -899,7 +968,6 @@
                                 <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Typography and layout design for high-impact visual communication</p>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
