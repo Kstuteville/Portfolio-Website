@@ -252,34 +252,39 @@
             animation: pulse 2s infinite;
         }
 
-        .character-showcase {
+        .cinematic-showcase {
             margin: 2.5rem 0;
             text-align: center;
         }
 
-        .character-art {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
+        .video-container {
+            margin: 2rem 0 3rem 0;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
             border-radius: 15px;
-            border: 2px solid rgba(138, 138, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-            margin-bottom: 2rem;
+            border: 2px solid rgba(138, 138, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(138, 138, 255, 0.2);
+            width: 100%;
         }
 
-        .character-art:hover {
-            border-color: rgba(138, 138, 255, 0.6);
-            box-shadow: 0 15px 40px rgba(138, 138, 255, 0.2);
-            transform: translateY(-5px);
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
-        .character-caption {
-            margin-top: 1rem;
-            font-size: 1rem;
+        .cinematic-caption {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
             color: #8a8aff;
             font-style: italic;
             letter-spacing: 0.05rem;
+            line-height: 1.5;
         }
 
         @keyframes pulse {
@@ -497,27 +502,6 @@
             margin-right: auto;
         }
 
-        .video-container {
-            margin: 2rem 0 3rem 0;
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 15px;
-            border: 2px solid rgba(138, 138, 255, 0.4);
-            box-shadow: 0 10px 30px rgba(138, 138, 255, 0.2);
-            width: 100%;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
         .environment-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -667,7 +651,22 @@
                 <p class="subtitle">A Dark Fantasy Action-Adventure RPG</p>
                 
                 <p>Veilbound is my flagship project, a cinematic 3D RPG that pushes the boundaries of interactive storytelling through adaptive AI and emotionally responsive gameplay. Set in a cursed kingdom plagued by supernatural forces, players embody Inara, a female exorcist navigating a world where every decision shapes not just the story, but how the world itself responds to your presence.</p>
-
+                <div class="cinematic-showcase">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/5dsOQpeuy_0?si=rbGCDif5hSanSpTZ" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="cinematic-caption">Cinematic Prototype for Veilbound - Created in Unreal Engine featuring particle effects, motion capture animation, and camera sequencer</p>
+                </div>
+                
+                
+                
+                
                 <div class="project-status">
                     <div class="status-dot"></div>
                     <span>In Active Development</span>
@@ -705,10 +704,7 @@
 
                 <p><strong>Key Innovations:</strong> Veilbound features emotionally reactive AI that adapts to player behavior, creating unique narrative branches and character interactions. The game combines traditional RPG mechanics with cutting-edge machine learning to deliver a truly personalized horror-fantasy experience.</p>
 
-                <div class="character-showcase">
-                    <img src="websitepngs/veilboundconceptart.jpg" alt="Inara - Veilbound Protagonist Concept Art" class="character-art" style="max-width: 800px; width: 100%; height: auto; margin: 0 auto 2rem auto; display: block; border-radius: 20px; box-shadow: 0 20px 60px rgba(138, 138, 255, 0.3);">
-                    <p class="character-caption" style="font-size: 1.2rem; margin-top: 1.5rem;">Inara, the exorcist protagonist of Veilbound concept art</p>
-                </div>
+                
 
                 <div class="project-documents">
                     <h3>Project Documentation</h3>
@@ -745,11 +741,11 @@
                         <div class="document-preview">
                             <div class="document-header">
                                 <h4>Game Design Document</h4>
-                                <span class="document-type">PDF • 40+ pages</span>
+                                <span class="document-type">PDF • 20+ pages</span>
                             </div>
                             <div class="preview-content">
                                 <div class="slide-preview">
-                                    <div class="slide-title">Complete Design Documentation</div>
+                                    <div class="slide-title">Ongoing Design Documentation</div>
                                     <div class="slide-subtitle">Technical specifications, narrative design, and AI systems</div>
                                     <div class="slide-details">
                                         <p>• Core gameplay systems and mechanics</p>
@@ -816,8 +812,8 @@
                         <div class="project-subsection">                             
                             <h4>Week 1 - Expressive Environments</h4>                             
                             <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #ccc; line-height: 1.6;"> 
-                                For this assignment, I created an ambient first-person experience centered around exploration and atmosphere rather than objectives. The player awakens within one of Inara's visions, a surreal, dreamlike forest at sunset, where crimson trees, drifting fog, and fractured ruins create a haunting yet enchanted mood. I designed the environment to guide the player organically toward a foggy clearing where ancient pillars stand as remnants of forgotten times. 
-                            </p>                             
+                                For this assignment, I created an ambient first-person experience centered around exploration and atmosphere rather than objectives. The player awakens within one of Inara's visions, a surreal, dreamlike forest at sunset, where crimson trees, drifting fog, and fractured ruins create a haunting yet enchanted mood. I designed the environment to guide the player organically toward a foggy clearing where ancient pillars stand as remnants of forgotten
+                                 </p>                             
                            
                             <!-- YouTube Video Embed - Week 1 -->
                             <div class="video-container">
