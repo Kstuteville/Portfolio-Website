@@ -801,13 +801,12 @@
             </div>
 
 
-            <div class="featured-project" style="margin-top: 4rem;">
-    <div class="featured-badge">Horror Game - Coming October 2025</div>
+ <div class="featured-project" style="margin-top: 4rem;">
+    <div class="featured-badge">Itchio Link - https://playlamar.itch.io/requiem-forest</div>
     <h2>Requiem Forest</h2>
     <p class="subtitle">A Psychological Horror Game About Faith and Fear</p>
     
-    <p>Requiem Forest is a narrative-driven psychological horror game where you play as a 12-year-old child abandoned in a shifting forest as part of a religious trial. Blending survival horror mechanics with unreliable narration and dream logic, the game explores themes of faith, repression, and childhood vulnerability through an environment that warps based on your choices and perceived "sins."</p>
-
+    
     <div class="cinematic-showcase">
         <div class="env-image-container" style="max-width: 900px; margin: 2rem auto; aspect-ratio: 13/9;">
             <img src="websitepngs/Screenshot 2025-10-04 at 8.21.08 PM.png" alt="Requiem Forest - A child's silhouette against a dark, shifting forest">
@@ -846,22 +845,28 @@
         <span class="tech-tag">Sound Design</span>
     </div>
 
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Core Mechanics</h3>
+    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Core Mechanics I designed</h3>
     <div class="project-details">
         <div class="detail-item">
-            <h4>Unreliable Reality</h4>
-            <p>The forest shifts based on your actions. Paths close, landmarks change, symbolizing the inescapable nature of indoctrination.</p>
+            <h4>Movement & Resource Management</h4>
+            <p>Designed stamina system where sprinting drains stamina bar; reaching exhaustion triggers heavy breathing audio and movement penalties. Forces strategic decision-making between hiding and running. Flashlight battery drains during use, requiring players to conserve light and scavenge batteries scattered throughout the environment.</p>
+            <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View stamina system demo</a></p>
         </div>
        
         <div class="detail-item">
-            <h4>Sanity Through Sound</h4>
-            <p>No visual sanity meter. Your audio perception distorts when stressed, hymns warp, whispers overlap, reality blurs.</p>
+            <h4>Adaptive Monster AI System</h4>
+            <p>Built behavior tree with randomized patrol routes, line-of-sight chase mechanics, and sin-triggered ambushes. AI responds to player interactions with "sinful" objects, alerting the monster to hunt in that area. Integrated heartbeat proximity audio system that grows louder and faster as AI approaches, creating spatial awareness through sound design. Further more if the AI reaches the player it triggers a seamless jumpscare and direct the player to Gameover.</p>
+            <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View AI behavior demo</a></p>
         </div>
         <div class="detail-item">
-            <h4>Symbolic Items</h4>
-            <p>Key items feel like moral choices as much as physical objects. Each reveals fragments of the child's story.</p>
+            <h4>Narrative System</h4>
+             <p>Developed modular narrative manager that triggers context-aware inner monologue based on player location and interactions. Area-based voice lines activate once per zone, with unique dialogue for object interactions. Built reusable UI system that can be called seamlessly across different game scenarios for easy narrative integration.</p>
+            <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View narrative system demo</a></p>
         </div>
     </div>
+
+    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Leadership & Project Management</h3>
+    <p>As project lead, I coordinated a four-person team across a one-week sprint cycles, managed version control workflows, and directed feature prioritization to meet October 16th 2025 Game Jam deadline. I established clear design pillars, facilitated playtesting sessions, and ensured cohesive integration between environment design, narrative, and core mechanics. Coordinated playtest events.</p>
 
     <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Design Philosophy</h3>
     <p>Requiem Forest isn't about jump scares or loud horror. It's quiet psychological dread. The kind that makes you question whether the monster was ever real or just internalized fear. The forest functions as a living, shifting space shaped by religious oppression and childhood trauma. Every design choice, from the monster's AI behavior to the way light works, ties back to themes of faith versus doubt, obedience versus rebellion.</p>
@@ -889,6 +894,31 @@
                 <div class="document-actions">
                     <a href="[INSERT GAME DESIGN DOC LINK]" class="doc-link" target="_blank">
                         <span>View Design Document</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15,3 21,3 21,9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="document-preview">
+                <div class="document-header">
+                    <h4>Dev Log</h4>
+                    <span class="document-type">Google Doc • Production Process</span>
+                </div>
+                <div class="preview-content">
+                    <div class="slide-preview">
+                        <div class="slide-title">Requiem Forest: Keeping track of prototypes and revisions</div>
+                        <div class="slide-details">
+                            <p>• Tracking teams progress</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="document-actions">
+                    <a href="[INSERT DEV LOG LINK]" class="doc-link" target="_blank">
+                        <span>View Dev Log</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                             <polyline points="15,3 21,3 21,9"></polyline>
