@@ -20,6 +20,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: "Poppins", sans-serif;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
@@ -101,7 +105,7 @@
         }
 
         .projects-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -126,14 +130,148 @@
             font-weight: 300;
         }
 
+        /* Project Preview Cards */
+        .projects-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .project-preview {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-preview:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-color: rgba(138, 138, 255, 0.5);
+        }
+
+        .project-preview.featured {
+            border: 2px solid rgba(138, 138, 255, 0.4);
+        }
+
+        .project-preview.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, rgba(138, 138, 255, 0.1), rgba(102, 102, 221, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .preview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview-content {
+            padding: 2rem;
+        }
+
+        .preview-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            letter-spacing: 0.1rem;
+        }
+
+        .preview-content .subtitle {
+            font-size: 0.95rem;
+            color: #8a8aff;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .preview-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .preview-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .preview-tag {
+            background: rgba(138, 138, 255, 0.2);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(138, 138, 255, 0.3);
+        }
+
+        .expand-indicator {
+            text-align: center;
+            padding: 1rem;
+            color: #8a8aff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .expand-indicator:hover {
+            background: rgba(138, 138, 255, 0.1);
+        }
+
+        /* Detailed Project Sections */
+        .project-details-section {
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            scroll-margin-top: 100px;
+        }
+
         .featured-project {
             background: linear-gradient(135deg, rgba(138, 138, 255, 0.1) 0%, rgba(102, 102, 221, 0.1) 100%);
             border: 1px solid rgba(138, 138, 255, 0.3);
             border-radius: 20px;
             padding: 3rem;
-            margin-bottom: 4rem;
             position: relative;
             overflow: hidden;
+            scroll-margin-top: 100px;
         }
 
         .featured-project::before {
@@ -346,7 +484,7 @@
             letter-spacing: 0.1rem;
         }
 
-        .preview-content {
+        .preview-content-doc {
             padding: 1.5rem;
         }
 
@@ -415,76 +553,6 @@
             flex-shrink: 0;
         }
 
-        .other-projects {
-            margin-top: 4rem;
-        }
-
-        .other-projects h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #ddd;
-            letter-spacing: 0.2rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(135deg, #666 0%, #999 100%);
-        }
-
-        .project-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .project-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            letter-spacing: 0.1rem;
-        }
-
-        .project-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #ccc;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-type {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            padding: 0.4rem 0.8rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-        }
-
         .project-subsection {
             margin-top: 3rem;
             padding-top: 2rem;
@@ -495,11 +563,6 @@
             color: #8a8aff;
             margin-bottom: 1.5rem;
             font-size: 1.4rem;
-        }
-
-        .project-subsection .video-container {
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .environment-gallery {
@@ -529,54 +592,131 @@
             transform: scale(1.05);
         }
 
+        /* Other Projects Section */
+        .other-projects {
+            margin-top: 6rem;
+            padding-top: 4rem;
+            border-top: 2px solid rgba(138, 138, 255, 0.3);
+        }
+
+        .other-projects h2 {
+            font-family: "Highwind", sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #8a8aff;
+            letter-spacing: 0.2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(138, 138, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+
+        .project-type {
+            display: inline-block;
+            background: rgba(138, 138, 255, 0.2);
+            color: #8a8aff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
         .coming-soon-section {
             text-align: center;
             padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            border: 2px dashed rgba(255, 255, 255, 0.2);
             margin: 4rem 0;
+            background: rgba(138, 138, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(138, 138, 255, 0.2);
         }
 
         .coming-soon-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #8a8aff;
             font-family: "Highwind", sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #8a8aff;
+            letter-spacing: 0.2rem;
         }
 
         .coming-soon-section p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: #ccc;
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            line-height: 1.7;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(138, 138, 255, 0.4);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            nav {
-                padding: 0 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            nav ul a {
-                font-size: 0.8rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
+            .projects-overview {
+                grid-template-columns: 1fr;
             }
 
             .projects-container h1 {
                 font-size: 3rem;
-            }
-
-            .projects-container {
-                padding: 1rem;
             }
 
             .featured-project {
@@ -587,40 +727,17 @@
                 font-size: 2.5rem;
             }
 
+            .document-grid {
+                grid-template-columns: 1fr;
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
 
-            .project-details {
-                grid-template-columns: 1fr;
-            }
-
-            .document-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .document-preview {
-                margin-bottom: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
             nav ul {
                 flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-
-            .projects-container h1 {
-                font-size: 2.5rem;
-            }
-
-            .featured-project h2 {
-                font-size: 2rem;
-            }
-
-            .other-projects h2 {
-                font-size: 2rem;
+                gap: 1rem;
             }
         }
     </style>
@@ -635,7 +752,7 @@
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="process.html">Design Process</a></li>
                 <li><a href="contacts.html">Contact</a></li>
-                 <li><a href="prototypesandsystems.html">Gameplay Prototypes</a></li>
+                <li><a href="prototypesandsystems.html">Gameplay Prototypes</a></li>
             </ul>
         </nav>
     </header>
@@ -645,12 +762,89 @@
             <h1>Projects</h1>
             <p class="projects-subtitle">Interactive experiences that blend technology, creativity, and storytelling</p>
             
-            <div class="featured-project">
+            <!-- Project Preview Cards -->
+            <div class="projects-overview">
+                <a href="#veilbound" class="project-preview featured">
+                    <div class="preview-image">
+                        <img src="websitepngs/Screenshot 2025-10-29 at 4.10.25 PM.png" alt="Veilbound Environment">
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-badge">Featured Project</div>
+                        <h3>Veilbound</h3>
+                        <p class="subtitle">A Dark Fantasy Action-Adventure RPG</p>
+                        <p>A cinematic 3D RPG featuring adaptive AI and emotionally responsive gameplay. Set in a cursed kingdom, players embody Inara, navigating supernatural forces where every decision shapes the world's response.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">Unreal Engine 5</span>
+                            <span class="preview-tag">Machine Learning</span>
+                            <span class="preview-tag">Adaptive AI</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project ↓</div>
+                </a>
+
+                <a href="#requiem" class="project-preview">
+                    <div class="preview-image">
+                        <img src="websitepngs/Screenshot 2025-10-29 at 4.12.44 PM.png" alt="Requiem Forest">
+                    </div>
+                    <div class="preview-content">
+                        <h3>Requiem Forest</h3>
+                        <p class="subtitle">Released Psychological Horror Game</p>
+                        <p>A child is left in the forest as a test of faith. An ambiguous presence stalks you, reacting to your "sins" and moments of doubt, building toward a choice between ritual compliance or rebellion.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">UE 5.4</span>
+                            <span class="preview-tag">Horror</span>
+                            <span class="preview-tag">Narrative Design</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project + my contributions
+                     ↓</div>
+                </a>
+
+                <a href="#fruitninja" class="project-preview">
+                    <div class="preview-image">
+                        <img src="websitepngs/Screenshot 2025-10-29 at 4.11.34 PM.png" alt="Fruit Ninja IRL">
+                    </div>
+                    <div class="preview-content">
+                        <h3>Fruit Ninja IRL</h3>
+                        <p class="subtitle">Interface Redesign</p>
+                        <p>Rethinking digital affordances through physical interaction. Translating touchscreen gestures into motion-tracked sword combat, creating a full-body immersive experience.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">Motion Capture</span>
+                            <span class="preview-tag">Interface Design</span>
+                            <span class="preview-tag">Physical Computing</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project ↓</div>
+                </a>
+
+                <a href="#fline" class="project-preview">
+                    <div class="preview-image">
+                        <img src="websitepngs/Screenshot 2025-10-29 at 4.11.50 PM.png" alt="F LINE Game">
+                    </div>
+                    <div class="preview-content">
+                        <h3>F LINE</h3>
+                        <p class="subtitle">Kitsch & Camp Platformer</p>
+                        <p>A chaotic multiplayer rage-bait platformer that's a metaphor for moving 2 miles in NYC. Features betraying platforms, tricky enemies, and intentionally frustrating design.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">Godot Engine</span>
+                            <span class="preview-tag">2D Platformer</span>
+                            <span class="preview-tag">Local Co-op</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project ↓</div>
+                </a>
+            </div>
+
+            <!-- DETAILED PROJECT SECTIONS BELOW -->
+            
+            <!-- Veilbound Detail -->
+            <div class="featured-project" id="veilbound">
                 <div class="featured-badge">Featured Project</div>
                 <h2>Veilbound</h2>
                 <p class="subtitle">A Dark Fantasy Action-Adventure RPG</p>
                 
                 <p>Veilbound is my flagship project, a cinematic 3D RPG that pushes the boundaries of interactive storytelling through adaptive AI and emotionally responsive gameplay. Set in a cursed kingdom plagued by supernatural forces, players embody Inara, a female exorcist navigating a world where every decision shapes not just the story, but how the world itself responds to your presence.</p>
+                
                 <div class="cinematic-showcase">
                     <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/YMsQjE0zguM?si=N6jpPjIln_VuA3JI" 
@@ -661,11 +855,8 @@
                                 allowfullscreen>
                         </iframe>
                     </div>
-                    <p class="cinematic-caption">Cinematic Prototype for Veilbound - Created in Unreal Engine featuring particle effects, motion capture animation, and camera sequencer. Music by Sarah Schachner </p>
+                    <p class="cinematic-caption">Cinematic Prototype for Veilbound - Created in Unreal Engine featuring particle effects, motion capture animation, and camera sequencer. Music by Sarah Schachner</p>
                 </div>
-                
-                
-                
                 
                 <div class="project-status">
                     <div class="status-dot"></div>
@@ -704,8 +895,6 @@
 
                 <p><strong>Key Innovations:</strong> Veilbound features emotionally reactive AI that adapts to player behavior, creating unique narrative branches and character interactions. The game combines traditional RPG mechanics with cutting-edge machine learning to deliver a truly personalized horror-fantasy experience.</p>
 
-                
-
                 <div class="project-documents">
                     <h3>Project Documentation</h3>
                     <div class="document-grid">
@@ -714,7 +903,7 @@
                                 <h4>Pitch Deck</h4>
                                 <span class="document-type">PDF • 25 slides</span>
                             </div>
-                            <div class="preview-content">
+                            <div class="preview-content-doc">
                                 <div class="slide-preview">
                                     <div class="slide-title">Veilbound: A Fantasy-Horror Action Adventure</div>
                                     <div class="slide-subtitle">A Thesis on Emotionally Adaptive AI in Game Design</div>
@@ -743,7 +932,7 @@
                                 <h4>Game Design Document</h4>
                                 <span class="document-type">PDF • 20+ pages</span>
                             </div>
-                            <div class="preview-content">
+                            <div class="preview-content-doc">
                                 <div class="slide-preview">
                                     <div class="slide-title">Ongoing Design Documentation</div>
                                     <div class="slide-subtitle">Technical specifications, narrative design, and AI systems</div>
@@ -772,7 +961,7 @@
                                 <h4>Level Design Document</h4>
                                 <span class="document-type">PDF • Design Focus</span>
                             </div>
-                            <div class="preview-content">
+                            <div class="preview-content-doc">
                                 <div class="slide-preview">
                                     <div class="slide-title">Vertical Slice Level Design</div>
                                     <div class="slide-subtitle">Immersive storytelling through guided exploration</div>
@@ -800,411 +989,333 @@
                 </div>
             </div>
 
-
-s <div class="featured-project" style="margin-top: 4rem;">
-    <div class="featured-badge">Itchio Link - https://playlamar.itch.io/requiem-forest</div>
-    <a href="https://playlamar.itch.io/requiem-forest" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ Itchio Link</a>
-    <h2>Requiem Forest</h2>
-    <p class="subtitle">A Psychological Horror Game About Faith and Fear</p>
-    
-    
-        <div class="cinematic-showcase">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/w4QGSqLRQfg?si=5VH61MQINq-HOtxq" 
-                    title="Requiem Forest Gameplay Trailer" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-            </iframe>
-        </div>
-        <p class="cinematic-caption">Gameplay trailer showcasing atmospheric horror and survival mechanics - Set to release October 2025</p>
-    </div>
-    <div class="project-details" style="margin-top: 3rem;">
-        <div class="detail-item">
-            <h4>Platform</h4>
-            <p>PC (Unreal Engine 5.4)</p>
-        </div>
-        <div class="detail-item">
-            <h4>Genre</h4>
-            <p>Psychological Horror</p>
-        </div>
-        <div class="detail-item">
-            <h4>Team</h4>
-            <p>Bryan Li, Kaylie Stuteville, Lamar Jambi</p>
-        </div>
-        <div class="detail-item">
-            <h4>Release Date</h4>
-            <p>October 2025</p>
-        </div>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Story Synopsis</h3>
-    <p>A child is left in the forest by their parents as a test of faith. The forest is not normal, the fog drifts as though alive, whispers echo through the trees. As you interact with the map and find keys to get out, an ambiguous presence stalks you, reacting to your "sins" and moments of doubt. The game builds toward a choice at the forest's heart: ritual compliance or rebellion, the game leave you questioning what was real and what was fear.</p>
-
-    <div class="tech-tags" style="margin: 2rem 0;">
-        <span class="tech-tag">Unreal Engine 5</span>
-        <span class="tech-tag">Psychological Horror</span>
-        <span class="tech-tag">Narrative Design</span>
-        <span class="tech-tag">Blueprints</span>
-        <span class="tech-tag">Environmental Storytelling</span>
-        <span class="tech-tag">Sound Design</span>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Core Mechanics I designed</h3>
-    <div class="project-details">
-        <div class="detail-item">
-            <h4>Movement & Resource Management</h4>
-            <p>Designed stamina system where sprinting drains stamina bar; reaching exhaustion triggers heavy breathing audio and movement penalties. Forces strategic decision-making between hiding and running. Flashlight battery drains during use, requiring players to conserve light and scavenge batteries scattered throughout the environment.</p>
-            <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View stamina system demo</a></p>
-        </div>
-       
-        <div class="detail-item">
-            <h4>Adaptive Monster AI System</h4>
-            <p>Built behavior tree with randomized patrol routes, line-of-sight chase mechanics, and sin-triggered ambushes. AI responds to player interactions with "sinful" objects, alerting the monster to hunt in that area. Integrated heartbeat proximity audio system that grows louder and faster as AI approaches, creating spatial awareness through sound design. Further more if the AI reaches the player it triggers a seamless jumpscare and direct the player to Gameover.</p>
-            <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View AI behavior demo</a></p>
-        </div>
-        <div class="detail-item">
-            <h4>Narrative System</h4>
-             <p>Developed modular narrative manager that triggers context-aware inner monologue based on player location and interactions. Area-based voice lines activate once per zone, with unique dialogue for object interactions. Built reusable UI system that can be called seamlessly across different game scenarios for easy narrative integration.</p>
-            <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View narrative system demo</a></p>
-        </div>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Leadership & Project Management</h3>
-    <p>As project lead, I coordinated a four-person team across a one-week sprint cycle, managed version control workflows, and directed feature prioritization to meet October 16th 2025 Game Jam deadline. I established clear design pillars, facilitated playtesting sessions, and ensured cohesive integration between environment design, narrative, and core mechanics. Coordinated playtest events.</p>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Design Philosophy</h3>
-    <p>Requiem Forest isn't about jump scares or loud horror. It's quiet psychological dread. The kind that makes you question whether the monster was ever real or just internalized fear. The forest functions as a living, shifting space shaped by religious oppression and childhood trauma. Every design choice, from the monster's AI behavior to the way light works, ties back to themes of faith versus doubt, obedience versus rebellion.</p>
-
-    <div class="project-documents" style="margin-top: 3rem;">
-        <h3>Project Documentation</h3>
-        <div class="document-grid">
-            <div class="document-preview">
-                <div class="document-header">
-                    <h4>Game Design Document</h4>
-                    <span class="document-type">Google Doc • Mechanics & Systems</span>
+            <!-- Requiem Forest Detail -->
+            <div class="featured-project" id="requiem" style="margin-top: 4rem;">
+                <div class="featured-badge">Psychological Horror</div>
+                <h2>Requiem Forest</h2>
+                <p class="subtitle">A Psychological Horror Game About Faith and Fear</p>
+                
+                <p style="margin-bottom: 1rem;">
+                    <a href="https://playlamar.itch.io/requiem-forest" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ Play on Itch.io</a>
+                </p>
+                
+                <div class="cinematic-showcase">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/w4QGSqLRQfg?si=5VH61MQINq-HOtxq" 
+                                title="Requiem Forest Gameplay Trailer" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="cinematic-caption">Gameplay trailer showcasing atmospheric horror and survival mechanics - Set to release October 2025</p>
                 </div>
-                <div class="preview-content">
-                    <div class="slide-preview">
-                        <div class="slide-title">Requiem Forest: Design & Implementation</div>
-                        <div class="slide-subtitle">Psychological horror through environmental storytelling</div>
-                        <div class="slide-details">
-                            <p>• Core gameplay loop and survival mechanics</p>
-                            <p>• Monster AI behavior tied to "sin" system</p>
-                            <p>• Environmental triggers and map design</p>
-                            <p>• Narrative structure and branching endings</p>
+                
+                <div class="project-details" style="margin-top: 3rem;">
+                    <div class="detail-item">
+                        <h4>Platform</h4>
+                        <p>PC (Unreal Engine 5.4)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Genre</h4>
+                        <p>Psychological Horror</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Team</h4>
+                        <p>Bryan Li, Kaylie Stuteville, Lamar Jambi</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Release Date</h4>
+                        <p>October 2025</p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Story Synopsis</h3>
+                <p>A child is left in the forest by their parents as a test of faith. The forest is not normal, the fog drifts as though alive, whispers echo through the trees. As you interact with the map and find keys to get out, an ambiguous presence stalks you, reacting to your "sins" and moments of doubt. The game builds toward a choice at the forest's heart: ritual compliance or rebellion, the game leave you questioning what was real and what was fear.</p>
+
+                <div class="tech-tags" style="margin: 2rem 0;">
+                    <span class="tech-tag">Unreal Engine 5</span>
+                    <span class="tech-tag">Psychological Horror</span>
+                    <span class="tech-tag">Narrative Design</span>
+                    <span class="tech-tag">Blueprints</span>
+                    <span class="tech-tag">Environmental Storytelling</span>
+                    <span class="tech-tag">Sound Design</span>
+                </div>
+
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Core Mechanics I Designed</h3>
+                <div class="project-details">
+                    <div class="detail-item">
+                        <h4>Movement & Resource Management</h4>
+                        <p>Designed stamina system where sprinting drains stamina bar; reaching exhaustion triggers heavy breathing audio and movement penalties. Forces strategic decision-making between hiding and running. Flashlight battery drains during use, requiring players to conserve light and scavenge batteries scattered throughout the environment.</p>
+                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View stamina system demo</a></p>
+                    </div>
+                   
+                    <div class="detail-item">
+                        <h4>Adaptive Monster AI System</h4>
+                        <p>Built behavior tree with randomized patrol routes, line-of-sight chase mechanics, and sin-triggered ambushes. AI responds to player interactions with "sinful" objects, alerting the monster to hunt in that area. Integrated heartbeat proximity audio system that grows louder and faster as AI approaches, creating spatial awareness through sound design.</p>
+                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View AI behavior demo</a></p>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <h4>Narrative System</h4>
+                         <p>Developed modular narrative manager that triggers context-aware inner monologue based on player location and interactions. Area-based voice lines activate once per zone, with unique dialogue for object interactions. Built reusable UI system that can be called seamlessly across different game scenarios.</p>
+                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View narrative system demo</a></p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Leadership & Project Management</h3>
+                <p>As project lead, I coordinated a four-person team across a one-week sprint cycle, managed version control workflows, and directed feature prioritization to meet October 16th 2025 Game Jam deadline. I established clear design pillars, facilitated playtesting sessions, and ensured cohesive integration between environment design, narrative, and core mechanics.</p>
+
+                <div class="project-documents" style="margin-top: 3rem;">
+                    <h3>Project Documentation</h3>
+                    <div class="document-grid">
+                        <div class="document-preview">
+                            <div class="document-header">
+                                <h4>Game Design Document</h4>
+                                <span class="document-type">Google Doc • Mechanics & Systems</span>
+                            </div>
+                            <div class="preview-content-doc">
+                                <div class="slide-preview">
+                                    <div class="slide-title">Requiem Forest: Design & Implementation</div>
+                                    <div class="slide-subtitle">Psychological horror through environmental storytelling</div>
+                                    <div class="slide-details">
+                                        <p>• Core gameplay loop and survival mechanics</p>
+                                        <p>• Monster AI behavior tied to "sin" system</p>
+                                        <p>• Environmental triggers and map design</p>
+                                        <p>• Narrative structure and branching endings</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <a href="https://docs.google.com/document/d/1WMXf-jLXO7RdH3_mPw1on5GzrjLOd_pMquyiJbHiwn4/edit?usp=sharing" class="doc-link" target="_blank">
+                                    <span>View Design Document</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-preview">
+                            <div class="document-header">
+                                <h4>Level Design Document</h4>
+                                <span class="document-type">Google Doc • Environment Design</span>
+                            </div>
+                            <div class="preview-content-doc">
+                                <div class="slide-preview">
+                                    <div class="slide-title">Forest Layout and Narrative Spaces</div>
+                                    <div class="slide-subtitle">Creating a shifting, dreamlike environment</div>
+                                    <div class="slide-details">
+                                        <p>• Graveyard, tall grass, and church areas</p>
+                                        <p>• Looping paths and false escapes</p>
+                                        <p>• Symbolic object placement</p>
+                                        <p>• Lighting and audio zone design</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <a href="https://docs.google.com/document/d/1-ISA4BJd1326nqHxbtdUgbp0Ji-WIUU_2otNW0iJkwY/edit?usp=sharing" class="doc-link" target="_blank">
+                                    <span>View Level Design Document</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="document-actions">
-                    <a href="https://docs.google.com/document/d/1WMXf-jLXO7RdH3_mPw1on5GzrjLOd_pMquyiJbHiwn4/edit?usp=sharing" class="doc-link" target="_blank">
-                        <span>View Design Document</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15,3 21,3 21,9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                    </a>
+
+                <div class="project-status" style="margin-top: 2rem;">
+                    <div class="status-dot"></div>
+                    <span>In Active Development - October 2025 Release</span>
                 </div>
             </div>
 
-        
+            <!-- Fruit Ninja IRL Detail -->
+            <div class="featured-project" id="fruitninja" style="margin-top: 4rem;">
+                <div class="featured-badge">Interface Redesign</div>
+                <h2>Fruit Ninja IRL</h2>
+                <p class="subtitle">Rethinking Digital Affordances Through Physical Interaction</p>
+                
+                <p>I loved Fruit Ninja as a kid, so when I saw the arcade version at Dave & Buster's, I expected something more than just the iPad game on a bigger touchscreen. That missed opportunity sparked this project, what if we translated touchscreen gestures into actual physical sword movements, creating a full-body, immersive experience that fundamentally reimagines how we interact with digital games?</p>
 
-            <div class="document-preview">
-                <div class="document-header">
-                    <h4>Level Design Document</h4>
-                    <span class="document-type">Google Doc • Environment Design</span>
+                <div class="cinematic-showcase">
+                    <div class="video-container" style="max-width: 900px; margin: 0 auto;">
+                        <iframe src="https://www.youtube.com/embed/XgYcmivxwyU?si=ALyWRVnigq9QeJ6S" 
+                                title="Fruit Ninja IRL: Motion Capture Gameplay" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="cinematic-caption">Live motion capture demonstration showing real-time sword tracking in Unreal Engine 5</p>
                 </div>
-                <div class="preview-content">
-                    <div class="slide-preview">
-                        <div class="slide-title">Forest Layout and Narrative Spaces</div>
-                        <div class="slide-subtitle">Creating a shifting, dreamlike environment</div>
-                        <div class="slide-details">
-                            <p>• Graveyard, tall grass, and church areas</p>
-                            <p>• Looping paths and false escapes</p>
-                            <p>• Symbolic object placement</p>
-                            <p>• Lighting and audio zone design</p>
+
+                <div class="project-details" style="margin-top: 3rem;">
+                    <div class="detail-item">
+                        <h4>Platform</h4>
+                        <p>Motion Capture + Unreal Engine 5</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Focus</h4>
+                        <p>Interface Design & Affordances</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Input Method</h4>
+                        <p>Physical Sword Controller</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Development Time</h4>
+                        <p>1 Week (Academic Project)</p>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">The Design Challenge</h3>
+                <p>How do you translate instant, precise touchscreen swipes into physical sword movements? The core assignment was to take an existing digital interface and redesign its affordances through a different medium. Rather than making a 1:1 translation, this project explores what happens when you fundamentally change the interaction model.</p>
+
+                <div class="tech-tags" style="margin: 2rem 0;">
+                    <span class="tech-tag">Unreal Engine 5</span>
+                    <span class="tech-tag">Motion Capture</span>
+                    <span class="tech-tag">Infrared Tracking</span>
+                    <span class="tech-tag">Interface Design</span>
+                    <span class="tech-tag">Physical Computing</span>
+                    <span class="tech-tag">Blueprints</span>
+                </div>
+
+                <div class="project-documents" style="margin-top: 3rem;">
+                    <h3>Project Documentation</h3>
+                    <div class="document-grid" style="grid-template-columns: 1fr;">
+                        <div class="document-preview">
+                            <div class="document-header">
+                                <h4>Full Design Documentation</h4>
+                                <span class="document-type">Google Doc • Interface Redesign Process</span>
+                            </div>
+                            <div class="preview-content-doc">
+                                <div class="slide-preview">
+                                    <div class="slide-title">Tangible Interface Redesign</div>
+                                    <div class="slide-subtitle">From concept to implementation</div>
+                                    <div class="slide-details">
+                                        <p>• Original interface analysis</p>
+                                        <p>• Physical controller prototyping</p>
+                                        <p>• Motion tracking implementation</p>
+                                        <p>• User testing insights</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <a href="https://docs.google.com/document/d/1A_2JwEL2CHx_jmQ6hZthn_YXiSBijUNbtr3SdkjPaqo/edit?usp=sharing" class="doc-link" target="_blank">
+                                    <span>View Documentation</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="document-actions">
-                    <a href="https://docs.google.com/document/d/1-ISA4BJd1326nqHxbtdUgbp0Ji-WIUU_2otNW0iJkwY/edit?usp=sharing" class="doc-link" target="_blank">
-                        <span>View Level Design Document</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15,3 21,3 21,9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                    </a>
+
+                <div class="project-status" style="margin-top: 2rem;">
+                    <div class="status-dot"></div>
+                    <span>Prototype Complete</span>
                 </div>
             </div>
 
-            
-        </div>
-    </div>
+            <!-- F LINE Detail -->
+            <div class="featured-project" id="fline" style="margin-top: 4rem;">
+                <div class="featured-badge">Kitsch & Camp Platformer</div>
+                <h2>F LINE</h2>
+                <p class="subtitle">A metaphor for moving 2 miles in New York City</p>
+                
+                <p>F LINE is a chaotic, multiplayer, intentionally frustrating platformer that acts as a metaphor for commuting in New York City. What looks like a small map turns into a nightmare of traps, timing, and memorization.</p>
 
-    <div class="project-status" style="margin-top: 2rem;">
-        <div class="status-dot"></div>
-        <span>In Active Development - October 2025 Release</span>
-    </div>
-</div>
-
-           <div class="featured-project" style="margin-top: 4rem;">
-    <div class="featured-badge">Interface Redesign</div>
-    <h2>Fruit Ninja IRL</h2>
-    <p class="subtitle">Rethinking Digital Affordances Through Physical Interaction</p>
-    
-    <p>I loved Fruit Ninja as a kid, so when I saw the arcade version at Dave & Buster's, I expected something more than just the iPad game on a bigger touchscreen. That missed opportunity sparked this project, what if we translated touchscreen gestures into actual physical sword movements, creating a full-body, immersive experience that fundamentally reimagines how we interact with digital games? This project fundamentally reimagines Fruit Ninja's interaction model by translating 2D touch gestures into 3D motion-tracked sword combat. Rather than replicating the original's mechanics, this redesign explores how changing the interface medium, from touchscreen to tangible object, creates entirely new affordances, challenges, and player experiences.</p>
-
-    <div class="cinematic-showcase">
-        <div class="video-container" style="max-width: 900px; margin: 0 auto;">
-            <iframe src="https://www.youtube.com/embed/XgYcmivxwyU?si=ALyWRVnigq9QeJ6S" 
-                    title="Fruit Ninja IRL: Motion Capture Gameplay" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-            </iframe>
-        </div>
-        <p class="cinematic-caption">Live motion capture demonstration showing real-time sword tracking in Unreal Engine 5</p>
-    </div>
-
-    <div class="project-details" style="margin-top: 3rem;">
-        <div class="detail-item">
-            <h4>Platform</h4>
-            <p>Motion Capture + Unreal Engine 5</p>
-        </div>
-        <div class="detail-item">
-            <h4>Focus</h4>
-            <p>Interface Design & Affordances</p>
-        </div>
-        <div class="detail-item">
-            <h4>Input Method</h4>
-            <p>Physical Sword Controller</p>
-        </div>
-        <div class="detail-item">
-            <h4>Development Time</h4>
-            <p>1 Week (Academic Project)</p>
-        </div>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">The Design Challenge</h3>
-    <p>How do you translate instant, precise touchscreen swipes into physical sword movements? The core assignment was to take an existing digital interface and redesign its affordances through a different medium. Rather than making a 1:1 translation, this project explores what happens when you fundamentally change the interaction model, introducing weight, momentum, spatial awareness, and physical recovery time into what was originally frictionless gesture control.</p>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">New Affordances Created</h3>
-    <div class="project-details">
-        <div class="detail-item">
-            <h4>Physical Presence</h4>
-            <p>Real weight and inertia replace instant digital response. Players must account for sword momentum and recovery between swings.</p>
-        </div>
-        <div class="detail-item">
-            <h4>Spatial Awareness</h4>
-            <p>3D motion tracking transforms flat screen positioning into full-body spatial reasoning and movement planning.</p>
-        </div>
-        <div class="detail-item">
-            <h4>Embodied Play</h4>
-            <p>Tactile feedback through the physical controller creates haptic understanding of successful hits versus misses.</p>
-        </div>
-        <div class="detail-item">
-            <h4>Skill Expression</h4>
-            <p>Physical coordination becomes the skill ceiling rather than finger dexterity, completely changing the mastery curve.</p>
-        </div>
-    </div>
-
-    <div class="tech-tags" style="margin: 2rem 0;">
-        <span class="tech-tag">Unreal Engine 5</span>
-        <span class="tech-tag">Motion Capture</span>
-        <span class="tech-tag">Infrared Tracking</span>
-        <span class="tech-tag">Interface Design</span>
-        <span class="tech-tag">Physical Computing</span>
-        <span class="tech-tag">Blueprints</span>
-        <span class="tech-tag">Interaction Design</span>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Technical Implementation</h3>
-    <p>The sword controller uses a shower curtain rod base with foam blade and grippy padding, lightweight enough for extended play but substantial enough to provide physical feedback. Infrared motion tracking captures swing direction, speed, and blade angle at 30fps, translating real-world movements into Unreal Engine's game space. The system maps 3D sword trajectory to virtual fruit collision detection, with sound design providing immediate feedback for successful slices.</p>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">What Changed</h3>
-    <p>The touchscreen version offers instant, precise control with zero physical cost. This physical version introduces real constraints: sword weight creates momentum that must be managed, recovery time between swings forces strategic positioning, and 3D space requires spatial planning impossible on a flat screen. These aren't limitations, they're new design opportunities. The game becomes harder, more physical, and rewards different skills. It's not just Fruit Ninja with a different controller; it's a fundamentally different experience built on different affordances.</p>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Design Insights</h3>
-    <p>User testing revealed that physical interfaces don't just change input method, they change player behavior. Testers approached the game more cautiously, planning sword trajectories rather than reactive swiping. The physical controller made players more aware of their bodies in space, turning a finger exercise into full-body coordination. Some accessibility benefits emerged organically: the controller's grip worked well for players with limited grip strength, and bright visual contrast helped low-vision players. But the core insight was about affordances, how changing the interface medium creates entirely new interaction possibilities.</p>
-
-    <div class="project-documents" style="margin-top: 3rem;">
-        <h3>Project Documentation</h3>
-        <div class="document-grid" style="grid-template-columns: 1fr;">
-            <div class="document-preview">
-                <div class="document-header">
-                    <h4>Full Design Documentation</h4>
-                    <span class="document-type">Google Doc • Interface Redesign Process</span>
+                <div class="cinematic-showcase">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/4q5h-wJgoM0?si=qANUztoLgqUNPQ7W" 
+                                title="F LINE Gameplay Trailer" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="cinematic-caption">Rage-bait platformer gameplay featuring betraying platforms and intentional frustration</p>
                 </div>
-                <div class="preview-content">
-                    <div class="slide-preview">
-                        <div class="slide-title">Tangible Interface Redesign: From Concept to Implementation</div>
-                        <div class="slide-subtitle">Exploring affordances through physical interaction design</div>
-                        <div class="slide-details">
-                            <p>• Original interface analysis and affordance mapping</p>
-                            <p>• Physical controller prototyping and material selection</p>
-                            <p>• Motion tracking implementation in Unreal Engine</p>
-                            <p>• User testing insights and behavioral observations</p>
-                            <p>• Lessons learned about translating digital to physical interfaces</p>
+
+                <div class="project-details" style="margin-top: 3rem;">
+                    <div class="detail-item">
+                        <h4>Genre</h4>
+                        <p>Rage-bait 2D Platformer</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Platform</h4>
+                        <p>PC (Godot Engine)</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Mode</h4>
+                        <p>Local 2-Player Co-op</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Course</h4>
+                        <p>FA 2025 Visual AI Studio</p>
+                    </div>
+                </div>
+
+                <div class="tech-tags" style="margin: 2rem 0;">
+                    <span class="tech-tag">Godot Engine</span>
+                    <span class="tech-tag">GDScript</span>
+                    <span class="tech-tag">2D Platformer</span>
+                    <span class="tech-tag">Local Multiplayer</span>
+                    <span class="tech-tag">Pixel Art</span>
+                </div>
+
+                <div class="project-documents" style="margin-top: 3rem;">
+                    <h3>Project Documentation</h3>
+                    <div class="document-grid" style="grid-template-columns: 1fr;">
+                        <div class="document-preview">
+                            <div class="document-header">
+                                <h4>Game Design Document</h4>
+                                <span class="document-type">Google Doc • Full Design Breakdown</span>
+                            </div>
+                            <div class="preview-content-doc">
+                                <div class="slide-preview">
+                                    <div class="slide-title">F LINE: A Love-Hate Letter to the F Train</div>
+                                    <div class="slide-subtitle">Kitsch and Camp Assignment</div>
+                                    <div class="slide-details">
+                                        <p>• Core mechanics and obstacle design</p>
+                                        <p>• Metaphor and design philosophy</p>
+                                        <p>• Technical systems</p>
+                                        <p>• Multiplayer structure</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <a href="https://docs.google.com/document/d/1W8VpUOJ3BYpgaUEsgEHF3sHJBWHAIaJ-jH8kEHSTsSM/edit?usp=sharing" class="doc-link" target="_blank">
+                                    <span>View Design Document</span>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                        <polyline points="15,3 21,3 21,9"></polyline>
+                                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="document-actions">
-                    <a href="https://docs.google.com/document/d/1A_2JwEL2CHx_jmQ6hZthn_YXiSBijUNbtr3SdkjPaqo/edit?usp=sharing" class="doc-link" target="_blank">
-                        <span>View Design Documentation</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15,3 21,3 21,9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                    </a>
+
+                <div class="project-status" style="margin-top: 2rem;">
+                    <div class="status-dot"></div>
+                    <span>Completed - FA 2025</span>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Next Steps</h3>
-    <p>Future iterations will expand the game systems with multiple fruit types, combo scoring, bombs to avoid, and refined difficulty scaling. The sword controller itself needs iteration, testing different grip options, weight distributions, and haptic feedback mechanisms. The broader research question is how this approach to physical interface design applies to other traditionally screen-based games. What happens when you give players tangible objects that map to digital actions? How do physical constraints create new design possibilities?</p>
-
-    <div class="project-status" style="margin-top: 2rem;">
-        <div class="status-dot"></div>
-        <span>Prototype Complete - Iteration Phase</span>
-    </div>
-</div>
-
-<div class="featured-project" style="margin-top: 4rem;">
-    <div class="featured-badge">Kitsch & Camp Platformer</div>
-    <h2>F LINE</h2>
-    <p class="subtitle">A metaphor for moving 2 miles in New York City</p>
-    
-    <p>F LINE is a chaotic, multiplayer, intentionally frustrating platformer that acts as a metaphor for commuting in New York City, specifically the painful journey from Brooklyn to Manhattan on the subway. What looks like a small map turns into a nightmare of traps, timing, and memorization, a direct reflection of how 2 miles can take 45 minutes in real life. The game constantly works against the player, forcing them to adapt, memorize the layout, and survive the unpredictable hell of city transit.</p>
-
-    <div class="cinematic-showcase">
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/4q5h-wJgoM0?si=qANUztoLgqUNPQ7W" 
-                    title="F LINE Gameplay Trailer" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-            </iframe>
-        </div>
-        <p class="cinematic-caption">Rage-bait platformer gameplay featuring betraying platforms, spooky ghosts, and a metaphor for NYC transit chaos</p>
-    </div>
-
-    <div class="project-details" style="margin-top: 3rem;">
-        <div class="detail-item">
-            <h4>Genre</h4>
-            <p>Rage-bait 2D Platformer</p>
-        </div>
-        <div class="detail-item">
-            <h4>Platform</h4>
-            <p>PC (Godot Engine)</p>
-        </div>
-        <div class="detail-item">
-            <h4>Mode</h4>
-            <p>Local 2-Player Co-op</p>
-        </div>
-        <div class="detail-item">
-            <h4>Course</h4>
-            <p>FA 2025 Visual AI Studio</p>
-        </div>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Game Premise</h3>
-    <p>You're just trying to make it to a party. But this is New York. So nothing works, nothing is fair, and even your own platforms betray you. The game forces you to adapt, suffer, and eventually master the level through brute repetition, just like living here does.</p>
-
-    <div class="tech-tags" style="margin: 2rem 0;">
-        <span class="tech-tag">Godot Engine</span>
-        <span class="tech-tag">GDScript</span>
-        <span class="tech-tag">2D Platformer</span>
-        <span class="tech-tag">Kitsch Design</span>
-        <span class="tech-tag">Local Multiplayer</span>
-        <span class="tech-tag">Pixel Art</span>
-        <span class="tech-tag">Game Feel</span>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Core Gameplay</h3>
-    <div class="project-details">
-        <div class="detail-item">
-            <h4>Betraying Platforms</h4>
-            <p>Platforms that run away from you using, forcing constant adaptation and spatial awareness.</p>
-        </div>
-        <div class="detail-item">
-            <h4>Tricky Enemies</h4>
-            <p>Enemies that move unexpectedly, disrupting your carefully planned routes through the level.</p>
-        </div>
-        <div class="detail-item">
-            <h4>Rising Spikes</h4>
-            <p>Spikes that rise when you try to jump over them, punishing predictable movement patterns.</p>
-        </div>
-        <div class="detail-item">
-            <h4>Death Tracker</h4>
-            <p>Persistent death counter that never resets, celebrating how much you've suffered to reach the party.</p>
-        </div>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Design Philosophy: Why Kitsch?</h3>
-    <p>It's messy. It's janky. It's over-the-top. And that's the point. The whole thing feels like a busted carnival ride that somehow still works. The platforming is slightly unfair. The visuals are too loud. But all of it leans into a DIY, chaotic energy that mirrors the chaos of trying to live and move through NYC. Pixel art and tilemaps that don't quite line up, bold colors with flat shading, and goofy mismatched characters create an intentionally broken aesthetic, like a bootleg arcade game you found in the back of a bodega.</p>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Multiplayer: Shared Pain</h3>
-    <p>Why suffer alone? F LINE supports two players on one keyboard, because failing is funnier with a friend. Player 1 uses Arrow keys + Enter, while Player 2 uses WASD + Space. Each player controls a different weird little guy (a pink blob and an owl-headed man), and if one of you dies, you both restart. It's cooperative chaos at its finest.</p>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Technical Implementation</h3>
-    <p>Built in Godot Engine with custom systems including tween-based platform movement, dynamic universal trap adjustability in the Inspector, collision detection via Area2D nodes, and a reusable KillZone system. The custom GameManager tracks score from collectibles and total persistent deaths, while a dynamic camera follows both players. The game is designed for replay and speedrunning once players memorize the deliberately trolling layout.</p>
-
-    <div class="project-documents" style="margin-top: 3rem;">
-        <h3>Project Documentation</h3>
-        <div class="document-grid" style="grid-template-columns: 1fr;">
-            <div class="document-preview">
-                <div class="document-header">
-                    <h4>Game Design Document</h4>
-                    <span class="document-type">Google Doc • Full Design Breakdown</span>
-                </div>
-                <div class="preview-content">
-                    <div class="slide-preview">
-                        <div class="slide-title">F LINE: A Love-Hate Letter to the F Train</div>
-                        <div class="slide-subtitle">Assignment 04: Kitsch and Camp</div>
-                        <div class="slide-details">
-                            <p>• Core mechanics and obstacle design</p>
-                            <p>• Metaphor and design philosophy</p>
-                            <p>• Technical systems and implementation</p>
-                            <p>• Multiplayer co-op structure</p>
-                            <p>• Aesthetic goals and kitsch design principles</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="document-actions">
-                    <a href="https://docs.google.com/document/d/1W8VpUOJ3BYpgaUEsgEHF3sHJBWHAIaJ-jH8kEHSTsSM/edit?usp=sharing" class="doc-link" target="_blank">
-                        <span>View Design Document</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15,3 21,3 21,9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">The NYC Transit Metaphor</h3>
-    <p>F LINE isn't just about frustrating platforming—it's a symbolic commute simulator. The map is small but feels long, just like NYC travel. Traps appear randomly, just like MTA delays. Platforms betray you, just like planned service changes. You memorize the fastest path over time, just like planning a route to avoid sketchy transfers or ghost trains. The game forces you to adapt, suffer, and eventually master the level through brute repetition, just like living here does.</p>
-
-    <div class="project-status" style="margin-top: 2rem;">
-        <div class="status-dot"></div>
-        <span>Completed - FA 2025</span>
-    </div>
-</div>
-
-
-
-
-
-
-
+            <!-- Other Projects Section -->
             <div class="other-projects">
                 <h2>Academic & Research Projects</h2>
                 
@@ -1212,15 +1323,14 @@ s <div class="featured-project" style="margin-top: 4rem;">
                     <div class="project-card">                         
                         <h3>Immersive Interactive Experiences</h3>                         
                         <div class="project-type">Academic Work - NYU</div>                         
-                        <p>Real-time immersive experiences combining cinematic storytelling with interactive systems. These projects explore the intersection of technical implementation and creative design in game engines.</p>                                                  
+                        <p>Real-time immersive experiences combining cinematic storytelling with interactive systems.</p>                                                  
                         
                         <div class="project-subsection">                             
                             <h4>Week 1 - Expressive Environments</h4>                             
                             <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #ccc; line-height: 1.6;"> 
-                                For this assignment, I created an ambient first-person experience centered around exploration and atmosphere rather than objectives. The player awakens within one of Inara's visions, a surreal, dreamlike forest at sunset, where crimson trees, drifting fog, and fractured ruins create a haunting yet enchanted mood. I designed the environment to guide the player organically toward a foggy clearing where ancient pillars stand as remnants of forgotten
-                                 </p>                             
+                                An ambient first-person experience centered around exploration and atmosphere. The player awakens within one of Inara's visions, a surreal, dreamlike forest at sunset.
+                            </p>                             
                            
-                            <!-- YouTube Video Embed - Week 1 -->
                             <div class="video-container">
                                 <iframe src="https://www.youtube.com/embed/kImayamy1RY" 
                                         title="Week 1 - Expressive Environments" 
@@ -1228,11 +1338,7 @@ s <div class="featured-project" style="margin-top: 4rem;">
                                         allowfullscreen>
                                 </iframe>
                             </div>
-                             <p style="margin-bottom: 2rem; font-size: 0.85rem; color: #ccc; line-height: 1.5;"> 
-                                This project connects to my overarching story, Veilbound, where Inara drifts between dreams and reality. The environment represents the first glimpse into her visions, spaces that are both beautiful and unsettling, memories of a world long gone that she alone can witness.  
-                            </p>                                                           
-                            
-                            <!-- Image Gallery -->
+                                                                                   
                             <div class="environment-gallery">                                 
                                 <div class="env-image-container">                                     
                                     <img src="websitepngs/environment-1.png" alt="Ambient Environment - Scene 1">                                 
@@ -1252,10 +1358,9 @@ s <div class="featured-project" style="margin-top: 4rem;">
                         <div class="project-subsection">                             
                             <h4>Week 2 - Cinematic Sequences & Player Control</h4>                             
                             <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #ccc; line-height: 1.6;"> 
-                                Building on the atmospheric foundation from Week 1, this assignment focused on integrating cinematic storytelling with interactive gameplay. I created a seamless transition from a scripted camera sequence that establishes the environment's mood and narrative context, then hands control to the player for free exploration. The opening cinematic uses carefully choreographed camera movements to guide the viewer's attention and establish the mysterious atmosphere before allowing them to discover the space at their own pace.
+                                Building on Week 1, this assignment focused on integrating cinematic storytelling with interactive gameplay. A seamless transition from scripted camera sequence to player control.
                             </p>                             
                            
-                            <!-- YouTube Video Embed - Week 2 -->
                             <div class="video-container">
                                 <iframe src="https://www.youtube.com/embed/XWVIYm5sEnk" 
                                         title="Week 2 - Cinematic Environment with Player Control" 
@@ -1263,9 +1368,6 @@ s <div class="featured-project" style="margin-top: 4rem;">
                                         allowfullscreen>
                                 </iframe>
                             </div>
-                             <p style="margin-bottom: 2rem; font-size: 0.85rem; color: #ccc; line-height: 1.5;"> 
-                                This approach demonstrates the balance between authored narrative moments and player agency, essential elements in modern interactive design. The cinematic sequence establishes emotional investment and spatial understanding, while the transition to player control maintains immersion and allows for personal discovery within the carefully crafted environment.
-                            </p>                                                           
                         </div>                     
                     </div>
 
@@ -1278,7 +1380,7 @@ s <div class="featured-project" style="margin-top: 4rem;">
                     <div class="project-card">
                         <h3>AssessAI</h3>
                         <div class="project-type">Machine Learning</div>
-                        <p>Developed during a 4.5-week intensive sprint at Colorado College, AssessAI demonstrates rapid prototyping and agile development practices in machine learning applications. Built with a team using version control and testing methodologies.</p>
+                        <p>Developed during a 4.5-week intensive sprint at Colorado College, AssessAI demonstrates rapid prototyping and agile development practices in machine learning applications.</p>
                         
                         <div style="margin-top: 1.5rem;">
                             <div class="env-image-container" style="margin-bottom: 1rem;">
@@ -1299,7 +1401,7 @@ s <div class="featured-project" style="margin-top: 4rem;">
                     <div class="project-card">
                         <h3>MuseumEyes Prototype</h3>
                         <div class="project-type">Accessibility Design</div>
-                        <p>An innovative tablet application and device system designed to guide blind and low-vision (BLV) users to museum exhibits. Features AI-powered image processing for automatic alt-text generation, voice commands, and tactile navigation aids to create inclusive museum experiences.</p>
+                        <p>An innovative tablet application and device system designed to guide blind and low-vision (BLV) users to museum exhibits. Features AI-powered image processing for automatic alt-text generation, voice commands, and tactile navigation aids.</p>
                         
                         <div style="margin-top: 2rem;">
                             <h4 style="color: #8a8aff; margin-bottom: 1rem; font-size: 1.2rem;">Key Features</h4>
@@ -1310,22 +1412,21 @@ s <div class="featured-project" style="margin-top: 4rem;">
                                 <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Fully accessible web interface</p>
                             </div>
                             
-                            <!-- Project Images -->
                             <div class="project-images" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
                                 <div class="env-image-container">
-                                    <img src="websitepngs/prototype1.png" alt="MuseumEyes app interface showing navigation flow">
+                                    <img src="websitepngs/prototype1.png" alt="MuseumEyes app interface">
                                 </div>
                                 <div class="env-image-container">
-                                    <img src="websitepngs/affinitydiagram.png" alt="Accessibility challenges diagram - designing products require meticulous brainstorming and research">
+                                    <img src="websitepngs/affinitydiagram.png" alt="Accessibility challenges diagram">
                                 </div>
                                 <div class="env-image-container">
                                     <img src="websitepngs/prototype2.png" alt="Prototype diagrams">
                                 </div>
                                 <div class="env-image-container">
-                                    <img src="websitepngs/storyboard1.jpg" alt="Storyboard designing for product">
+                                    <img src="websitepngs/storyboard1.jpg" alt="Storyboard designing">
                                 </div>
                                 <div class="env-image-container" style="grid-column: 1 / -1;">
-                                    <img src="websitepngs/demo.png" alt="User testing demonstration photos">
+                                    <img src="websitepngs/demo.png" alt="User testing demonstration">
                                 </div>
                             </div>
                             
@@ -1380,5 +1481,23 @@ s <div class="featured-project" style="margin-top: 4rem;">
             </div>
         </div>
     </main>
+
+    <div class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </div>
+
+    <script>
+        // Back to top button visibility
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+    </script>
 </body>
 </html>
