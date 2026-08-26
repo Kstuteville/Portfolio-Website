@@ -127,6 +127,16 @@
             letter-spacing: 0.1rem;
         }
 
+        .experience-photo {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            display: block;
+            margin: 2rem auto 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
@@ -305,6 +315,7 @@
                 margin-left: 0;
             }
         }
+
     </style>
 </head>
 <body>
@@ -326,130 +337,105 @@
         <div class="experience-container">
             <h1>Experience</h1>
             <div class="experience-subtitle">Game Designer · AI Innovation in Interactive Media</div>
-            
+
             <div class="experience-timeline">
                 <div class="experience-item">
-                    <h2>Graduate Research Assistant</h2>
-                    <div class="company">NYU Tandon School of Engineering - Game AI Affordances</div>
-                    <div class="date">2025 - Present</div>
-                    <p>Investigating adaptive AI systems and player affordances to enhance immersion in gameplay while pursuing M.S. in Integrated Design and Media. Focusing on the intersection of game design and deep learning to create emotionally reactive gaming experiences.</p>
+                    <h2>Creative Technologist Intern</h2>
+                    <div class="company">Walt Disney Imagineering Research & Development</div>
+                    <div class="date">June 2026 - August 2026</div>
+                    <p>Worked across emerging technology R&D for interactive character experiences, combining machine learning, computer vision, real-time systems, prototyping, and guest research.</p>
                     <ul>
-                        <li>Researching adaptive AI systems for enhanced player immersion</li>
-                        <li>Collaborating on projects bridging AI, design, and player experience</li>
-                        <li>Developing thesis project exploring immersive AI integration in games</li>
+                        <li>Led an exploratory R&D initiative investigating Gaussian splatting for real-time previsualization and spatial planning for autonomous character experiences.</li>
+                        <li>Helped develop and conduct guest research for a live public experience, contributing to the collection of 750+ participant responses at D23.</li>
+                        <li>Conducted vision-language model and computer vision research for multimodal character perception, including benchmarking against hand-labeled ground truth.</li>
+                        <li>Explored emerging motion diffusion and generative motion approaches for expressive physical character movement.</li>
                     </ul>
-                    
+
                     <div class="skills">
                         <h3>Focus Areas</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Game Design</span>
-                            <span class="skill-tag">Adaptive AI Systems</span>
-                            <span class="skill-tag">Player Affordances</span>
-                            <span class="skill-tag">Interactive Storytelling</span>
-                            <span class="skill-tag">Immersive Media</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">Multimodal AI</span>
+                            <span class="skill-tag">Real-Time Systems</span>
+                            <span class="skill-tag">Interactive Characters</span>
+                            <span class="skill-tag">Emerging Technology R&D</span>
                         </div>
                     </div>
+
+                    <img src="websitepngs/groupphoto.jpg" alt="Walt Disney Imagineering Research & Development" class="experience-photo">
                 </div>
 
                 <div class="experience-item">
-                    <h2>AI in Games Intern</h2>
-                    <div class="company">Game Innovation Lab at NYU Tandon</div>
-                    <div class="date">2026 - Present</div>
-                    <p> Leading development of ValVQA, a diagnostic benchmark analyzing perception, memory, and temporal reasoning failures in vision-language models interpreting competitive gameplay video. 
-Designed structured experimental conditions comparing raw frames, segmentation-based spatial scaffolding, and explicit temporal event memory to isolate sources of hallucination and entity-tracking errors.</p>
-                    <p> Researching adaptive NPC locomotion via reinforcement learning, comparing learned policies against classical controllers in adversarial physics-based environments.
-Designing minimal test environments to evaluate robustness, fairness, and real-time viability of learned locomotion in game engines.
-</p>
+                    <h2>Graduate Research Assistant</h2>
+                    <div class="company">NYU Tandon School of Engineering - Integrated Design & Media</div>
+                    <div class="date">September 2025 - May 2026</div>
+                    <p>Developed machine-learning systems for understanding how people can interact with objects and environments, connecting 3D perception research with real-time game-engine applications.</p>
                     <ul>
-                        <li>Vision Language Model Perception</li>
-                        <li>Reinforcement Learning</li>
-                        <li>Research Methodology towards AI in Games</li>
+                        <li>Developed a deep-learning system for 3D object and affordance understanding using a DGCNN point-cloud model trained on 8,000+ PartNet examples.</li>
+                        <li>Built Python, PyTorch, and Open3D pipelines for point-cloud processing, label generation, model training, and evaluation.</li>
+                        <li>Integrated model predictions into Unreal Engine 5 to automatically generate interaction points, collision volumes, and gameplay metadata.</li>
                     </ul>
-                    
+
                     <div class="skills">
-                        <h3>Technologies & Skills</h3>
+                        <h3>Focus Areas</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Unreal Engine</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Game Design</span>
-                            <span class="skill-tag">AI/ML Integration</span>
-                            <span class="skill-tag">Cinematic Design</span>
-                            <span class="skill-tag">Level Design</span>
+                            <span class="skill-tag">3D Machine Learning</span>
+                            <span class="skill-tag">Point Clouds</span>
+                            <span class="skill-tag">Affordance Learning</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Unreal Engine 5</span>
+                            <span class="skill-tag">Intelligent Tooling</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="experience-item">
-                    <h2>Indie Game Developer</h2>
-                    <div class="company">Veilbound Studios</div>
-                    <div class="date">2024 - Present</div>
-                    <p>Leading the design and development of Veilbound, a 3D RPG vertical slice showcasing innovative AI integration in game design. Creating cinematic gameplay experiences with adaptive AI systems that respond dynamically to player choices and emotions.</p>
+                    <h2>Game AI Research Intern</h2>
+                    <div class="company">NYU Game Innovation Lab</div>
+                    <div class="date">January 2026 - May 2026</div>
+                    <p>Researched intelligent character behavior and the ways different AI systems influence how players perceive autonomous agents.</p>
                     <ul>
-                        <li>Designing adaptive AI systems for emotionally responsive NPCs</li>
-                        <li>Implementing cinematic storytelling with technical innovation</li>
-                        <li>Developing vertical slice for thesis research and portfolio presentation</li>
+                        <li>Designed and evaluated autonomous drone behaviors using reinforcement learning and traditional control systems.</li>
+                        <li>Investigated how locomotion influenced perceptions of intelligence, naturalness, competence, and aliveness.</li>
+                        <li>Built experimental environments and evaluation methodologies for studying learned character behavior.</li>
                     </ul>
-                    
+
                     <div class="skills">
-                        <h3>Technologies & Skills</h3>
+                        <h3>Focus Areas</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Unreal Engine</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Game Design</span>
-                            <span class="skill-tag">AI/ML Integration</span>
-                            <span class="skill-tag">Cinematic Design</span>
-                            <span class="skill-tag">Level Design</span>
+                            <span class="skill-tag">Reinforcement Learning</span>
+                            <span class="skill-tag">Game AI</span>
+                            <span class="skill-tag">Autonomous Characters</span>
+                            <span class="skill-tag">Player Perception</span>
+                            <span class="skill-tag">Research Design</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="experience-item">
-                    <h2>Creative Work Developer</h2>
-                    <div class="company">NYU Tandon</div>
+                    <h2>Multi-Platform Media & Graphic Design</h2>
+                    <div class="company">NYU Women's Volleyball</div>
                     <div class="date">2024 - Present</div>
-                    <p>Building real-time immersive experiences that combine cinematic storytelling, interactive systems, and technical implementation in game engines. Focusing on innovative uses of AI to enhance player engagement and narrative depth.</p>
-                    
+                    <p>Create visual content and manage digital media for NYU Women's Volleyball, coordinating with coaching staff and athletics stakeholders across campaigns and live events.</p>
+
                     <div class="skills">
                         <h3>Core Competencies</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Real-time Systems</span>
-                            <span class="skill-tag">Interactive Design</span>
-                            <span class="skill-tag">Technical Implementation</span>
-                            <span class="skill-tag">Cinematic Storytelling</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <h2>Multi-Platform Media Management</h2>
-                    <div class="company">NYU Women's Volleyball</div>
-                    <div class="date">2024 - Present</div>
-                    <p>Communicated across multiple departments including coaching staff, athletics administration, and university media relations to coordinate messaging and content strategy. Managed content distribution to thousands of followers across multiple social media platforms while maintaining brand consistency. 
-                       Developed audience engagement strategies that balanced competing departmental priorities and messaging requirements. </p>
-                    <ul>
-                        <li>Navigated complex organizational hierarchies and approval processes while maintaining content quality and posting schedules.</li>
-                        <li>Scaled content creation workflows to serve large, diverse audience segments with varying engagement preferences.</li>
-                        <li>Coordinated real-time content during live events, managing multiple communication channels simultaneously.</li>
-                    </ul>
-                    
-                    <div class="skills">
-                        <h3>Technologies & Skills</h3>
-                        <div class="skill-tags">
                             <span class="skill-tag">Community Management</span>
-                            <span class="skill-tag">User Engagement</span>
-                            <span class="skill-tag">Data Analytics & Metrics</span>
                             <span class="skill-tag">Content Strategy</span>
                             <span class="skill-tag">Multi-Platform Strategy</span>
                             <span class="skill-tag">Creative Problem Solving</span>
                         </div>
                     </div>
                 </div>
+
                 <div class="experience-item">
                     <h2>Graphic Designer</h2>
                     <div class="company">Colorado College Athletics</div>
                     <div class="date">2021 - 2025</div>
-                    <p>Designed graphics for D1–D3 athletics, delivering high-quality visual content under deadlines. Managed design iterations and coordinated feedback across multiple stakeholders to streamline workflow
-and approvals</p>
-                    
+                    <p>Designed digital and print graphics for collegiate athletics while managing rapid production timelines, feedback, and multi-stakeholder approvals.</p>
+
                     <div class="skills">
                         <h3>Core Competencies</h3>
                         <div class="skill-tags">
@@ -457,26 +443,6 @@ and approvals</p>
                             <span class="skill-tag">Adobe Creative Suite</span>
                             <span class="skill-tag">Figma</span>
                             <span class="skill-tag">Time Management</span>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="experience-item">
-                    <h2>Software Developer & ML Engineer</h2>
-                    <div class="company">Colorado College</div>
-                    <div class="date">2024</div>
-                    <p>Developed AssessAI in a 4.5-week sprint-based team environment, applying agile workflows, version control, and testing practices. Gained valuable experience in collaborative development and rapid prototyping methodologies.</p>
-                    
-                    <div class="skills">
-                        <h3>Technical Skills</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Machine Learning</span>
-                            <span class="skill-tag">Agile Development</span>
-                            <span class="skill-tag">Version Control</span>
-                            <span class="skill-tag">Team Collaboration</span>
                         </div>
                     </div>
                 </div>

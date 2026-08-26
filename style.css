@@ -618,6 +618,16 @@ main{
 
 }
 
+    #screen{
+        scale: clamp(0.32, calc(100vw / 900), 0.85);
+    }
+
+}
+
+@media (max-width: 480px){
+    #screen{
+        scale: clamp(0.24, calc(100vw / 1100), 0.55);
+    }
 }
 
 
