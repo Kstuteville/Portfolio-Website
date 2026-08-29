@@ -223,62 +223,30 @@
     }
 
 
-    /* Autoplaying clips ignore prefers-reduced-motion on their own, so pause
-       them and fall back to the poster frame for anyone who asked for less
-       motion. */
-    function initMotionSafeVideo() {
-        if (!reduceMotion) return;
-        document.querySelectorAll('video[autoplay]').forEach(v => {
-            v.removeAttribute('autoplay');
-            v.pause();
-            v.currentTime = 0;
-            v.setAttribute('controls', '');
+
+    /* Autoplay attributes alone aren't always honoured - Safari in particular
+       can hold a clip until it's on screen, and a paused video looks like a
+       broken image. This nudges them and retries once on first interaction. */
+    function initLoopingClips() {
+        const clips = document.querySelectorAll('video[autoplay]');
+        if (!clips.length) return;
+
+        const kick = () => clips.forEach(v => {
+            v.muted = true;              // muted is what makes autoplay allowed
+            const p = v.play();
+            if (p && p.catch) p.catch(() => {});   // ignore rejection; retried below
         });
-    }
 
-
-    /* ---- Pointer parallax (About page) ----
-       Mirrors the homepage feel: far layers slide a lot, near ones barely move.
-
-       Two constraints shape this. JS cannot style pseudo-elements at all, and
-       the aurora and slash layers already animate `transform` — so the index
-       approach of writing el.style.transform is unavailable and would clobber
-       those animations anyway. Instead JS writes two custom properties, and the
-       CSS applies them via the standalone `translate` property, which composes
-       with `transform` rather than replacing it. Smoothing is a CSS transition,
-       so no per-frame JS runs. */
-    // index.html is deliberately absent: it runs its own artwork parallax from
-    // js/app.js and doesn't load dr-polish.css at all.
-    const PARALLAX_PAGES = ['about', 'experience', 'projects',
-                            'prototypes', 'process', 'contacts'];
-
-    function initPointerParallax() {
-        if (!PARALLAX_PAGES.includes(document.body.dataset.page)) return;
-        if (reduceMotion) return;
-        if (window.matchMedia('(pointer: coarse)').matches) return;   // no hover to track
-
-        const root = document.documentElement;
-
-        const setOffset = (nx, ny) => {
-            root.style.setProperty('--dr-px', nx.toFixed(4));
-            root.style.setProperty('--dr-py', ny.toFixed(4));
-        };
-
-        window.addEventListener('mousemove', (e) => {
-            // -1 .. 1 relative to viewport centre
-            setOffset(
-                (e.clientX / window.innerWidth) * 2 - 1,
-                (e.clientY / window.innerHeight) * 2 - 1
-            );
-        }, { passive: true });
-
-        // settle back to centre when the cursor leaves the window
-        document.addEventListener('mouseleave', () => setOffset(0, 0));
+        kick();
+        clips.forEach(v => v.addEventListener('canplay', kick, { once: true }));
+        // a real user gesture lifts any remaining autoplay restriction
+        document.addEventListener('touchstart', kick, { once: true, passive: true });
+        document.addEventListener('click', kick, { once: true });
     }
 
     function init() {
+        initLoopingClips();
         initPointerParallax();
-        initMotionSafeVideo();
         initTransitions();
         initProjectReveal();
         initReveals();
