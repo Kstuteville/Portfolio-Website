@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Marks JS as running so the reveal animations can hide content. If this
+         script or dr-ui.js ever fails, the class is absent or gets removed and
+         every .dr-reveal stays visible, so a broken script degrades to plain
+         readable content instead of a blank page. -->
+    <script>
+    document.documentElement.classList.add('dr-js');
+    // Watchdog: dr-ui.js sets __drUiReady once it has initialised. If it threw,
+    // 404'd, or was blocked, that flag is missing - so drop the class and let
+    // the content show. Inline here, not in dr-ui.js, so it still runs when
+    // dr-ui.js never loads at all.
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            if (!window.__drUiReady) document.documentElement.classList.remove('dr-js');
+        }, 0);
+    });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaylie Stuteville - About</title>

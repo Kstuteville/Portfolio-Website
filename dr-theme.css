@@ -546,7 +546,7 @@ main {
 
 /* ============ Scroll reveal ============ */
 
-.dr-reveal {
+.dr-js .dr-reveal {
     opacity: 0;
     transform: translateX(-46px) rotate(-1.4deg);
 }
@@ -643,7 +643,7 @@ main {
         transition-duration: 0.001ms !important;
     }
 
-    .dr-reveal {
+    .dr-js .dr-reveal {
         opacity: 1;
         transform: none;
     }

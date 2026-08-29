@@ -284,14 +284,32 @@
         document.addEventListener('click', kick, { once: true });
     }
 
+    /* If any of these throw, the reveal animations never run and every
+       .dr-reveal would sit at opacity 0 - a blank page. Dropping the dr-js
+       class disables the hiding rule in dr-theme.css so the content shows
+       unstyled-but-readable instead. */
+    function failSafe(err) {
+        document.documentElement.classList.remove('dr-js');
+        console.error('dr-ui: falling back to static content -', err);
+    }
+
+    window.addEventListener('error', function (e) {
+        if (e.filename && e.filename.indexOf('dr-ui.js') > -1) failSafe(e.message);
+    });
+
     function init() {
-        initLoopingClips();
-        initPointerParallax();
-        initTransitions();
-        initProjectReveal();
-        initReveals();
-        initCards();
-        initTypewriter();
+        try {
+            initLoopingClips();
+            initPointerParallax();
+            initTransitions();
+            initProjectReveal();
+            initReveals();
+            initCards();
+            initTypewriter();
+            window.__drUiReady = true;   // watched by the guard in each page's <head>
+        } catch (err) {
+            failSafe(err);
+        }
     }
 
     if (document.readyState === 'loading') {
