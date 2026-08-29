@@ -3,102 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dr-theme.css?v=2">
     <title>Veilbound - Design Process</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;800&display=swap");
-        
-        @font-face {
-            font-family: "Highwind";
-            src: url("./fonts/Highwind.ttf") format("truetype");
-            font-weight: normal;
-            font-style: normal;
-        }
+        /* Shared chrome (reset, body, header, nav, main) lives in dr-theme.css */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: "Highwind", sans-serif;
-            font-size: 1.5rem;
-            color: #fff;
-            letter-spacing: 0.2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        nav ul a {
-            text-decoration: none;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: 300;
-            font-size: 0.9rem;
-            letter-spacing: 0.1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav ul a:hover {
-            color: #ccc;
-        }
-
-        nav ul a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: #fff;
-            transition: width 0.3s ease;
-        }
-
-        nav ul a:hover::after {
-            width: 100%;
-        }
-
-        /* Main Content */
-        main {
-            padding-top: 120px;
-            min-height: 100vh;
-        }
 
         .process-container {
             max-width: 1200px;
@@ -151,7 +60,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
         }
 
         .process-step:hover {
@@ -164,7 +73,7 @@
             display: inline-block;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -196,7 +105,7 @@
         .process-tools h4 {
             font-size: 1rem;
             margin-bottom: 0.8rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             text-transform: uppercase;
             letter-spacing: 0.1rem;
         }
@@ -208,24 +117,24 @@
         }
 
         .tool-tag {
-            background: rgba(138, 138, 255, 0.2);
+            background: rgba(110, 201, 255, 0.2);
             color: #fff;
             padding: 0.4rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             transition: all 0.3s ease;
         }
 
         .tool-tag:hover {
-            background: rgba(138, 138, 255, 0.3);
+            background: rgba(110, 201, 255, 0.3);
         }
 
         .philosophy-section {
-            background: linear-gradient(135deg, rgba(138, 138, 255, 0.1) 0%, rgba(102, 102, 221, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(110, 201, 255, 0.1) 0%, rgba(33, 118, 168, 0.1) 100%);
             padding: 3rem;
             border-radius: 20px;
-            border: 1px solid rgba(138, 138, 255, 0.2);
+            border: 1px solid rgba(110, 201, 255, 0.2);
             margin: 3rem 0;
             text-align: center;
         }
@@ -233,7 +142,7 @@
         .philosophy-section h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-family: "Highwind", sans-serif;
         }
 
@@ -249,15 +158,15 @@
         .project-showcase {
             margin: 4rem 0;
             padding: 3rem;
-            background: linear-gradient(135deg, rgba(138, 138, 255, 0.08) 0%, rgba(102, 102, 221, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(110, 201, 255, 0.08) 0%, rgba(33, 118, 168, 0.08) 100%);
             border-radius: 20px;
-            border: 1px solid rgba(138, 138, 255, 0.2);
+            border: 1px solid rgba(110, 201, 255, 0.2);
         }
 
         .project-showcase h2 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-family: "Highwind", sans-serif;
             text-align: center;
         }
@@ -283,7 +192,7 @@
         .project-showcase-image {
             width: 100%;
             margin-bottom: 2rem;
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             border-radius: 15px;
             background: rgba(255, 255, 255, 0.02);
         }
@@ -307,8 +216,8 @@
             align-items: center;
             gap: 1rem;
             padding: 1rem 1.5rem;
-            background: rgba(138, 138, 255, 0.15);
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            background: rgba(110, 201, 255, 0.15);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             border-radius: 10px;
             text-decoration: none;
             color: #fff;
@@ -317,9 +226,9 @@
         }
 
         .project-link:hover {
-            background: rgba(138, 138, 255, 0.25);
+            background: rgba(110, 201, 255, 0.25);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(138, 138, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(110, 201, 255, 0.2);
         }
 
         .link-icon {
@@ -335,15 +244,15 @@
         .project-goal h3,
         .project-process h3 {
             font-size: 1.5rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(138, 138, 255, 0.3);
+            border-bottom: 1px solid rgba(110, 201, 255, 0.3);
             padding-bottom: 0.5rem;
         }
 
         .project-mediums h4 {
             font-size: 1.2rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             margin-bottom: 1rem;
             margin-top: 1.5rem;
         }
@@ -361,17 +270,17 @@
         }
 
         .medium-tag {
-            background: rgba(138, 138, 255, 0.2);
+            background: rgba(110, 201, 255, 0.2);
             color: #fff;
             padding: 0.6rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             transition: all 0.3s ease;
         }
 
         .medium-tag:hover {
-            background: rgba(138, 138, 255, 0.3);
+            background: rgba(110, 201, 255, 0.3);
         }
 
         .process-scroll {
@@ -393,12 +302,12 @@
         }
 
         .process-scroll::-webkit-scrollbar-thumb {
-            background: rgba(138, 138, 255, 0.5);
+            background: rgba(110, 201, 255, 0.5);
             border-radius: 4px;
         }
 
         .process-scroll::-webkit-scrollbar-thumb:hover {
-            background: rgba(138, 138, 255, 0.7);
+            background: rgba(110, 201, 255, 0.7);
         }
 
         .process-phase {
@@ -414,7 +323,7 @@
 
         .process-phase h4 {
             font-size: 1.2rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             margin-bottom: 0.8rem;
         }
 
@@ -428,7 +337,7 @@
         .process-reflection {
             margin-top: 1.5rem;
             padding-top: 1.5rem;
-            border-top: 2px solid rgba(138, 138, 255, 0.3);
+            border-top: 2px solid rgba(110, 201, 255, 0.3);
         }
 
         .process-reflection h4 {
@@ -442,7 +351,7 @@
         }
 
         .process-reflection em {
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-style: italic;
         }
 
@@ -450,7 +359,7 @@
         .figma-embed {
             width: 100%;
             height: 600px;
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             border-radius: 15px;
             margin: 2rem 0;
             overflow: hidden;
@@ -476,7 +385,7 @@
         .coming-soon h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
         }
 
         .coming-soon p {
@@ -495,7 +404,7 @@
         .literature-section h2 {
             font-size: 2rem;
             margin-bottom: 0.5rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             text-align: center;
         }
 
@@ -537,7 +446,7 @@
 
         .response-date {
             font-size: 0.9rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
@@ -563,14 +472,6 @@
 
             nav ul {
                 gap: 1rem;
-            }
-
-            nav ul a {
-                font-size: 0.8rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
             }
 
             .process-container h1 {
@@ -665,19 +566,176 @@
                 height: 400px;
             }
         }
+    
+        /* ---- Game-UI theme overrides ---- */
+        .process-container h1 {
+            font-family: var(--dr-pixel);
+            font-size: clamp(1.5rem, 4vw, 2.6rem);
+            line-height: 1.3;
+            letter-spacing: 0.04em;
+            color: var(--dr-white);
+            background: none;
+            -webkit-text-fill-color: currentColor;
+            text-shadow: 4px 4px 0 var(--dr-outline), 8px 8px 0 var(--dr-accent-deep);
+        }
+
+        .process-subtitle,
+        .section-subtitle {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--dr-accent);
+        }
+
+        .philosophy-section,
+        .project-showcase,
+        .literature-section,
+        .reading-response,
+        .coming-soon {
+            background: var(--dr-panel);
+            border: 3px solid var(--dr-outline);
+            border-radius: 0;
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55);
+            backdrop-filter: none;
+            clip-path: polygon(
+                14px 0, 100% 0,
+                100% calc(100% - 14px), calc(100% - 14px) 100%,
+                0 100%, 0 14px
+            );
+        }
+
+        .philosophy-section h2,
+        .project-showcase h2,
+        .literature-section h2,
+        .coming-soon h2 {
+            font-family: var(--dr-pixel);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--dr-white);
+            letter-spacing: 0.03em;
+            background: none;
+            -webkit-text-fill-color: currentColor;
+            padding-left: 0.9rem;
+            border-left: 7px solid var(--dr-accent);
+        }
+
+        .project-subtitle {
+            color: var(--dr-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-goal h3,
+        .project-process h3 {
+            font-family: var(--dr-pixel);
+            font-size: 0.72rem;
+            line-height: 1.8;
+            color: var(--dr-accent);
+            letter-spacing: 0.03em;
+        }
+
+        .project-mediums h4,
+        .process-phase h4,
+        .process-reflection h4 {
+            font-family: var(--dr-pixel);
+            font-size: 0.56rem;
+            line-height: 1.9;
+            color: var(--dr-accent);
+            letter-spacing: 0.03em;
+        }
+
+        .medium-tag,
+        .tool-tag {
+            background: rgba(110, 201, 255, 0.12);
+            border: 2px solid var(--dr-accent-deep);
+            border-radius: 0;
+            color: var(--dr-ink);
+            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+        }
+
+        .process-phase,
+        .process-reflection {
+            border-left: 4px solid var(--dr-accent-deep);
+            padding-left: 0.9rem;
+        }
+
+        .process-scroll {
+            border: 2px solid var(--dr-accent-deep);
+            border-radius: 0;
+        }
+
+        .project-main-image,
+        .project-showcase-image img {
+            border-radius: 0;
+            border: 3px solid var(--dr-outline);
+        }
+
+        .project-link,
+        .doc-link {
+            font-family: var(--dr-pixel);
+            font-size: 0.5rem;
+            line-height: 1.9;
+            border-radius: 0;
+            border: 3px solid var(--dr-outline);
+            background: var(--dr-accent-deep);
+            color: var(--dr-white);
+            letter-spacing: 0.03em;
+        }
+
+        .project-link:hover,
+        .doc-link:hover {
+            background: var(--dr-accent);
+            color: #06263a;
+        }
+
+        .response-header h3 {
+            font-family: var(--dr-pixel);
+            font-size: 0.64rem;
+            line-height: 1.8;
+            color: var(--dr-white);
+            letter-spacing: 0.03em;
+        }
+
+        .response-date {
+            font-family: var(--dr-pixel);
+            font-size: 0.48rem;
+            line-height: 1.9;
+            color: var(--dr-accent);
+            background: rgba(110, 201, 255, 0.1);
+            border: 2px solid var(--dr-accent-deep);
+            border-radius: 0;
+            padding: 0.45rem 0.8rem;
+        }
+
+        .reading-response {
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .coming-soon {
+            border-style: dashed;
+            border-color: var(--dr-accent-deep);
+        }
+
     </style>
+    <link rel="stylesheet" href="dr-polish.css?v=1">
 </head>
-<body>
+<body data-page="process">
+    <div class="dr-transition" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
     <header>
         <nav>
             <div class="logo">Kaylie Stuteville</div>
             <ul>
-                <li><a href="about.html">About Me</a></li>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
                 <li><a href="experience.html">Experience</a></li>
-                <li><a href="contacts.html">Contact</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                 <li><a href="prototypesandsystems.html">Gameplay Prototypes</a></li>
+                <li><a href="prototypesandsystems.html">Prototypes</a></li>
+                <li><a href="process.html" aria-current="page">Design Process</a></li>
+                <li><a href="contacts.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -695,7 +753,8 @@
             </div>
 
             <!-- 50 Shades Project Section -->
-            <div class="project-showcase">
+                        <div class="process-grid">
+<div class="project-showcase">
                 <h2>50 Shades Project- Ideation and Prototyping</h2>
                 <p class="project-subtitle">Combat System & Weapon Design Prototypes- See more of it in my Design documents in Projects!</p>
                 
@@ -777,10 +836,6 @@
                 </div>
                 </div>
 
-             </div>
-
-              </div>
-
             <!-- Time Capsule Project Section -->
             <div class="project-showcase">
                 <h2>Time Capsule Project - Narrative Design & Comic</h2>
@@ -811,7 +866,7 @@
 
                         <div class="process-scroll">
                             <div class="scroll-content">
-                                <h4 style="font-size: 1.3rem; color: #8a8aff; margin-bottom: 1rem;">Full Narrative</h4>
+                                <h4 style="font-size: 1.3rem; color: var(--dr-accent); margin-bottom: 1rem;">Full Narrative</h4>
                                 
                                 <p style="margin-bottom: 1rem;">The year is 2125. The world is silent, polished, and precise. Humanity no longer walks its surface. In their place stand humanoid machines, perfect in structure, flawless in reason, and empty of feeling. These artificial beings carry the echoes of their creators' image, but none of their warmth. To them, memory is waste, sentiment is error, and emotion is the flaw that ended the human age.</p>
 
@@ -821,7 +876,7 @@
 
                                 <p style="margin-bottom: 1rem;">For a moment, something flickers in her chest. A warmth without name, an echo of recognition. Then logic returns. Emotion, she recalls, is what destroyed them. Love turned to war. Pride became greed. Memory became obsession. "This is precisely why they are gone," she whispers. She releases the objects into a sterilizing flame. The photograph curls, the medal melts, and the card burns to ash. The light around her turns cold again.</p>
 
-                                <p style="margin-bottom: 0;">As she watches the last ember fade, she records her findings: <em style="color: #8a8aff;">Cause of extinction: emotional instability. Erase the records. Containment ends here.</em> Yet in the reflection of the glass, the fire's glow lingers across her metallic face like a blush. For an instant, it looks almost human.</p>
+                                <p style="margin-bottom: 0;">As she watches the last ember fade, she records her findings: <em style="color: var(--dr-accent);">Cause of extinction: emotional instability. Erase the records. Containment ends here.</em> Yet in the reflection of the glass, the fire's glow lingers across her metallic face like a blush. For an instant, it looks almost human.</p>
                             </div>
                         </div>
                     </div>
@@ -834,28 +889,27 @@
             <!-- Endangered Species Project - Small Section -->
             <div class="coming-soon">
                 <h2>Endangered Species Project - Ideation and Prototyping</h2>
-                <p>For Climate Week! - <a href="https://docs.google.com/document/d/1YlmtxN_K2lBY7IyGA0UsBNZ4VGRBESDIHVY-DYTA0pI/edit?usp=sharing" target="_blank" style="color: #8a8aff; text-decoration: underline;">Click here for prototype photos and process</a></p>
+                <p>For Climate Week! - <a href="https://docs.google.com/document/d/1YlmtxN_K2lBY7IyGA0UsBNZ4VGRBESDIHVY-DYTA0pI/edit?usp=sharing" target="_blank" style="color: var(--dr-accent); text-decoration: underline;">Click here for prototype photos and process</a></p>
                 <div style="margin-top: 1.5rem;">
                     <img src="websitepngs/turtle.png" alt="Endangered Species Prototype Sketch" style="width: 400px; height: auto; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2);">
                 </div>
             </div>
+            </div>
 
-            <div class="literature-section">
-
-
-
-
-
-        <div class="literature-section">
+<div class="literature-section">
     <h2>Literature Reflections & Reading Responses</h2>
     <p class="section-subtitle">Academic explorations connecting design theory with practice</p>
     
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 1 Reading Response</h3>
-            <span class="response-date">Art, Design & Social Responsibility</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 1 Reading Response</span>
+                            <span class="response-date">Art, Design & Social Responsibility</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>A key takeaway from these three readings is that both Art and Design, which go hand and hand arguably impact us daily. Both are used uniquely to challenge and critique our everyday lives. What I have learned is that being an artist or a designer is not a calling only for a special few who are just "born" with these gifts. Everyone has the ability to create, to do art, to design.</p>
             
             <p>I think something to keep in mind as a designer and an artist there are social responsibilities in addressing societal and environmental issues. Working actively to influence positive change and the importance of understanding the needs of the world is key.</p>
@@ -864,130 +918,186 @@
             
             <p>We are in an unknown era; truly, any design can be brought to life. But with no policies or restrictions, emerging tech like Artificial Intelligence could do harm as well. I question how to combat this, even though we are taught through these readings that we are not powerless; how can we influence the direction of technology? I often feel powerless, although I engage in responsible innovation and participate in policy discussions, how can I shape and remind others in higher power of moral design efforts?</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 2 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 2 Reading Response</h3>
-            <span class="response-date">Craft, Sketching, Prototyping</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 2 Reading Response</span>
+                            <span class="response-date">Craft, Sketching, Prototyping</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>The idea that everyone can be creative really resonates with me, especially the point that there are no natural geniuses, just routine and habit that build creative ability. I find that some poeple, however, are naturalsally better at things than other people. That is the baseline. To combat this, you can also work extra hard to get good at something. On the other end, if you are naturally good, you aren't great either until you work hard. I find the definition of creativity lost on me. I haven't invented something or made a product; everyone can have ideas, so what makes someone Great at Creativity? Furthermore, I find it's often intimidating to get started on a blank canvas, and it's even more intimidating when you're unfamiliar with the medium you're working in. This is where preparation becomes crucial. You have to know how to prepare to be creative, both in terms of materials and practices. For me I use other mediums to help spark my creativity, like listening to music that matches the theme of what I'm drawing.</p>
             
             <p>The concept of creativity coming from habit is really interesting to me. I definitely agree that hard work trumps natural talent and that preparation is essential. But here's the catch: I find myself struggling with things I'm too intimidated to practice. How do we break that spiral? It's like my doodling habits. I only became comfortable doodling when there was a routine behind it. I didn't start doodling humans until I took figure drawing. Before that, I only doodled flowers, and even that felt intimidating at first. The reading around The Miseducation of the Doodle claims that doodling increases focus during dull or complex material, but I'd say the opposite is true for me. I get too focused on what I'm doodling and often zone out completely. When I try to sketch visuals during a lecture to help me understand the content, I actually fall behind because I'm so absorbed in the drawing process. How can I make doodling more productive? Regarding Sketching: the Visual Thinking Power Tool,I love to sketch, but I find it incredibly hard to do UI mockups and structural stuff. I adore sketching figures but absolutely loathe sketching shapes. How do I make myself enjoy the technical sketching so I can get better at it? For me, sketching feels most valuable when it's spontaneous: pen and paper, between classes, in a time crunch. There's something about that immediacy that makes it work better than forced practice.</p>
             
             <p>What makes someone great at being creative? Is it subjective? I've been called creative my whole life when I was younger because of decent artistic ability, but I feel like really I stick to what I like. I find myself struggling with ideas in places I am unfamiliar with. How do you get better at being creative? What defines that progress?</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 3 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 3 Reading Response</h3>
-            <span class="response-date">Design Affordances, Interactive Design</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 3 Reading Response</span>
+                            <span class="response-date">Design Affordances, Interactive Design</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>In Gaver's Technology Affordances, the focus on perceptible and sequential affordances shows how design can guide discovery without relying on text or manuals. Small visual cues like a button changing color on hover are enough to spark attention and invite interaction. Layering simple affordances into more complex ones makes learning intuitive, much like how games teach players through action rather than instructions.</p>
             
             <p>Bret Victor develops this further in The Future of Interaction Design, where he critiques our reliance on glassy screens that reduce interaction to tapping on flat surfaces. When I think about video games, they feel like a transitional technology. Unlike apps, games at least provide a tactile link through controllers, buttons, and haptic feedback. That physicality creates a deeper connection to the task, whether it is jumping, attacking, or navigating, which Victor argues is missing in modern touchscreens.</p>
             
             <p>This makes me wonder: if games already show us the power of embodied and intuitive interaction, what could come next? Could the future of games point toward richer physical and sensory connections, such as AR, VR, wearables, or adaptive environments, where discovery feels not only perceptual but fully lived? In that sense, Gaver's affordances and Victor's critique converge. Both remind us that interaction design should move beyond flatness and toward interfaces that engage body, mind, and environment together.</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 4 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 4 Reading Response</h3>
-            <span class="response-date">Redesigning Affordances</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 4 Reading Response</span>
+                            <span class="response-date">Redesigning Affordances</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>These readings make me think about my experience with reading Don Norman's The Design of Everyday Things and about how design shapes how people think about complex systems. Norman's idea is that Affordances are relationships between object properties and user capabilities; they indicate what actions are possible. Signifiers communicate what is permissible or expected by pointing out affordances. Both guide users to form appropriate mental models of how a system works. The readings discuss how people form mental models through metaphors, experiences, and visual cues, especially when dealing with abstract systems.</p>
             
             <p>Furthermore, Norman's design principles of mapping and feedback become critical tools in complex or invisible systems, where causal relationships are hard to grasp. These readings support his idea that behavioral errors often stem from poor design, not user failure. By making mappings more visible and feedback more meaningful, designers can influence long-term user behavior in complex systems.</p>
             
             <p>Just like Norman says, humans err continually, design should accommodate this, our readings echo that misuse and misunderstanding often stem from design failures, not user incompetence. Complex systems should be scaffolded with constraints and supports to reduce friction without flattening necessary complexity.</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 5 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 5 Reading Response</h3>
-            <span class="response-date">Memories, Design</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 5 Reading Response</span>
+                            <span class="response-date">Memories, Design</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>When I think about why I fell in love with games, one object always comes to mind: a single Pokémon card I found in a small shop while studying abroad in Japan. It was the exact card I remembered trading on the playground years ago, and holding it again brought back a rush of memories. I thought of watching the show with my sister, debating which version of the game we would each pick, and the thrill of collecting with friends at recess. Sherry Turkle talks about "evocative objects," things that are not just objects but carry emotion, memory, and identity. For me, this card is more than just nostalgia. It reminds me how games became a space for imagination and connection. That is a big part of why I am drawn to game design today, because something small can hold such deep personal meaning.</p>
             
             <p>Henry Jenkins' idea of transmedia storytelling also helps explain why Pokémon had such a lasting impact on me. It was not just a game. It was a whole world that existed across the TV show, the trading cards, the handheld games, and even in the way we played and talked about it in real life. Each format added a new piece to the story, and as a kid, I did not realize I was interacting with a massive, interconnected narrative. Looking back now, I see that Pokémon taught me how stories can be interactive and collaborative, and how players help build the experience. Jenkins explains that transmedia invites deeper immersion, and I felt that every time I caught a new Pokémon, traded cards with friends, or argued over which team was stronger.</p>
             
             <p>Twyla Tharp writes about memory as a tool, something you draw from creatively, not just something you look back on. When I think about how Pokémon was designed, the evolving creatures, the strategy of types, and the simple but addictive act of collecting, I realize those mechanics shaped how I understand design today. "Everything is a Remix" also made me think about how Pokémon blended familiar ideas into something new, combining RPG battles, monster collecting, and the culture of trading cards. That mix created a game that felt personal but also widely shared, something that brought people together. Now, as I design my own games, I find myself pulling from those early experiences, trying to create systems that are fun and meaningful, where players do not just interact but feel something. That card I found in Japan still reminds me why I started and why design continues to matter to me.</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 6 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 6 Reading Response</h3>
-            <span class="response-date">Paper Prototyping in Game Design</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 6 Reading Response</span>
+                            <span class="response-date">Paper Prototyping in Game Design</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>The reading for this week reminds me much of the Paper Prototyping in Game Design. In games, the equivalent is a low-fidelity simulation of gameplay systems, UI or narrative flow. We built this using index cards, dice, markers, and paper rather than code or digital engines first. We "act out" the game's logic before implementing it. For example, sketching out menus, inventory systems, or dialogue trees to test usability. Using cards to represent combat turns, inventory management, or power-ups. Drawing level layouts on graph paper to test navigation and pacing. These all mirror what Snyder describes. "Testing interaction, flow, and player understanding before writing code. Just as web designers test navigation before programming a site." Paper prototyping allows you to validate game mechanics early, test player comprehension, explore narrative structure, and iterate instantly. Key benefits of Synders' paper include preventing wasted dev time, encouraging collaboration, improving user testing, and supporting iteration on emotional flow. Paper prototyping can be a simulation of how players will actually engage with those systems. Instead of static sketches or descriptions, it involves building rough, movable paper interfaces or gameplay elements to observe real player behavior. Not to be confused with design documentation and concept art, paper prototyping tests HOW it feels to play.</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 7 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 7 Reading Response</h3>
-            <span class="response-date">Pacing, Rhythm & Visual Storytelling</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 7 Reading Response</span>
+                            <span class="response-date">Pacing, Rhythm & Visual Storytelling</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>Scott McCloud's idea of pacing and rhythm in comics shows how time can be shaped through visual storytelling. The way panels are arranged, sized, and spaced controls how the reader experiences emotion and movement. A small panel can feel like a quick breath, while a large one can stretch a moment into reflection. This structure turns the reader into an active participant who senses time passing through design rather than motion. Understanding pacing allows an artist or storyteller to guide attention, tension, and emotion with precision. It reveals that stories are not only about what happens, but about how the reader experiences what happens.</p>
             
             <p>In game design, this same concept translates into the control of player rhythm and flow. Just like the transitions between comic panels, designers use pacing through environment, dialogue timing, and interactive pauses to shape a player's emotional journey. A fast sequence of actions can create excitement or chaos, while a slow, quiet moment can build atmosphere or empathy. Thinking about pacing as visual rhythm helps designers understand how to balance intensity and calm, giving players space to breathe or reflect. McCloud's ideas remind us that every creative medium has its own heartbeat, and learning to control that rhythm is what turns a sequence of events into an experience that truly feels alive.</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 8 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 8 Reading Response</h3>
-            <span class="response-date">Design Research</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 8 Reading Response</span>
+                            <span class="response-date">Design Research</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>Reading Lab, Field, Showroom and Frayling's Research in Art and Design reminded me that design research doesn't really "end", it just changes form. Each prototype becomes a marker in a longer story of inquiry. I've been thinking about that in my own work: when a game character finally blinks back at you, or a digital villager mirrors your smile, that moment isn't the conclusion of my research, it's the beginning of a new kind of dialogue. My project on emotion-aware NPCs isn't just about building better characters; it's about testing how empathy might exist between human and machine. What happens when a character notices you? When a game doesn't just display emotion, but listens to it? I want my prototypes to stay open, to keep asking those questions long after the code compiles.</p>
             
             <p>The same applies to my work on affordance recognition, teaching systems to see use in 3D shapes. It started as a technical challenge but turned into a philosophical one: how do digital worlds learn to feel "alive"? How can an algorithm learn to imagine the possibilities of an object the way a player does? Reading about how design research reframes problems made me realize that my work isn't about solving interaction, it's about re-imagining what interaction could be. Both projects, in their own way, are about keeping exploration alive. I don't want to build artifacts that end the conversation. I want to build worlds and systems that invite others to keep playing, keep questioning, and keep feeling.</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 9 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 9 Reading Response</h3>
-            <span class="response-date">Cultural Probes & Empathy in Design</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 9 Reading Response</span>
+                            <span class="response-date">Cultural Probes & Empathy in Design</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>Reading The Promise of Empathy made me think about emotional design in a more critical way. Rosner and Bennett explain that empathy in design is not just about trying to understand others, but about recognizing the power differences that exist when designers try to interpret someone else's experience. This made me reflect on my own project since I am creating an NPC system that reads player emotions. It reminded me that emotional design should respect the player's comfort and agency, and not treat emotional data as something to extract or control.</p>
             
             <p>Cultural Probes helped me see the value of open-ended, expressive methods in design. The idea that people should be allowed to communicate their feelings in their own way connects strongly to emotional gameplay. It made me think that not every emotional moment needs to be perfectly analyzed by a system. Sometimes ambiguity and personal interpretation can create richer experiences. Universal Methods of Design supported this by showing that design research includes many approaches, from structured techniques to more exploratory ones. Together, these readings encouraged me to think about emotional interaction in a way that is respectful, flexible, and centered on the player's own meaning making.</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
     <!-- Week 10 Reading Response -->
-    <div class="reading-response">
-        <div class="response-header">
-            <h3>Week 10 Reading Response</h3>
-            <span class="response-date">Interaction Design & Prototyping</span>
-        </div>
-        <div class="response-content">
+    <div class="reading-response dr-card">
+                    <button type="button" class="dr-card-toggle" aria-expanded="false">
+                        <span class="rr-heading">
+                            <span class="rr-title">Week 10 Reading Response</span>
+                            <span class="response-date">Interaction Design & Prototyping</span>
+                        </span>
+                    </button>
+                    <div class="dr-card-body">
+                        <div>
+                            <div class="response-content">
             <p>Designing for Interaction helped me understand why the moment to moment emotional loop is the main focus of my prototype. Saffer explains that interaction design is about how systems behave and respond over time. This fits directly with my work because I am not building a full game world. I am designing a specific interaction, which is how an NPC responds emotionally to the player in real time. Thinking about it as interaction design made the scope feel clearer and more approachable.</p>
             
             <p>Houde and Hill's writing on prototypes helped me see how my project fits into their idea of prototyping the role of a system. My prototype is not meant to show full narrative depth or final visuals. Instead, it tests one specific behavior. It asks whether emotional responsiveness can feel meaningful on its own. Universal Methods of Design supports this by showing how different types of methods help answer different questions. These readings together helped me understand that a small, focused prototype can still test an important idea, and that it is valid to isolate one interaction and explore it deeply.</p>
         </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
 
 </div>
             
@@ -1008,5 +1118,6 @@
 
         </div>
     </main>
+    <script src="js/dr-ui.js?v=2"></script>
 </body>
 </html>

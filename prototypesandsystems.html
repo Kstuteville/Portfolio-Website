@@ -3,102 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dr-theme.css?v=2">
     <title>Veilbound - Prototypes & Systems</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;800&display=swap");
-        
-        @font-face {
-            font-family: "Highwind";
-            src: url("./fonts/Highwind.ttf") format("truetype");
-            font-weight: normal;
-            font-style: normal;
-        }
+        /* Shared chrome (reset, body, header, nav, main) lives in dr-theme.css */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: "Highwind", sans-serif;
-            font-size: 1.5rem;
-            color: #fff;
-            letter-spacing: 0.2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        nav ul a {
-            text-decoration: none;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: 300;
-            font-size: 0.9rem;
-            letter-spacing: 0.1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav ul a:hover {
-            color: #ccc;
-        }
-
-        nav ul a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: #fff;
-            transition: width 0.3s ease;
-        }
-
-        nav ul a:hover::after {
-            width: 100%;
-        }
-
-        /* Main Content */
-        main {
-            padding-top: 120px;
-            min-height: 100vh;
-        }
 
         .systems-container {
             max-width: 1200px;
@@ -127,8 +36,8 @@
         }
 
         .system-card {
-            background: linear-gradient(135deg, rgba(138, 138, 255, 0.1) 0%, rgba(102, 102, 221, 0.1) 100%);
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            background: linear-gradient(135deg, rgba(110, 201, 255, 0.1) 0%, rgba(33, 118, 168, 0.1) 100%);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             border-radius: 20px;
             padding: 3rem;
             margin-bottom: 4rem;
@@ -143,12 +52,12 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
         }
 
         .system-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
             color: #fff;
             padding: 0.5rem 1rem;
             border-radius: 20px;
@@ -163,7 +72,7 @@
             font-family: "Highwind", sans-serif;
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             letter-spacing: 0.2rem;
         }
 
@@ -190,7 +99,7 @@
         }
 
         .feature-category h4 {
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-size: 1.2rem;
             margin-bottom: 1rem;
             text-transform: uppercase;
@@ -216,7 +125,7 @@
         }
 
         .feature-bullet {
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-weight: bold;
             margin-right: 0.8rem;
             flex-shrink: 0;
@@ -245,8 +154,8 @@
             height: 0;
             overflow: hidden;
             border-radius: 15px;
-            border: 2px solid rgba(138, 138, 255, 0.4);
-            box-shadow: 0 10px 30px rgba(138, 138, 255, 0.2);
+            border: 2px solid rgba(110, 201, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(110, 201, 255, 0.2);
             width: 100%;
         }
 
@@ -271,7 +180,7 @@
         .coming-soon-section h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-family: "Highwind", sans-serif;
         }
 
@@ -291,14 +200,6 @@
 
             nav ul {
                 gap: 1rem;
-            }
-
-            nav ul a {
-                font-size: 0.8rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
             }
 
             .systems-container h1 {
@@ -332,17 +233,144 @@
                 font-size: 1.8rem;
             }
         }
+    
+        /* ---- Game-UI theme overrides ---- */
+        .systems-container h1 {
+            font-family: var(--dr-pixel);
+            font-size: clamp(1.5rem, 4vw, 2.6rem);
+            line-height: 1.3;
+            letter-spacing: 0.04em;
+            color: var(--dr-white);
+            background: none;
+            -webkit-text-fill-color: currentColor;
+            text-shadow: 4px 4px 0 var(--dr-outline), 8px 8px 0 var(--dr-accent-deep);
+            transform: rotate(-1.5deg);
+        }
+
+        .systems-subtitle {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--dr-accent);
+        }
+
+        .system-card {
+            background: var(--dr-panel);
+            border: 3px solid var(--dr-outline);
+            border-radius: 0;
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55);
+            clip-path: polygon(
+                var(--dr-notch) 0, 100% 0,
+                100% calc(100% - var(--dr-notch)), calc(100% - var(--dr-notch)) 100%,
+                0 100%, 0 var(--dr-notch)
+            );
+        }
+
+        .system-card::before {
+            height: 6px;
+            background: var(--dr-accent);
+        }
+
+        .system-badge {
+            font-family: var(--dr-pixel);
+            font-size: 0.55rem;
+            line-height: 1.9;
+            border-radius: 0;
+            background: var(--dr-accent-deep);
+            border: 3px solid var(--dr-outline);
+            color: var(--dr-white);
+            letter-spacing: 0.04em;
+            transform: skewX(-12deg);
+            padding: 0.6rem 1.1rem;
+        }
+
+        .system-card h2 {
+            font-family: var(--dr-pixel);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--dr-white);
+            letter-spacing: 0.03em;
+            padding-left: 0.9rem;
+            border-left: 7px solid var(--dr-accent);
+        }
+
+        .system-card .subtitle {
+            color: var(--dr-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+        }
+
+        .feature-category h4 {
+            font-family: var(--dr-pixel);
+            font-size: 0.6rem;
+            line-height: 1.9;
+            color: var(--dr-accent);
+            letter-spacing: 0.03em;
+        }
+
+        .feature-list {
+            background: rgba(0, 0, 0, 0.35);
+            border: 2px solid var(--dr-accent-deep);
+            border-radius: 0;
+        }
+
+        .feature-item {
+            padding-left: 0;
+            border-left: 4px solid var(--dr-accent-deep);
+            padding-left: 0.9rem;
+            transition: border-color 0.2s ease, transform 0.2s var(--dr-slam);
+        }
+
+        .feature-item:hover {
+            border-left-color: var(--dr-accent);
+            transform: translateX(4px);
+        }
+
+        .feature-title {
+            font-family: var(--dr-pixel);
+            font-size: 0.58rem;
+            line-height: 1.9;
+            color: var(--dr-white);
+        }
+
+        .video-container {
+            border: 3px solid var(--dr-outline);
+            border-radius: 0;
+            box-shadow: 8px 8px 0 var(--dr-accent-deep);
+        }
+
+        .coming-soon-section {
+            background: rgba(110, 201, 255, 0.05);
+            border: 3px dashed var(--dr-accent-deep);
+            border-radius: 0;
+        }
+
+        .coming-soon-section h2 {
+            font-family: var(--dr-pixel);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--dr-accent);
+        }
+
     </style>
+    <link rel="stylesheet" href="dr-polish.css?v=1">
 </head>
-<body>
+<body data-page="prototypes">
+    <div class="dr-transition" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
     <header>
         <nav>
             <div class="logo">Kaylie Stuteville</div>
             <ul>
-                <li><a href="about.html">About Me</a></li>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About Me</a></li>
                 <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="prototypesandsystems.html" aria-current="page">Prototypes</a></li>
                 <li><a href="process.html">Design Process</a></li>
                 <li><a href="contacts.html">Contact</a></li>
             </ul>
@@ -353,8 +381,17 @@
         <div class="systems-container">
             <h1>Prototypes & Systems</h1>
             <p class="systems-subtitle">Core gameplay mechanics and technical systems driving the Veilbound experience</p>
-            
-            <div class="system-card">
+
+            <!-- Preview cards so the three systems are visible immediately,
+                 instead of only being findable by scrolling. -->
+            <nav class="systems-jump" aria-label="Prototype list">
+                <a href="#swordcombat">Sword Combat &amp; Traversal Prototype</a>
+                <a href="#horrorsurvival">Adaptive AI &amp; Survival Mechanics</a>
+                <a href="#pcgdungeon">PCG Dungeon Generation Prototype</a>
+            </nav>
+
+                        <div class="systems-grid">
+<div class="system-card" id="swordcombat">
                 <div class="system-badge">Combat & Traversal System</div>
                 <h2>Sword Combat & Traversal Prototype</h2>
                 <p class="subtitle">Unreal Engine - Core Player Controls</p>
@@ -366,21 +403,18 @@
                         <h4>Combat System</h4>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Three Distinct Sword Attacks</div>
                                     <div class="feature-description">Chained combo system allowing for varied attack sequences and tactical combat flow</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Kick Mechanic</div>
                                     <div class="feature-description">Interrupt enemy actions and break guard states for strategic combat advantage</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Assassinate Move (Right-Click)</div>
                                     <div class="feature-description">Contextual high-damage strikes for stealth and tactical elimination</div>
@@ -393,21 +427,18 @@
                         <h4>Traversal System</h4>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Custom Movement Script</div>
                                     <div class="feature-description">Smooth, responsive player control with optimized input handling</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Crouch System</div>
                                     <div class="feature-description">Stealth mechanics and enhanced mobility in confined spaces</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Vaulting Mechanics</div>
                                     <div class="feature-description">Seamless obstacle navigation to expand exploration and encourage emergent gameplay</div>
@@ -422,7 +453,7 @@
                 </div>
             </div>
 
-            <div class="system-card">
+            <div class="system-card" id="horrorsurvival">
                 <div class="system-badge">Horror Survival System</div>
                 <h2>Adaptive AI & Survival Mechanics</h2>
                 <p class="subtitle">Unreal Engine - Psychological Horror Systems for Requiem Forest</p>
@@ -438,21 +469,18 @@
                         <h4>AI Detection System</h4>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Dual-Sense Detection Model</div>
                                     <div class="feature-description">Monster uses both sight detection (triggers full chase when visible) and proximity detection (triggers investigation when close but hidden), allowing effective hiding even at close range</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Multi-Sensory Awareness</div>
                                     <div class="feature-description">AI reacts to visual contact and player event triggers, creating realistic awareness that promotes stealth and spatial planning over pure speed</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Emergent Encounters</div>
                                     <div class="feature-description">Unpredictable AI behavior ensures each encounter feels unique, avoiding pattern memorization and maintaining tension</div>
@@ -465,21 +493,18 @@
                         <h4>Resource Management</h4>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Stamina System</div>
                                     <div class="feature-description">Sprinting drains stamina; full depletion causes exhaustion with slower movement and longer recharge times, forcing strategic movement decisions</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Flashlight & Battery Management</div>
                                     <div class="feature-description">Essential visibility tool that drains battery over time; players must scavenge batteries throughout environment and strategically toggle usage</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Risk vs. Reward Balance</div>
                                     <div class="feature-description">Every resource decision creates tension: use flashlight for safety but risk battery depletion, or sprint to escape but become exhausted</div>
@@ -492,21 +517,18 @@
                         <h4>Sensory Feedback Systems</h4>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Dynamic Heartbeat Proximity System</div>
                                     <div class="feature-description">Audio cue intensifies as monster approaches: faster and louder heartbeat signals danger without showing the threat directly</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Diegetic Warning System</div>
                                     <div class="feature-description">Immersive audio feedback builds psychological tension and spatial awareness, acting as player's primary safety indicator</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Contextual Jump Scare</div>
                                     <div class="feature-description">When caught, sudden close-up encounter with intense audio serves as tension payoff, emphasizing fear of failure and heightening chase adrenaline</div>
@@ -517,7 +539,7 @@
                 </div>
             </div>
 
-            <div class="system-card">
+            <div class="system-card" id="pcgdungeon">
                 <div class="system-badge">Procedural Generation System</div>
                 <h2>PCG Dungeon Generation Prototype</h2>
                 <p class="subtitle">Unreal Engine - Dynamic World Building for PVP Combat</p>
@@ -532,21 +554,18 @@
                         <h4>Generation System</h4>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Custom Room Array (5 Room Types)</div>
                                     <div class="feature-description">Diverse room templates cycle through randomly, creating unique dungeon layouts each generation</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Weighted Room Distribution</div>
                                     <div class="feature-description">Boss rooms spawn once at map end, stair rooms appear less frequently, ensuring balanced dungeon progression</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Seed-Based Generation</div>
                                     <div class="feature-description">Save and reproduce preferred map layouts by using specific seeds for consistent dungeon generation</div>
@@ -559,21 +578,18 @@
                         <h4>Customization Parameters</h4>
                         <div class="feature-list">
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Adjustable Room Count</div>
                                     <div class="feature-description">Specify exact number of rooms to control dungeon size and exploration duration</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Enemy Population Control</div>
                                     <div class="feature-description">Set enemy density per dungeon, scaling challenge level for different player skill ranges</div>
                                 </div>
                             </div>
                             <div class="feature-item">
-                                <span class="feature-bullet"></span>
                                 <div class="feature-content">
                                     <div class="feature-title">Boss Room & Exit System</div>
                                     <div class="feature-description">Guaranteed boss encounter at dungeon terminus with AI boss and exit point for victory condition</div>
@@ -583,12 +599,14 @@
                     </div>
                 </div>
             </div>
+            </div>
 
-            <div class="coming-soon-section">
+<div class="coming-soon-section">
                 <h2>Additional Systems in Development</h2>
                 <p>More gameplay systems are currently being prototyped and refined, including adaptive AI behaviors, spirit companion mechanics, and environmental interaction systems. Each prototype builds toward the complete Veilbound experience, with detailed documentation and video demonstrations coming soon.</p>
             </div>
         </div>
     </main>
+    <script src="js/dr-ui.js?v=2"></script>
 </body>
 </html>

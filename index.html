@@ -3,8 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Small-screen routing. This is the ONLY addition to this page: it changes
+         no markup, no CSS and no layout - it just sends narrow viewports to the
+         still version, because the parallax below is built from layers pinned at
+         fixed pixel offsets and cannot hold together at phone width.
+         Placed before the stylesheet so a phone redirects before it starts
+         downloading the artwork. -->
+    <script>
+    (function () {
+        try {
+            // ?desktop=1 lets anyone force the full site, and it sticks while
+            // they browse, so a tablet user isn't locked out of the real page.
+            if (location.search.indexOf('desktop=1') > -1) {
+                sessionStorage.setItem('forceDesktop', '1');
+            }
+            if (sessionStorage.getItem('forceDesktop') === '1') return;
+
+            // Width, not user-agent: UA sniffing misses Android, breaks on new
+            // devices, and says nothing about the actual screen size.
+            if (window.innerWidth <= 900) {
+                // replace(), not href: otherwise index stays in history and the
+                // Back button bounces straight back here and redirects again.
+                location.replace('mobile.html');
+            }
+        } catch (e) {
+            /* routing must never be able to break the page */
+        }
+    })();
+    </script>
     <title>Veilbound Website</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Pixel font for the chrome only. Deliberately scoped to the nav and the
+           music player: the centred "Veilbound" title (body.home .text h2 in
+           style.css) must keep its Highwind face, so it is never targeted here.
+           dr-theme.css is intentionally NOT linked on this page — its main/body
+           rules would fight style.css's full-viewport parallax container. */
+        @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+        header nav ul li a,
+        header ul a {
+            font-family: "Press Start 2P", "Courier New", monospace;
+            font-size: 0.55rem;
+            line-height: 1.6;
+            letter-spacing: 0.05rem;
+        }
+
+        header nav ul li a[aria-current="page"] {
+            color: #6ec9ff;
+            pointer-events: none;
+        }
+
+        .music-title {
+            font-family: "Press Start 2P", "Courier New", monospace;
+            font-size: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .music-artist {
+            font-family: "Press Start 2P", "Courier New", monospace;
+            font-size: 0.42rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 725px) {
+            header nav ul li a,
+            header ul a {
+                font-size: 0.45rem;
+            }
+        }
+    </style>
 </head>
 <body class="home">
    
@@ -12,13 +81,13 @@
         <nav>
             <img src="websitepngs/Kaylie_Stuteville.png" alt="Kaylie Stuteville" class="logo">
             <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
-     
                 <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="prototypesandsystems.html">Prototypes</a></li>
                 <li><a href="process.html">Design Process</a></li>
                 <li><a href="contacts.html">Contact</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                 <li><a href="prototypesandsystems.html">Gameplay Prototypes</a></li>
 
                  <li class="hamburger">
                     <a href="#">

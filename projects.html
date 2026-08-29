@@ -3,106 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dr-theme.css?v=2">
     <title>Veilbound - Projects</title>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;800&display=swap");
-        
-        @font-face {
-            font-family: "Highwind";
-            src: url("./fonts/Highwind.ttf") format("truetype");
-            font-weight: normal;
-            font-style: normal;
-        }
+        /* Shared chrome (reset, body, header, nav, main) lives in dr-theme.css */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: "Highwind", sans-serif;
-            font-size: 1.5rem;
-            color: #fff;
-            letter-spacing: 0.2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        nav ul a {
-            text-decoration: none;
-            color: #fff;
-            text-transform: uppercase;
-            font-weight: 300;
-            font-size: 0.9rem;
-            letter-spacing: 0.1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav ul a:hover {
-            color: #ccc;
-        }
-
-        nav ul a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: #fff;
-            transition: width 0.3s ease;
-        }
-
-        nav ul a:hover::after {
-            width: 100%;
-        }
-
-        /* Main Content */
-        main {
-            padding-top: 120px;
-            min-height: 100vh;
-        }
 
         .projects-container {
             max-width: 1400px;
@@ -154,11 +59,11 @@
         .project-preview:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            border-color: rgba(138, 138, 255, 0.5);
+            border-color: rgba(110, 201, 255, 0.5);
         }
 
         .project-preview.featured {
-            border: 2px solid rgba(138, 138, 255, 0.4);
+            border: 2px solid rgba(110, 201, 255, 0.4);
         }
 
         .project-preview.featured::before {
@@ -168,14 +73,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
         }
 
         .preview-image {
             width: 100%;
             height: 250px;
             object-fit: cover;
-            background: linear-gradient(135deg, rgba(138, 138, 255, 0.1), rgba(102, 102, 221, 0.1));
+            background: linear-gradient(135deg, rgba(110, 201, 255, 0.1), rgba(33, 118, 168, 0.1));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -195,7 +100,7 @@
 
         .preview-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
             color: #fff;
             padding: 0.4rem 0.8rem;
             border-radius: 15px;
@@ -215,7 +120,7 @@
 
         .preview-content .subtitle {
             font-size: 0.95rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             margin-bottom: 1rem;
             font-style: italic;
         }
@@ -235,18 +140,18 @@
         }
 
         .preview-tag {
-            background: rgba(138, 138, 255, 0.2);
+            background: rgba(110, 201, 255, 0.2);
             color: #fff;
             padding: 0.4rem 0.8rem;
             border-radius: 15px;
             font-size: 0.75rem;
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            border: 1px solid rgba(110, 201, 255, 0.3);
         }
 
         .expand-indicator {
             text-align: center;
             padding: 1rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-size: 0.9rem;
             font-weight: 600;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -254,7 +159,7 @@
         }
 
         .expand-indicator:hover {
-            background: rgba(138, 138, 255, 0.1);
+            background: rgba(110, 201, 255, 0.1);
         }
 
 
@@ -273,7 +178,7 @@
             max-height: 190px;
             overflow-y: auto;
             scrollbar-width: thin;
-            scrollbar-color: rgba(138, 138, 255, 0.3) transparent;
+            scrollbar-color: rgba(110, 201, 255, 0.3) transparent;
             width: 100%;
             border: 1px solid rgba(255, 255, 255, 0.07);
             border-radius: 8px;
@@ -289,7 +194,7 @@
         }
 
         .github-repo-scroll::-webkit-scrollbar-thumb {
-            background: rgba(138, 138, 255, 0.3);
+            background: rgba(110, 201, 255, 0.3);
             border-radius: 2px;
         }
 
@@ -311,7 +216,7 @@
         }
 
         .github-repo-item:hover {
-            background: rgba(138, 138, 255, 0.08);
+            background: rgba(110, 201, 255, 0.08);
         }
 
         .github-repo-item.award-item:hover {
@@ -362,9 +267,9 @@
 
         .repo-badge-open {
             font-size: 0.68rem;
-            color: #8a8aff;
-            background: rgba(138, 138, 255, 0.12);
-            border: 1px solid rgba(138, 138, 255, 0.2);
+            color: var(--dr-accent);
+            background: rgba(110, 201, 255, 0.12);
+            border: 1px solid rgba(110, 201, 255, 0.2);
             padding: 0.2rem 0.5rem;
             border-radius: 10px;
             white-space: nowrap;
@@ -394,8 +299,8 @@
         }
 
         .featured-project {
-            background: linear-gradient(135deg, rgba(138, 138, 255, 0.1) 0%, rgba(102, 102, 221, 0.1) 100%);
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            background: linear-gradient(135deg, rgba(110, 201, 255, 0.1) 0%, rgba(33, 118, 168, 0.1) 100%);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             border-radius: 20px;
             padding: 3rem;
             position: relative;
@@ -410,12 +315,12 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
         }
 
         .featured-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
             color: #fff;
             padding: 0.5rem 1rem;
             border-radius: 20px;
@@ -430,7 +335,7 @@
             font-family: "Highwind", sans-serif;
             font-size: 3rem;
             margin-bottom: 1rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             letter-spacing: 0.2rem;
         }
 
@@ -463,7 +368,7 @@
         }
 
         .detail-item h4 {
-            color: #8a8aff;
+            color: var(--dr-accent);
             margin-bottom: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
@@ -484,17 +389,17 @@
         }
 
         .tech-tag {
-            background: rgba(138, 138, 255, 0.2);
+            background: rgba(110, 201, 255, 0.2);
             color: #fff;
             padding: 0.6rem 1.2rem;
             border-radius: 20px;
             font-size: 0.9rem;
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             transition: all 0.3s ease;
         }
 
         .tech-tag:hover {
-            background: rgba(138, 138, 255, 0.3);
+            background: rgba(110, 201, 255, 0.3);
             transform: translateY(-2px);
         }
 
@@ -531,8 +436,8 @@
             height: 0;
             overflow: hidden;
             border-radius: 15px;
-            border: 2px solid rgba(138, 138, 255, 0.4);
-            box-shadow: 0 10px 30px rgba(138, 138, 255, 0.2);
+            border: 2px solid rgba(110, 201, 255, 0.4);
+            box-shadow: 0 10px 30px rgba(110, 201, 255, 0.2);
             width: 100%;
         }
 
@@ -548,7 +453,7 @@
         .cinematic-caption {
             margin-top: 1.5rem;
             font-size: 1.1rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             font-style: italic;
             letter-spacing: 0.05rem;
             line-height: 1.5;
@@ -568,7 +473,7 @@
         .project-documents h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             text-align: center;
             letter-spacing: 0.1rem;
         }
@@ -581,7 +486,7 @@
 
         .document-preview {
             background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(138, 138, 255, 0.2);
+            border: 1px solid rgba(110, 201, 255, 0.2);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -589,14 +494,14 @@
 
         .document-preview:hover {
             background: rgba(0, 0, 0, 0.6);
-            border-color: rgba(138, 138, 255, 0.4);
+            border-color: rgba(110, 201, 255, 0.4);
             transform: translateY(-5px);
         }
 
         .document-header {
             padding: 1.5rem;
-            background: rgba(138, 138, 255, 0.1);
-            border-bottom: 1px solid rgba(138, 138, 255, 0.2);
+            background: rgba(110, 201, 255, 0.1);
+            border-bottom: 1px solid rgba(110, 201, 255, 0.2);
         }
 
         .document-header h4 {
@@ -608,7 +513,7 @@
 
         .document-type {
             font-size: 0.9rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             text-transform: uppercase;
             letter-spacing: 0.1rem;
         }
@@ -634,7 +539,7 @@
 
         .slide-subtitle {
             font-size: 0.95rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             margin-bottom: 1rem;
             font-style: italic;
         }
@@ -648,7 +553,7 @@
             color: #ccc;
             margin: 0.4rem 0;
             padding-left: 0.5rem;
-            border-left: 2px solid rgba(138, 138, 255, 0.3);
+            border-left: 2px solid rgba(110, 201, 255, 0.3);
         }
 
         .document-actions {
@@ -661,7 +566,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
             color: #fff;
             padding: 1rem 1.5rem;
             border-radius: 8px;
@@ -675,7 +580,7 @@
         .doc-link:hover {
             background: linear-gradient(135deg, #9999ff 0%, #7777ee 100%);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(138, 138, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(110, 201, 255, 0.3);
         }
 
         .doc-link svg {
@@ -689,7 +594,7 @@
         }
 
         .project-subsection h4 {
-            color: #8a8aff;
+            color: var(--dr-accent);
             margin-bottom: 1.5rem;
             font-size: 1.4rem;
         }
@@ -705,7 +610,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 12px;
-            border: 1px solid rgba(138, 138, 255, 0.3);
+            border: 1px solid rgba(110, 201, 255, 0.3);
             aspect-ratio: 16/9;
         }
 
@@ -739,7 +644,7 @@
         .other-projects {
             margin-top: 6rem;
             padding-top: 4rem;
-            border-top: 2px solid rgba(138, 138, 255, 0.3);
+            border-top: 2px solid rgba(110, 201, 255, 0.3);
         }
 
         .other-projects h2 {
@@ -747,7 +652,7 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             text-align: center;
-            color: #8a8aff;
+            color: var(--dr-accent);
             letter-spacing: 0.2rem;
         }
 
@@ -768,7 +673,7 @@
 
         .project-card:hover {
             background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(138, 138, 255, 0.3);
+            border-color: rgba(110, 201, 255, 0.3);
             transform: translateY(-5px);
         }
 
@@ -780,8 +685,8 @@
 
         .project-type {
             display: inline-block;
-            background: rgba(138, 138, 255, 0.2);
-            color: #8a8aff;
+            background: rgba(110, 201, 255, 0.2);
+            color: var(--dr-accent);
             padding: 0.4rem 0.8rem;
             border-radius: 12px;
             font-size: 0.8rem;
@@ -801,16 +706,16 @@
             text-align: center;
             padding: 4rem 2rem;
             margin: 4rem 0;
-            background: rgba(138, 138, 255, 0.05);
+            background: rgba(110, 201, 255, 0.05);
             border-radius: 20px;
-            border: 1px solid rgba(138, 138, 255, 0.2);
+            border: 1px solid rgba(110, 201, 255, 0.2);
         }
 
         .coming-soon-section h2 {
             font-family: "Highwind", sans-serif;
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            color: #8a8aff;
+            color: var(--dr-accent);
             letter-spacing: 0.2rem;
         }
 
@@ -827,7 +732,7 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background: linear-gradient(135deg, #8a8aff 0%, #6666dd 100%);
+            background: linear-gradient(135deg, var(--dr-accent) 0%, var(--dr-accent-deep) 100%);
             color: #fff;
             width: 50px;
             height: 50px;
@@ -849,7 +754,7 @@
 
         .back-to-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(138, 138, 255, 0.4);
+            box-shadow: 0 10px 25px rgba(110, 201, 255, 0.4);
         }
 
         /* Responsive Design */
@@ -883,19 +788,290 @@
                 gap: 1rem;
             }
         }
+    
+        /* ---- Game-UI theme overrides ---- */
+        .projects-container h1 {
+            font-family: var(--dr-pixel);
+            font-size: clamp(1.5rem, 4vw, 2.6rem);
+            line-height: 1.3;
+            letter-spacing: 0.04em;
+            color: var(--dr-white);
+            background: none;
+            -webkit-text-fill-color: currentColor;
+            text-shadow: 4px 4px 0 var(--dr-outline), 8px 8px 0 var(--dr-accent-deep);
+            transform: rotate(-1.5deg);
+        }
+
+        .projects-subtitle {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--dr-accent);
+        }
+
+        /* Cards */
+        .project-preview,
+        .featured-project,
+        .project-card,
+        .document-preview {
+            background: var(--dr-panel);
+            border: 3px solid var(--dr-outline);
+            border-radius: 0;
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55);
+            backdrop-filter: none;
+            clip-path: polygon(
+                14px 0, 100% 0,
+                100% calc(100% - 14px), calc(100% - 14px) 100%,
+                0 100%, 0 14px
+            );
+        }
+
+        .project-preview:hover,
+        .project-card:hover {
+            background: var(--dr-panel-2);
+            transform: translate(-3px, -3px);
+            box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.6);
+        }
+
+        .project-preview.featured::before,
+        .featured-project::before {
+            background: var(--dr-accent);
+            height: 6px;
+        }
+
+        /* Badges */
+        .preview-badge,
+        .featured-badge,
+        .project-type {
+            font-family: var(--dr-pixel);
+            font-size: 0.52rem;
+            line-height: 1.9;
+            border-radius: 0;
+            background: var(--dr-accent-deep);
+            border: 3px solid var(--dr-outline);
+            color: var(--dr-white);
+            letter-spacing: 0.04em;
+            padding: 0.55rem 1rem;
+            transform: skewX(-12deg);
+            display: inline-block;
+        }
+
+        /* Headings */
+        .preview-content h3,
+        .project-card h3 {
+            font-family: var(--dr-pixel);
+            font-size: 0.82rem;
+            line-height: 1.7;
+            color: var(--dr-white);
+            letter-spacing: 0.03em;
+            padding-left: 0.85rem;
+            border-left: 6px solid var(--dr-accent);
+        }
+
+        .featured-project h2 {
+            font-family: var(--dr-pixel);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--dr-white);
+            letter-spacing: 0.03em;
+            background: none;
+            -webkit-text-fill-color: currentColor;
+            padding-left: 0.9rem;
+            border-left: 7px solid var(--dr-accent);
+        }
+
+        .preview-content .subtitle,
+        .featured-project .subtitle {
+            color: var(--dr-accent);
+            font-style: normal;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-subsection h4,
+        .detail-item h4 {
+            font-family: var(--dr-pixel);
+            font-size: 0.58rem;
+            line-height: 1.9;
+            color: var(--dr-accent);
+            letter-spacing: 0.03em;
+        }
+
+        /* Tags */
+        .preview-tag,
+        .tech-tag {
+            background: rgba(110, 201, 255, 0.12);
+            border: 2px solid var(--dr-accent-deep);
+            border-radius: 0;
+            color: var(--dr-ink);
+            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+        }
+
+        .preview-tag:hover,
+        .tech-tag:hover {
+            background: rgba(110, 201, 255, 0.24);
+            border-color: var(--dr-accent);
+        }
+
+        .expand-indicator {
+            font-family: var(--dr-pixel);
+            font-size: 0.5rem;
+            line-height: 1.9;
+            color: var(--dr-accent);
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 3px solid var(--dr-outline);
+            letter-spacing: 0.03em;
+        }
+
+        .expand-indicator:hover {
+            background: rgba(110, 201, 255, 0.12);
+        }
+
+        /* Detail grid + status */
+        .detail-item {
+            background: rgba(0, 0, 0, 0.35);
+            border: 2px solid var(--dr-accent-deep);
+            border-radius: 0;
+        }
+
+        .project-status {
+            border-radius: 0;
+            border: 2px solid var(--dr-accent-deep);
+            background: rgba(110, 201, 255, 0.08);
+            font-family: var(--dr-pixel);
+            font-size: 0.5rem;
+            line-height: 1.9;
+            letter-spacing: 0.03em;
+        }
+
+        .status-dot {
+            border-radius: 0;
+            background: var(--dr-accent);
+        }
+
+        /* Media */
+        .env-image-container,
+        .video-container,
+        .cinematic-image img,
+        .preview-image {
+            border-radius: 0;
+        }
+
+        .env-image-container {
+            border: 3px solid var(--dr-outline);
+            box-shadow: 5px 5px 0 var(--dr-accent-deep);
+        }
+
+        .video-container {
+            border: 3px solid var(--dr-outline);
+            box-shadow: 8px 8px 0 var(--dr-accent-deep);
+        }
+
+        .preview-image {
+            border-bottom: 3px solid var(--dr-outline);
+        }
+
+        .cinematic-caption {
+            color: var(--dr-accent);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Docs + repos */
+        .doc-link,
+        .project-link {
+            font-family: var(--dr-pixel);
+            font-size: 0.5rem;
+            line-height: 1.9;
+            border-radius: 0;
+            border: 3px solid var(--dr-outline);
+            background: var(--dr-accent-deep);
+            color: var(--dr-white);
+            letter-spacing: 0.03em;
+        }
+
+        .doc-link:hover,
+        .project-link:hover {
+            background: var(--dr-accent);
+            color: #06263a;
+        }
+
+        .slide-preview {
+            border-radius: 0;
+            border: 2px solid var(--dr-accent-deep);
+        }
+
+        .slide-title {
+            font-family: var(--dr-pixel);
+            font-size: 0.6rem;
+            line-height: 1.8;
+            color: var(--dr-white);
+        }
+
+        .github-repo-item {
+            border-radius: 0;
+            border: 2px solid transparent;
+        }
+
+        .github-repo-item:hover {
+            border-color: var(--dr-accent);
+            background: rgba(110, 201, 255, 0.1);
+        }
+
+        .repo-name {
+            font-family: var(--dr-pixel);
+            font-size: 0.55rem;
+            line-height: 1.8;
+        }
+
+        /* Misc */
+        .other-projects h2,
+        .coming-soon-section h2 {
+            font-family: var(--dr-pixel);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--dr-accent);
+            letter-spacing: 0.03em;
+        }
+
+        .coming-soon-section {
+            background: rgba(110, 201, 255, 0.05);
+            border: 3px dashed var(--dr-accent-deep);
+            border-radius: 0;
+        }
+
+        .back-to-top {
+            border-radius: 0;
+            border: 3px solid var(--dr-outline);
+            background: var(--dr-accent-deep);
+            color: var(--dr-white);
+        }
+
+        .back-to-top:hover {
+            background: var(--dr-accent);
+            color: #06263a;
+        }
+
     </style>
+    <link rel="stylesheet" href="dr-polish.css?v=1">
 </head>
-<body>
+<body data-page="projects">
+    <div class="dr-transition" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
     <header>
         <nav>
             <div class="logo">Kaylie Stuteville</div>
             <ul>
-                <li><a href="about.html">About Me</a></li>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
                 <li><a href="experience.html">Experience</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="prototypesandsystems.html">Prototypes</a></li>
                 <li><a href="process.html">Design Process</a></li>
                 <li><a href="contacts.html">Contact</a></li>
-                <li><a href="prototypesandsystems.html">Gameplay Prototypes</a></li>
             </ul>
         </nav>
     </header>
@@ -906,7 +1082,19 @@
             <p class="projects-subtitle">Interactive experiences I create that blend technology, creativity, and storytelling</p>
             
             <!-- Project Preview Cards -->
-            <div class="projects-overview">
+            <!-- Jump nav: the page is long, so give people a route straight
+                 to the theme they care about. -->
+            <nav class="projects-jump" aria-label="Project categories">
+                <a href="#group-disney">Walt Disney Imagineering R&amp;D</a>
+                <a href="#group-research">Research</a>
+                <a href="#group-games">Games &amp; Interactive</a>
+                <a href="#group-code">Code &amp; Repos</a>
+            </nav>
+
+            <section class="projects-group" id="group-disney">
+                <h2 class="group-title">Walt Disney Imagineering R&amp;D</h2>
+                <p class="group-blurb">Emerging-technology R&amp;D for interactive character experiences.</p>
+                <div class="projects-overview">
                 <a href="#starwarsanzellans" class="project-preview featured">
                     <div class="preview-image">
                         <img src="websitepngs/Vilo.PNG" alt="Star Wars: Anzellans">
@@ -926,13 +1114,13 @@
 
                 <a href="#bdxprevis" class="project-preview featured">
                     <div class="preview-image">
-                        <img src="websitepngs/bdx.jpg" alt="Previs for BDX Shows">
+                        <video class="bdx-clip" src="websitepngs/bdx.mp4" poster="websitepngs/bdx.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Previsualization clip for BDX shows"></video>
                     </div>
                     <div class="preview-content">
                         <div class="preview-badge">Disney Imagineering R&D</div>
                         <h3>R&D for BDX shows</h3>
                         <p class="subtitle">Real-Time Previsualization</p>
-                        <p>Contributed to R&D on real-time previsualization for live character shows. </p>
+                        <p>I spearheaded a new approach to previsualizing BDX shows: planning and staging a live character show in real time, before anything is built physically. Details confidential for now.</p>
                         <div class="preview-tags">
                             <span class="preview-tag">Creative Technology</span>
                            
@@ -941,20 +1129,46 @@
                     <div class="expand-indicator">Click to view full project details ↓</div>
                 </a>
 
-                <a href="#ironlabyrinth" class="project-preview featured">
-                    <div class="preview-image">
-                        <img src="websitepngs/Screenshot 2025-11-04 at 12.07.51 AM.png" alt="Veilbound Environment">
+                </div>
+            </section>
+
+            <section class="projects-group" id="group-research">
+                <h2 class="group-title">Research</h2>
+                <p class="group-blurb">Machine learning and AI research into how characters perceive, move, and feel alive.</p>
+                <div class="projects-overview">
+                <a href="#rldrone" class="project-preview featured">
+                    <div class="preview-image preview-fit">
+                        <img src="websitepngs/rlchart.png" alt="PPO vs PID controller comparison diagram">
                     </div>
                     <div class="preview-content">
-                        <div class="preview-badge">Single Developer/Producer</div>
-                        <h3>Iron Labyrinth</h3>
-                        <p class="subtitle">Procedural Dungeon PvP with Cinematic Combat</p>
-                        <p>A dynamic dungeon crawler featuring procedural generation where no two runs are alike. Navigate unpredictable labyrinths, battle adaptive AI enemies, and experience cinematic combat through motion-captured sequences.</p>
+                        <div class="preview-badge">Research · NYU Tandon</div>
+                        <h3>Physics-Based RL Locomotion for Enemy AI</h3>
+                        <p class="subtitle">From Robotics to Game Feel</p>
+                        <p>Does physics-based reinforcement-learning locomotion make an NPC drone feel more alive? A Unity testbed that hot-swaps PPO and PID controllers onto the same physics body, holding everything constant except how motor thrust is computed.</p>
                         <div class="preview-tags">
+                            <span class="preview-tag">Reinforcement Learning</span>
+                            <span class="preview-tag">PPO</span>
+                            <span class="preview-tag">Unity</span>
+                            <span class="preview-tag">Game AI</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project details ↓</div>
+                </a>
+
+                <a href="#affordancenet" class="project-preview featured">
+                    <div class="preview-image preview-fit">
+                        <img src="websitepngs/affordance1.jpg" alt="Affordance predictions on a 3D point cloud">
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-badge">Solo Graduate Research</div>
+                        <h3>GameAffordance-Net</h3>
+                        <p class="subtitle">3D Affordance Learning for Game Engines</p>
+                        <p>A deep-learning system that predicts how objects can be interacted with, then feeds those predictions straight into Unreal Engine 5 as interaction points, collision volumes, and gameplay metadata.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">PyTorch</span>
+                            <span class="preview-tag">Point Clouds</span>
+                            <span class="preview-tag">DGCNN</span>
                             <span class="preview-tag">Unreal Engine 5</span>
-                            <span class="preview-tag">PCG Systems</span>
-                            <span class="preview-tag">Motion Capture</span>
-                            <span class="preview-tag">Enemy AI</span>
                         </div>
                     </div>
                     <div class="expand-indicator">Click to view full project details ↓</div>
@@ -980,6 +1194,113 @@
                 </a>
 
                  <!-- GitHub & Research Preview Card -->
+
+                </div>
+            </section>
+
+            <section class="projects-group" id="group-games">
+                <h2 class="group-title">Games &amp; Interactive</h2>
+                <p class="group-blurb">Playable projects, from procedural dungeons to a thesis RPG.</p>
+                <div class="projects-overview">
+                <a href="#ironlabyrinth" class="project-preview featured">
+                    <div class="preview-image">
+                        <img src="websitepngs/Screenshot 2025-11-04 at 12.07.51 AM.png" alt="Veilbound Environment">
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-badge">Single Developer/Producer</div>
+                        <h3>Iron Labyrinth</h3>
+                        <p class="subtitle">Procedural Dungeon PvP with Cinematic Combat</p>
+                        <p>A dynamic dungeon crawler featuring procedural generation where no two runs are alike. Navigate unpredictable labyrinths, battle adaptive AI enemies, and experience cinematic combat through motion-captured sequences.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">Unreal Engine 5</span>
+                            <span class="preview-tag">PCG Systems</span>
+                            <span class="preview-tag">Motion Capture</span>
+                            <span class="preview-tag">Enemy AI</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project details ↓</div>
+                </a>
+
+                <a href="#veilbound" class="project-preview">
+                    <div class="preview-image">
+                        <img src="websitepngs/veilbound.png" alt="Veilbound Environment">
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-badge">Solo Project · Thesis</div>
+                        <h3>Veilbound</h3>
+                        <p class="subtitle">A Dark Fantasy Action-Adventure RPG</p>
+                        <p>A cinematic 3D RPG featuring adaptive AI systems and emotionally responsive gameplay. Set in a cursed kingdom, players embody Inara, navigating supernatural forces where every decision shapes the world's response.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">Unreal Engine 5</span>
+                            <span class="preview-tag">Machine Learning</span>
+                            <span class="preview-tag">Adaptive AI</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project + Game Design Documents ↓</div>
+                </a>
+
+                <a href="#requiem" class="project-preview">
+                    <div class="preview-image">
+                        <img src="websitepngs/Screenshot 2025-10-29 at 4.12.44 PM.png" alt="Requiem Forest">
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-badge">Team-led Project</div>
+                        <h3>Requiem Forest</h3>
+                        <p class="subtitle">Released Psychological Horror Game</p>
+                        <p>A child is left in the forest as a test of faith. An ambiguous presence stalks you, reacting to your "sins" and moments of doubt, building toward a choice between ritual compliance or rebellion.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">UE 5.4</span>
+                            <span class="preview-tag">Horror</span>
+                            <span class="preview-tag">Narrative Design</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project + my contributions
+                     ↓</div>
+                </a>
+
+                <a href="#fruitninja" class="project-preview">
+                    <div class="preview-image">
+                        <img src="websitepngs/Screenshot 2025-10-29 at 4.11.34 PM.png" alt="Fruit Ninja IRL">
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-badge">Single Developer/Producer</div>
+                        <h3>Fruit Ninja IRL</h3>
+                        <p class="subtitle">Interface Redesign</p>
+                        <p>Rethinking digital affordances through physical interaction. Translating touchscreen gestures into motion-tracked sword combat, creating a full-body immersive experience.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">Motion Capture</span>
+                            <span class="preview-tag">Interface Design</span>
+                            <span class="preview-tag">Physical Computing</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project + Game Design Documents ↓</div>
+                </a>
+
+                <a href="#fline" class="project-preview">
+                    <div class="preview-image">
+                        <img src="websitepngs/Screenshot 2025-10-29 at 4.11.50 PM.png" alt="F LINE Game">
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-badge">Solo Project</div>
+                        <h3>F LINE</h3>
+                        <p class="subtitle">Kitsch & Camp Platformer</p>
+                        <p>A chaotic multiplayer rage-bait platformer that's a metaphor for moving 2 miles in NYC. Features betraying platforms, tricky enemies, and intentionally frustrating design.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">Godot Engine</span>
+                            <span class="preview-tag">2D Platformer</span>
+                            <span class="preview-tag">Local Co-op</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">Click to view full project + Game Design Documents</div>
+                </a>
+
+                </div>
+            </section>
+
+            <section class="projects-group" id="group-code">
+                <h2 class="group-title">Code &amp; Repos</h2>
+                <p class="group-blurb">Open-source work and research repositories.</p>
+                <div class="projects-overview">
                 <div class="project-preview featured github-preview-card">
                     <div class="preview-image" style="background: linear-gradient(135deg, rgba(20,20,20,0.9), rgba(10,10,10,0.95)); justify-content: flex-start; align-items: flex-start; padding: 1.5rem; height: auto; min-height: 250px; flex-direction: column; gap: 0;">
                         <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; width: 100%;">
@@ -1048,88 +1369,8 @@
                     <div class="expand-indicator">Scroll above to browse · Click repos to open ↗</div>
                 </div>
 
-
-
-
-
-
-
-                <a href="#veilbound" class="project-preview">
-                    <div class="preview-image">
-                        <img src="websitepngs/veilbound.png" alt="Veilbound Environment">
-                    </div>
-                    <div class="preview-content">
-                        <div class="preview-badge">Thesis</div>
-                        <h3>Veilbound</h3>
-                        <p class="subtitle">A Dark Fantasy Action-Adventure RPG</p>
-                        <p>A cinematic 3D RPG featuring adaptive AI systems and emotionally responsive gameplay. Set in a cursed kingdom, players embody Inara, navigating supernatural forces where every decision shapes the world's response.</p>
-                        <div class="preview-tags">
-                            <span class="preview-tag">Unreal Engine 5</span>
-                            <span class="preview-tag">Machine Learning</span>
-                            <span class="preview-tag">Adaptive AI</span>
-                        </div>
-                    </div>
-                    <div class="expand-indicator">Click to view full project + Game Design Documents ↓</div>
-                </a>
-
-                <a href="#requiem" class="project-preview">
-                    <div class="preview-image">
-                        <img src="websitepngs/Screenshot 2025-10-29 at 4.12.44 PM.png" alt="Requiem Forest">
-                    </div>
-                    <div class="preview-content">
-                        <div class="preview-badge">Team-led Project</div>
-                        <h3>Requiem Forest</h3>
-                        <p class="subtitle">Released Psychological Horror Game</p>
-                        <p>A child is left in the forest as a test of faith. An ambiguous presence stalks you, reacting to your "sins" and moments of doubt, building toward a choice between ritual compliance or rebellion.</p>
-                        <div class="preview-tags">
-                            <span class="preview-tag">UE 5.4</span>
-                            <span class="preview-tag">Horror</span>
-                            <span class="preview-tag">Narrative Design</span>
-                        </div>
-                    </div>
-                    <div class="expand-indicator">Click to view full project + my contributions
-                     ↓</div>
-                </a>
-
-                <a href="#fruitninja" class="project-preview">
-                    <div class="preview-image">
-                        <img src="websitepngs/Screenshot 2025-10-29 at 4.11.34 PM.png" alt="Fruit Ninja IRL">
-                    </div>
-                    <div class="preview-content">
-                        <div class="preview-badge">Single Developer/Producer</div>
-                        <h3>Fruit Ninja IRL</h3>
-                        <p class="subtitle">Interface Redesign</p>
-                        <p>Rethinking digital affordances through physical interaction. Translating touchscreen gestures into motion-tracked sword combat, creating a full-body immersive experience.</p>
-                        <div class="preview-tags">
-                            <span class="preview-tag">Motion Capture</span>
-                            <span class="preview-tag">Interface Design</span>
-                            <span class="preview-tag">Physical Computing</span>
-                        </div>
-                    </div>
-                    <div class="expand-indicator">Click to view full project + Game Design Documents ↓</div>
-                </a>
-
-                <a href="#fline" class="project-preview">
-                    <div class="preview-image">
-                        <img src="websitepngs/Screenshot 2025-10-29 at 4.11.50 PM.png" alt="F LINE Game">
-                    </div>
-                    <div class="preview-content">
-                        <h3>F LINE</h3>
-                        <p class="subtitle">Kitsch & Camp Platformer</p>
-                        <p>A chaotic multiplayer rage-bait platformer that's a metaphor for moving 2 miles in NYC. Features betraying platforms, tricky enemies, and intentionally frustrating design.</p>
-                        <div class="preview-tags">
-                            <span class="preview-tag">Godot Engine</span>
-                            <span class="preview-tag">2D Platformer</span>
-                            <span class="preview-tag">Local Co-op</span>
-                        </div>
-                    </div>
-                    <div class="expand-indicator">Click to view full project + Game Design Documents</div>
-                </a>
-
-                
-            </div>
-
-            
+                </div>
+            </section>
 
             <!-- DETAILED PROJECT SECTIONS BELOW -->
 
@@ -1139,7 +1380,7 @@
                 <h2>Star Wars: Anzellans</h2>
                 <p class="subtitle">Interactive Character Experience</p>
 
-                <p>Creative technologist on the team building this interactive character experience. Details confidential for now.</p>
+                <p>Creative technologist on the team building this interactive character experience.</p>
 
                 <div class="project-details">
                     <div class="detail-item">
@@ -1185,16 +1426,18 @@
                 <h2>Previsualization Research for BDX Shows</h2>
                 <p class="subtitle">Real-Time Previsualization</p>
 
-                <p>Contributed to R&D on real-time previsualization for live character shows (BDX). Details confidential for now.</p>
+                <p>I spearheaded a new approach to previsualizing BDX shows: an exploratory R&amp;D effort into how a live character show can be planned and staged in real time before anything is built physically.</p>
+
+                <p>Full details are confidential for now. As information becomes public, I'll be able to share more here.</p>
 
                 <div class="project-details">
                     <div class="detail-item">
-                        <h4>Role</h4>
-                        <p>Creative Technologist</p>
+                        <h4>My Role</h4>
+                        <p>Spearheaded the previsualization approach</p>
                     </div>
                     <div class="detail-item">
                         <h4>Team</h4>
-                        <p>Walt Disney Imagineering Research & Development</p>
+                        <p>Walt Disney Imagineering Research &amp; Development</p>
                     </div>
                     <div class="detail-item">
                         <h4>Timeline</h4>
@@ -1215,7 +1458,7 @@
                     <h4>Project Gallery</h4>
                     <div class="environment-gallery">
                         <div class="env-image-container">
-                            <img src="websitepngs/bdx.jpg" alt="Previs for BDX Shows">
+                            <video class="bdx-clip" src="websitepngs/bdx.mp4" poster="websitepngs/bdx.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Previsualization clip for BDX shows"></video>
                         </div>
                     </div>
                 </div>
@@ -1277,9 +1520,14 @@
                     <span class="tech-tag">Cinematic Sequencer</span>
                 </div>
 
+                <div class="dr-card project-more">
+                    <div class="dr-card-body">
+                        <div>
+
+
                 <p>The project focuses on showcasing PCG systems, enemy AI, and adaptive combat design within a fully modular environment. Each dungeon iteration spawns unique architecture, loot placement, and AI behaviors, creating a constantly evolving challenge that rewards strategic combat and spatial awareness.</p>
 
-                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Core Features</h3>
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: var(--dr-accent);">Core Features</h3>
                 <div class="project-details">
                     <div class="detail-item">
                         <h4>Procedural Dungeon Generation</h4>
@@ -1340,7 +1588,7 @@
     
     <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
         <p style="color: #ccc; margin-bottom: 1rem; font-size: 0.95rem;">Additional Documentation</p>
-        <a href="https://docs.google.com/document/d/1yA-PSwvGAdcSFwOyTLTWbn_2UVP86xbhxx8s9QkDGWc/edit?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #8a8aff; text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">
+        <a href="https://docs.google.com/document/d/1yA-PSwvGAdcSFwOyTLTWbn_2UVP86xbhxx8s9QkDGWc/edit?usp=sharing" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--dr-accent); text-decoration: none; font-size: 0.95rem; transition: all 0.3s ease;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
@@ -1367,6 +1615,131 @@
                         </div>
                         <div class="env-image-container">
                             <img src="websitepngs/Screenshot 2025-11-11 at 2.30.06 PM.png" alt="Iron Labyrinth Blueprint Systems">
+                        </div>
+                    </div>
+                </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RL drone locomotion research -->
+            <div class="featured-project" id="rldrone">
+                <div class="featured-badge">Research · NYU Tandon</div>
+                <h2>Physics-Based RL Locomotion for Enemy AI</h2>
+                <p class="subtitle">From Robotics to Game Feel</p>
+
+                <p>For our AI for Games course at NYU Tandon, we ran a research playtest around a single question: <strong>does physics-based reinforcement-learning locomotion make an NPC drone feel more alive?</strong></p>
+
+                <p>The work was inspired by Embark Studios' <em>Arc Raiders</em>, where players consistently describe the robot enemies as &ldquo;feeling smart.&rdquo; We wanted to find out how much of that impression comes from movement itself rather than decision-making.</p>
+
+                <p>We built a Unity platform that lets <strong>PPO and PID controllers hot-swap onto the same physics body</strong> — same mass, same hit registration, same damage conditions. The only variable is how motor thrust is computed: scripted versus learned. That isolation is what makes the comparison meaningful, since any difference players report has to come from the controller rather than from the encounter design.</p>
+
+                <div class="project-details">
+                    <div class="detail-item">
+                        <h4>Research Question</h4>
+                        <p>Does learned locomotion change how alive an enemy feels?</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Method</h4>
+                        <p>Player-facing playtest comparing PPO against a PID baseline</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Platform</h4>
+                        <p>Unity, physics-driven drone</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Course</h4>
+                        <p>AI for Games, NYU Tandon</p>
+                    </div>
+                </div>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">Reinforcement Learning</span>
+                    <span class="tech-tag">PPO</span>
+                    <span class="tech-tag">PID Control</span>
+                    <span class="tech-tag">Unity</span>
+                    <span class="tech-tag">Physics Simulation</span>
+                    <span class="tech-tag">Game AI</span>
+                    <span class="tech-tag">Playtest Research</span>
+                </div>
+
+                <p style="margin-top: 2rem;"><strong>My role:</strong> <!-- PLACEHOLDER: replace with what you personally led/built on this project --> [describe your specific contribution here].</p>
+
+                <p><strong>Team &amp; advisors:</strong> built with Peter Perry and Jessenth Ebenezer Sankar, with guidance from Julian Togelius and Tim Merino.</p>
+
+                <div class="project-links" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <!-- PLACEHOLDER: replace href with the direct paper URL when available -->
+                    <span class="doc-link" style="opacity:0.65; cursor:default;">Pilot paper — link coming soon</span>
+                </div>
+
+                <div class="project-subsection">
+                    <h4>Project Gallery</h4>
+                    <div class="environment-gallery">
+                        <div class="env-image-container gallery-fit">
+                            <img src="websitepngs/rlchart.png" alt="Results chart comparing PPO and PID drone locomotion">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D affordance learning research -->
+            <div class="featured-project" id="affordancenet">
+                <div class="featured-badge">Solo Graduate Research</div>
+                <h2>GameAffordance-Net</h2>
+                <p class="subtitle">3D Affordance Learning for Game Engines</p>
+
+                <p>Research at NYU Tandon into how machines can understand the ways people interact with objects and environments — and how that understanding can be pushed directly into a real-time game engine.</p>
+
+                <p>The system uses a <strong>DGCNN point-cloud model trained on 8,000+ PartNet examples</strong> to predict object parts and their affordances. Python, PyTorch, and Open3D handle point-cloud processing, label generation, training, and evaluation.</p>
+
+                <p>Predictions are then integrated into <strong>Unreal Engine 5</strong>, where they automatically generate interaction points, collision volumes, and gameplay metadata — turning a perception model into usable level-design tooling instead of leaving it as an offline result.</p>
+
+                <div class="project-details">
+                    <div class="detail-item">
+                        <h4>Development</h4>
+                        <p>Solo: research, model, and UE5 integration</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Model</h4>
+                        <p>DGCNN point-cloud network</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Data</h4>
+                        <p>8,000+ PartNet examples</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Pipeline</h4>
+                        <p>Python, PyTorch, Open3D</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Integration</h4>
+                        <p>Unreal Engine 5 tooling</p>
+                    </div>
+                </div>
+
+                <div class="tech-tags">
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">DGCNN</span>
+                    <span class="tech-tag">Point Clouds</span>
+                    <span class="tech-tag">Open3D</span>
+                    <span class="tech-tag">Affordance Learning</span>
+                    <span class="tech-tag">Unreal Engine 5</span>
+                </div>
+
+                <div class="project-links" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                    <a href="https://github.com/Kstuteville/Game-AffordanceNET" target="_blank" class="doc-link">View on GitHub</a>
+                </div>
+
+                <div class="project-subsection">
+                    <h4>Project Gallery</h4>
+                    <div class="environment-gallery">
+                        <div class="env-image-container gallery-fit">
+                            <img src="websitepngs/affordance1.jpg" alt="GameAffordance-Net affordance predictions on a 3D point cloud">
+                        </div>
+                        <div class="env-image-container gallery-fit">
+                            <img src="websitepngs/affordance2.jpg" alt="Affordance predictions integrated into Unreal Engine 5">
                         </div>
                     </div>
                 </div>
@@ -1408,7 +1781,7 @@
             </div>
             <div class="detail-item">
                 <h4>Development</h4>
-                <p>Research Team + Solo Implementation</p>
+                <p>Solo: research, design, and implementation</p>
             </div>
             <div class="detail-item">
                 <h4>Status</h4>
@@ -1426,6 +1799,11 @@
             <span class="tech-tag">Facial Emotion Recognition</span>
             <span class="tech-tag">Machine Learning</span>
         </div>
+
+                <div class="dr-card project-more">
+                    <div class="dr-card-body">
+                        <div>
+
 
         <p><strong>Research Question:</strong> How does real-time emotional awareness, via facial expression, vocal tone, and natural language, affect player perception of NPC presence, empathy, and narrative immersion in adaptive game worlds?</p>
 
@@ -1474,7 +1852,11 @@
                 
             </div>
         </div>
-    </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -1491,7 +1873,7 @@
             
             <!-- Veilbound Detail -->
             <div class="featured-project" id="veilbound">
-                <div class="featured-badge">Featured Project</div>
+                <div class="featured-badge">Solo Project · Thesis</div>
                 <h2>Veilbound</h2>
                 <p class="subtitle">A Dark Fantasy Action-Adventure RPG</p>
                 
@@ -1521,7 +1903,7 @@
                     </div>
                     <div class="detail-item">
                         <h4>Development</h4>
-                        <p>Solo Developer + Research Team</p>
+                        <p>Solo: design, development, and narrative</p>
                     </div>
                     <div class="detail-item">
                         <h4>Timeline</h4>
@@ -1539,6 +1921,11 @@
                     <span class="tech-tag">Cinematic Design</span>
                     <span class="tech-tag">3D Modeling</span>
                 </div>
+
+                <div class="dr-card project-more">
+                    <div class="dr-card-body">
+                        <div>
+
 
                 <p><strong>Key Innovations:</strong> Veilbound features emotionally reactive AI that adapts to player behavior, creating unique narrative branches and character interactions. The game combines traditional RPG mechanics with cutting-edge machine learning to deliver a truly personalized horror-fantasy experience.</p>
 
@@ -1657,6 +2044,10 @@
                         </div>
                     </div>
                 </div>
+            
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Requiem Forest Detail -->
@@ -1666,7 +2057,7 @@
                 <p class="subtitle">A Psychological Horror Game About Faith and Fear</p>
                 
                 <p style="margin-bottom: 1rem;">
-                    <a href="https://playlamar.itch.io/requiem-forest" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ Play on Itch.io</a>
+                    <a href="https://playlamar.itch.io/requiem-forest" target="_blank" style="color: var(--dr-accent); text-decoration: none; font-size: 0.9rem;">→ Play on Itch.io</a>
                 </p>
                 
                 <div class="cinematic-showcase">
@@ -1701,7 +2092,7 @@
                     </div>
                 </div>
 
-                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Story Synopsis</h3>
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: var(--dr-accent);">Story Synopsis</h3>
                 <p>A child is left in the forest by their parents as a test of faith. The forest is not normal, the fog drifts as though alive, whispers echo through the trees. As you interact with the map and find keys to get out, an ambiguous presence stalks you, reacting to your "sins" and moments of doubt. The game builds toward a choice at the forest's heart: ritual compliance or rebellion, the game leave you questioning what was real and what was fear.</p>
 
                 <div class="tech-tags" style="margin: 2rem 0;">
@@ -1713,28 +2104,33 @@
                     <span class="tech-tag">Sound Design</span>
                 </div>
 
-                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Core Mechanics I Designed</h3>
+                <div class="dr-card project-more">
+                    <div class="dr-card-body">
+                        <div>
+
+
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: var(--dr-accent);">Core Mechanics I Designed</h3>
                 <div class="project-details">
                     <div class="detail-item">
                         <h4>Movement & Resource Management</h4>
                         <p>Designed stamina system where sprinting drains stamina bar; reaching exhaustion triggers heavy breathing audio and movement penalties. Forces strategic decision-making between hiding and running. Flashlight battery drains during use, requiring players to conserve light and scavenge batteries scattered throughout the environment.</p>
-                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View stamina system demo</a></p>
+                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: var(--dr-accent); text-decoration: none; font-size: 0.9rem;">→ View stamina system demo</a></p>
                     </div>
                    
                     <div class="detail-item">
                         <h4>Adaptive Monster AI System</h4>
                         <p>Built behavior tree with randomized patrol routes, line-of-sight chase mechanics, and sin-triggered ambushes. AI responds to player interactions with "sinful" objects, alerting the monster to hunt in that area. Integrated heartbeat proximity audio system that grows louder and faster as AI approaches, creating spatial awareness through sound design.</p>
-                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View AI behavior demo</a></p>
+                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: var(--dr-accent); text-decoration: none; font-size: 0.9rem;">→ View AI behavior demo</a></p>
                     </div>
                     
                     <div class="detail-item">
                         <h4>Narrative System</h4>
                          <p>Developed modular narrative manager that triggers context-aware inner monologue based on player location and interactions. Area-based voice lines activate once per zone, with unique dialogue for object interactions. Built reusable UI system that can be called seamlessly across different game scenarios.</p>
-                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: #8a8aff; text-decoration: none; font-size: 0.9rem;">→ View narrative system demo</a></p>
+                        <p style="margin-top: 0.8rem;"><a href="https://youtu.be/gUjp-DN8pIU?si=F0y7-l5WYsjO_t9A" target="_blank" style="color: var(--dr-accent); text-decoration: none; font-size: 0.9rem;">→ View narrative system demo</a></p>
                     </div>
                 </div>
 
-                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">Leadership & Project Management</h3>
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: var(--dr-accent);">Leadership & Project Management</h3>
                 <p>As project lead, I coordinated a four-person team across a one-week sprint cycle, managed version control workflows, and directed feature prioritization to meet October 16th 2025 Game Jam deadline. I established clear design pillars, facilitated playtesting sessions, and ensured cohesive integration between environment design, narrative, and core mechanics.</p>
 
                 <div class="project-documents" style="margin-top: 3rem;">
@@ -1804,6 +2200,10 @@
                     <div class="status-dot"></div>
                     <span>In Active Development - October 2025 Release</span>
                 </div>
+            
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Fruit Ninja IRL Detail -->
@@ -1828,6 +2228,10 @@
 
                 <div class="project-details" style="margin-top: 3rem;">
                     <div class="detail-item">
+                        <h4>Development</h4>
+                        <p>Solo: design and development</p>
+                    </div>
+                    <div class="detail-item">
                         <h4>Platform</h4>
                         <p>Motion Capture + Unreal Engine 5</p>
                     </div>
@@ -1845,7 +2249,7 @@
                     </div>
                 </div>
 
-                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: #8a8aff;">The Design Challenge</h3>
+                <h3 style="font-size: 1.8rem; margin: 3rem 0 1.5rem 0; color: var(--dr-accent);">The Design Challenge</h3>
                 <p>How do you translate instant, precise touchscreen swipes into physical sword movements? The core assignment was to take an existing digital interface and redesign its affordances through a different medium. Rather than making a 1:1 translation, this project explores what happens when you fundamentally change the interaction model.</p>
 
                 <div class="tech-tags" style="margin: 2rem 0;">
@@ -1920,6 +2324,10 @@
 
                 <div class="project-details" style="margin-top: 3rem;">
                     <div class="detail-item">
+                        <h4>Development</h4>
+                        <p>Solo: design and development</p>
+                    </div>
+                    <div class="detail-item">
                         <h4>Genre</h4>
                         <p>Rage-bait 2D Platformer</p>
                     </div>
@@ -1944,6 +2352,11 @@
                     <span class="tech-tag">Local Multiplayer</span>
                     <span class="tech-tag">Pixel Art</span>
                 </div>
+
+                <div class="dr-card project-more">
+                    <div class="dr-card-body">
+                        <div>
+
 
                 <div class="project-documents" style="margin-top: 3rem;">
                     <h3>Project Documentation</h3>
@@ -1985,6 +2398,10 @@
                 </div>
 
                 
+            
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--<a href="https://medium.com/@kaylie.stuteville" target="_blank" class="project-preview featured">
                     <div class="preview-image">
@@ -2003,166 +2420,6 @@
                     </div>
                     <div class="expand-indicator">Visit blog on Medium ↗</div>
                 </a>-->
-
-            <!-- Other Projects Section -->
-            <div class="other-projects">
-                <h2>Academic & Research Projects</h2>
-                
-                <div class="projects-grid">                                           
-                    <div class="project-card">                         
-                        <h3>Immersive Interactive Experiences</h3>                         
-                        <div class="project-type">Academic Work - NYU</div>                         
-                        <p>Real-time immersive experiences combining cinematic storytelling with interactive systems.</p>                                                  
-                        
-                        <div class="project-subsection">                             
-                            <h4>Week 1 - Expressive Environments</h4>                             
-                            <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #ccc; line-height: 1.6;"> 
-                                An ambient first-person experience centered around exploration and atmosphere. The player awakens within one of Inara's visions, a surreal, dreamlike forest at sunset.
-                            </p>                             
-                           
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/kImayamy1RY" 
-                                        title="Week 1 - Expressive Environments" 
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                        allowfullscreen>
-                                </iframe>
-                            </div>
-                                                                                   
-                            <div class="environment-gallery">                                 
-                                <div class="env-image-container">                                     
-                                    <img src="websitepngs/environment-1.png" alt="Ambient Environment - Scene 1">                                 
-                                </div>                                 
-                                <div class="env-image-container">                                     
-                                    <img src="websitepngs/environment-2.png" alt="Ambient Environment - Scene 2">                                 
-                                </div>                                 
-                                <div class="env-image-container">                                     
-                                    <img src="websitepngs/environment-3.png" alt="Ambient Environment - Scene 3">                                 
-                                </div>                                 
-                                <div class="env-image-container">                                     
-                                    <img src="websitepngs/environment-4.png" alt="Ambient Environment - Scene 4">                                 
-                                </div>                             
-                            </div>                         
-                        </div>
-                        
-                        <div class="project-subsection">                             
-                            <h4>Week 2 - Cinematic Sequences & Player Control</h4>                             
-                            <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #ccc; line-height: 1.6;"> 
-                                Building on Week 1, this assignment focused on integrating cinematic storytelling with interactive gameplay. A seamless transition from scripted camera sequence to player control.
-                            </p>                             
-                           
-                            <div class="video-container">
-                                <iframe src="https://www.youtube.com/embed/XWVIYm5sEnk" 
-                                        title="Week 2 - Cinematic Environment with Player Control" 
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                        allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>                     
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Game AI Affordances Research</h3>
-                        <div class="project-type">Graduate Research</div>
-                        <p>Ongoing research at NYU investigating adaptive AI systems and player affordances to enhance gameplay immersion. Exploring how AI can create more meaningful player-world interactions.</p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>AssessAI</h3>
-                        <div class="project-type">Machine Learning</div>
-                        <p>Developed during a 4.5-week intensive sprint at Colorado College, AssessAI demonstrates rapid prototyping and agile development practices in machine learning applications.</p>
-                        
-                        <div style="margin-top: 1.5rem;">
-                            <div class="env-image-container" style="margin-bottom: 1rem;">
-                                <img src="websitepngs/assessai-img.png" alt="AssessAI Interface">
-                            </div>
-                            <div class="env-image-container" style="margin-bottom: 1.5rem;">
-                                <img src="websitepngs/capstone-poster.png" alt="AssessAI Capstone Poster">
-                            </div>
-                            <a href="https://github.com/Kstuteville/assess.ai" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); color: #fff; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);">
-                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                                </svg>
-                                View on GitHub
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>MuseumEyes Prototype</h3>
-                        <div class="project-type">Accessibility Design</div>
-                        <p>An innovative tablet application and device system designed to guide blind and low-vision (BLV) users to museum exhibits. Features AI-powered image processing for automatic alt-text generation, voice commands, and tactile navigation aids.</p>
-                        
-                        <div style="margin-top: 2rem;">
-                            <h4 style="color: #8a8aff; margin-bottom: 1rem; font-size: 1.2rem;">Key Features</h4>
-                            <div style="margin-bottom: 1.5rem;">
-                                <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Textured floor mats for tactile exhibit location</p>
-                                <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Automated photo capture and AI description generation</p>
-                                <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Voice-controlled navigation and interaction</p>
-                                <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Fully accessible web interface</p>
-                            </div>
-                            
-                            <div class="project-images" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-                                <div class="env-image-container">
-                                    <img src="websitepngs/prototype1.png" alt="MuseumEyes app interface">
-                                </div>
-                                <div class="env-image-container">
-                                    <img src="websitepngs/affinitydiagram.png" alt="Accessibility challenges diagram">
-                                </div>
-                                <div class="env-image-container">
-                                    <img src="websitepngs/prototype2.png" alt="Prototype diagrams">
-                                </div>
-                                <div class="env-image-container">
-                                    <img src="websitepngs/storyboard1.jpg" alt="Storyboard designing">
-                                </div>
-                                <div class="env-image-container" style="grid-column: 1 / -1;">
-                                    <img src="websitepngs/demo.png" alt="User testing demonstration">
-                                </div>
-                            </div>
-                            
-                            <div class="project-links" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                                <a href="https://ronantakizawa.github.io/cp341finalproject/" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); color: #fff; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15,3 21,3 21,9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
-                                    Live Website
-                                </a>
-                                <a href="https://github.com/Kstuteville/cp341finalproject" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); color: #fff; padding: 0.6rem 1rem; border-radius: 8px; text-decoration: none; font-size: 0.9rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2);">
-                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                                    </svg>
-                                    View on GitHub
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>D1-D3 Athletic Graphics</h3>
-                        <div class="project-type">Freelance Design</div>
-                        <p>Professional graphic design work for collegiate athletics programs, delivering high-quality visual content under tight deadlines. Demonstrates skills in Adobe Creative Suite and visual communication.</p>
-                        <div style="margin-top: 2rem;">
-                            <h4 style="color: #8a8aff; margin-bottom: 1rem; font-size: 1.2rem;">Featured Work</h4>
-                            <div class="graphics-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
-                                <div class="env-image-container" style="aspect-ratio: 1/1;">
-                                    <img src="websitepngs/gameday1.PNG" alt="Gameday Graphic Volleyball">
-                                </div>
-                                <div class="env-image-container" style="aspect-ratio: 1/1;">
-                                    <img src="websitepngs/IMG_2163.PNG" alt="Gameday Graphic Lacrosse">
-                                </div>
-                            </div>
-                            
-                            <div style="margin-top: 1.5rem;">
-                                <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Championship event graphics and promotional materials</p>
-                                <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Game day social media content with tight turnaround times</p>
-                                <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Brand-consistent designs across multiple athletic programs</p>
-                                <p style="margin-bottom: 0.8rem; font-size: 0.95rem; color: #ccc; line-height: 1.6;">• Typography and layout design for high-impact visual communication</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="coming-soon-section">
                 <h2>More Projects Coming Soon</h2>
@@ -2188,5 +2445,6 @@
             }
         });
     </script>
+    <script src="js/dr-ui.js?v=2"></script>
 </body>
 </html>

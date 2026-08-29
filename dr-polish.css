@@ -1,0 +1,970 @@
+/* Loaded LAST in <head>, after each page's inline <style>, so these rules win
+   over per-page component CSS without having to edit six style blocks. */
+
+:root {
+    --dr-hi: #dff3ff;          /* light highlight for hover states */
+    --dr-hi-soft: rgba(223, 243, 255, 0.22);
+    --dr-tilt: -1.8deg;        /* per-page override below */
+}
+
+/* ============ Animated background ============
+   The base colour moves to <html> so the drifting glow layer on html::before
+   isn't painted over by an opaque <body> background. */
+
+html {
+    background: var(--dr-bg);
+}
+
+body {
+    background: transparent;
+}
+
+html::before {
+    content: '';
+    position: fixed;
+    inset: -20%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(45% 40% at 28% 30%, rgba(110, 201, 255, 0.16), transparent 70%),
+        radial-gradient(42% 36% at 76% 66%, rgba(33, 118, 168, 0.20), transparent 72%);
+    animation: dr-aurora 26s ease-in-out infinite alternate;
+}
+
+@keyframes dr-aurora {
+    from { transform: translate3d(-3%, -2%, 0) scale(1); }
+    to   { transform: translate3d(4%, 3%, 0) scale(1.14); }
+}
+
+/* Halftone drifts diagonally. 220px is exactly 10 tiles of the 22px pattern,
+   so the loop is seamless. */
+body::before {
+    animation: dr-halftone 26s linear infinite;
+}
+
+@keyframes dr-halftone {
+    from { background-position: 0 0; }
+    to   { background-position: 220px 220px; }
+}
+
+body::after {
+    animation: dr-slash 20s ease-in-out infinite alternate;
+}
+
+@keyframes dr-slash {
+    from { transform: rotate(15deg) translateX(-5%); opacity: 0.75; }
+    to   { transform: rotate(9deg)  translateX(9%);  opacity: 1; }
+}
+
+/* ============ Irregular tilts ============
+   Deliberately uneven angles so headings read as hand-placed collage rather
+   than a uniform rotation. */
+
+body[data-page="about"]      { --dr-tilt: -1.8deg; }
+body[data-page="experience"] { --dr-tilt: -2.6deg; }
+body[data-page="projects"]   { --dr-tilt: -1.1deg; }
+body[data-page="contacts"]   { --dr-tilt: -2.9deg; }
+body[data-page="prototypes"] { --dr-tilt: -1.5deg; }
+body[data-page="process"]    { --dr-tilt: -2.3deg; }
+
+.dr-title,
+.experience-container h1,
+.projects-container h1,
+.contact-container h1,
+.systems-container h1,
+.process-container h1 {
+    transform: rotate(var(--dr-tilt));
+}
+
+/* Section headings get their own small, varying angles */
+.dr-heading,
+.experience-item h2,
+.system-card h2,
+.featured-project h2,
+.project-showcase h2,
+.philosophy-section h2,
+.literature-section h2,
+.other-projects h2,
+.coming-soon-section h2,
+.coming-soon h2,
+.preview-content h3,
+.project-card h3,
+.response-header h3 {
+    transform: rotate(-0.55deg);
+}
+
+.experience-item:nth-of-type(even) h2,
+.system-card:nth-of-type(even) h2,
+.featured-project:nth-of-type(even) h2,
+.project-card:nth-of-type(even) h3,
+.reading-response:nth-of-type(even) .response-header h3,
+.project-preview:nth-of-type(even) .preview-content h3 {
+    transform: rotate(0.7deg);
+}
+
+.experience-item:nth-of-type(3n) h2,
+.featured-project:nth-of-type(3n) h2,
+.project-card:nth-of-type(3n) h3,
+.reading-response:nth-of-type(3n) .response-header h3 {
+    transform: rotate(-1.15deg);
+}
+
+/* Badges lean a little further, and unevenly */
+.system-badge,
+.preview-badge,
+.featured-badge,
+.project-type,
+.dr-nametag {
+    transform: skewX(-12deg) rotate(-1.2deg);
+}
+
+.project-preview:nth-of-type(even) .preview-badge,
+.featured-project:nth-of-type(even) .featured-badge,
+.project-card:nth-of-type(even) .project-type {
+    transform: skewX(-12deg) rotate(1.4deg);
+}
+
+.dr-title-bar {
+    transform: skewX(-24deg) rotate(-0.8deg);
+}
+
+
+/* Headings that carry a left accent bar must be left-aligned, or the bar
+   detaches from centred text (process.html centres its container). */
+.philosophy-section h2,
+.project-showcase h2,
+.literature-section h2,
+.coming-soon h2,
+.other-projects h2 {
+    text-align: left;
+}
+
+/* ============ Light hover highlight ============ */
+
+nav ul a:hover,
+nav ul a:focus-visible {
+    color: var(--dr-hi);
+}
+
+nav ul a:hover::after,
+nav ul a:focus-visible::after {
+    background: var(--dr-hi);
+}
+
+.dr-panel:hover,
+.dr-card:hover,
+.experience-item:hover,
+.project-preview:hover,
+.project-card:hover,
+.featured-project:hover,
+.contact-item:hover,
+.social-item:hover,
+.system-card:hover,
+.reading-response:hover,
+.philosophy-section:hover,
+.project-showcase:hover,
+.document-preview:hover {
+    border-color: var(--dr-hi);
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.55), 0 0 26px var(--dr-hi-soft);
+}
+
+.detail-item:hover,
+.feature-list:hover,
+.process-scroll:hover,
+.dr-record:hover {
+    border-color: var(--dr-hi);
+}
+
+.skill-tag:hover,
+.tech-tag:hover,
+.preview-tag:hover,
+.medium-tag:hover,
+.tool-tag:hover {
+    border-color: var(--dr-hi);
+    background: var(--dr-hi-soft);
+    color: #fff;
+}
+
+.dr-btn:hover,
+.dr-btn:focus-visible,
+.doc-link:hover,
+.project-link:hover,
+.back-to-top:hover {
+    background: var(--dr-hi);
+    color: #06263a;
+    border-color: var(--dr-outline);
+}
+
+.dr-card-toggle:hover,
+.dr-card-toggle:focus-visible {
+    background: var(--dr-hi-soft);
+    color: var(--dr-hi);
+}
+
+.expand-indicator:hover {
+    background: var(--dr-hi-soft);
+    color: var(--dr-hi);
+}
+
+.env-image-container:hover,
+.experience-photo:hover {
+    box-shadow: 0 0 0 3px var(--dr-hi), 10px 10px 0 var(--dr-accent-deep);
+}
+
+/* The About photo deliberately has NO hover state. It drifts with the pointer,
+   so a hover effect fires on and off as the photo slides out from under the
+   cursor. Overrides dr-theme.css's rotate/scale hover. */
+.dr-photo:hover {
+    transform: rotate(2deg);
+    box-shadow: 10px 10px 0 var(--dr-accent-deep);
+}
+
+a:not(.dr-btn):not(.doc-link):not(.project-link):hover {
+    color: var(--dr-hi);
+}
+
+/* ============ Reduced motion ============ */
+
+@media (prefers-reduced-motion: reduce) {
+    html::before,
+    body::before,
+    body::after {
+        animation: none !important;
+    }
+}
+
+/* ============ Projects: themed groups + jump nav ============ */
+
+/* This is a <nav>, so it inherits dr-theme.css's bare `nav` rule (which is
+   meant for the site header and sets space-between + max-width + padding).
+   Those have to be undone explicitly or the buttons spread across the page. */
+.projects-jump {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.7rem;
+    max-width: none;
+    margin: 2.5rem 0 3.5rem;
+    padding: 0;
+}
+
+.projects-jump a {
+    font-family: var(--dr-pixel);
+    font-size: 0.5rem;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dr-white);
+    background: var(--dr-panel-2);
+    border: 3px solid var(--dr-outline);
+    box-shadow: 4px 4px 0 var(--dr-accent-deep);
+    padding: 0.75rem 1.1rem;
+    transition: transform 0.16s var(--dr-slam), background 0.16s ease,
+                box-shadow 0.16s ease, color 0.16s ease;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px),
+                       calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.projects-jump a:hover,
+.projects-jump a:focus-visible {
+    background: var(--dr-hi);
+    color: #06263a;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--dr-outline);
+}
+
+.projects-group {
+    margin-bottom: 4.5rem;
+    /* the fixed header would otherwise cover a jumped-to heading */
+    scroll-margin-top: 150px;
+}
+
+.projects-group .group-title {
+    font-family: var(--dr-pixel);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--dr-white);
+    letter-spacing: 0.04em;
+    padding-left: 1rem;
+    border-left: 8px solid var(--dr-accent);
+    transform: rotate(-0.6deg);
+    margin-bottom: 0.9rem;
+}
+
+.projects-group .group-blurb {
+    color: var(--dr-ink-faint);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 60ch;
+}
+
+/* Detail sections are anchor targets too */
+.featured-project {
+    scroll-margin-top: 150px;
+}
+
+@media (max-width: 768px) {
+    .projects-jump a { font-size: 0.44rem; padding: 0.6rem 0.8rem; }
+    .projects-group .group-title { font-size: 0.82rem; }
+}
+
+/* ============ Prototypes: preview cards + jump nav ============ */
+
+/* Like .projects-jump, this is a <nav> and must undo dr-theme.css's header
+   `nav` rule (space-between, max-width, padding). */
+.systems-jump {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.7rem;
+    max-width: none;
+    margin: 2rem 0 2.5rem;
+    padding: 0;
+}
+
+.systems-jump a {
+    font-family: var(--dr-pixel);
+    font-size: 0.5rem;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--dr-white);
+    background: var(--dr-panel-2);
+    border: 3px solid var(--dr-outline);
+    box-shadow: 4px 4px 0 var(--dr-accent-deep);
+    padding: 0.7rem 1rem;
+    transition: transform 0.16s var(--dr-slam), background 0.16s ease,
+                box-shadow 0.16s ease, color 0.16s ease;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px),
+                       calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.systems-jump a:hover,
+.systems-jump a:focus-visible {
+    background: var(--dr-hi);
+    color: #06263a;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--dr-outline);
+}
+
+.system-card {
+    scroll-margin-top: 150px;
+}
+
+/* ============ Experience: clickable mini timeline ============ */
+
+.mini-timeline {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    padding: 2.2rem 0 0;
+}
+
+.mini-timeline-track {
+    position: absolute;
+    top: 2.55rem;
+    left: 6%;
+    right: 6%;
+    height: 4px;
+    background: var(--dr-accent-deep);
+    border: 2px solid var(--dr-outline);
+}
+
+.mini-timeline-point {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 0;
+    min-width: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 0;
+}
+
+.mtp-dot {
+    width: 18px;
+    height: 18px;
+    background: var(--dr-accent);
+    border: 3px solid var(--dr-outline);
+    transition: transform 0.18s var(--dr-slam), background 0.18s ease;
+}
+
+.mini-timeline-point:hover .mtp-dot,
+.mini-timeline-point:focus-visible .mtp-dot {
+    background: var(--dr-hi);
+    transform: scale(1.35) rotate(45deg);
+}
+
+.mtp-year {
+    font-family: var(--dr-pixel);
+    font-size: 0.5rem;
+    line-height: 1.8;
+    color: var(--dr-accent);
+    letter-spacing: 0.04em;
+}
+
+.mtp-label {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--dr-ink-faint);
+    transition: color 0.18s ease;
+}
+
+.mini-timeline-point:hover .mtp-label,
+.mini-timeline-point:focus-visible .mtp-label {
+    color: var(--dr-hi);
+}
+
+.experience-item {
+    scroll-margin-top: 150px;
+}
+
+@media (max-width: 768px) {
+    .mini-timeline {
+        justify-content: flex-start;
+        gap: 1.4rem 0.8rem;
+        padding-top: 1rem;
+    }
+    .mini-timeline-track { display: none; }
+    .mini-timeline-point { flex: 1 1 40%; min-width: 0; }
+    .mtp-label { font-size: 0.75rem; }
+    .systems-jump a { font-size: 0.44rem; padding: 0.6rem 0.8rem; }
+}
+
+
+/* ============ Prototypes: calmer feature rows ============
+   Each feature block previously stacked five text treatments and three nested
+   borders. 21 row titles set in a 0.58rem pixel face were the biggest
+   readability cost. Reduced to two levels: a pixel category heading, then
+   plain bold title + grey description rows separated by space, not rules. */
+
+.feature-title {
+    font-family: var(--dr-body);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: var(--dr-white);
+    margin-bottom: 0.25rem;
+}
+
+.feature-description {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--dr-ink-dim);
+}
+
+/* One container, no per-row rules */
+.feature-list {
+    background: rgba(0, 0, 0, 0.22);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0;
+    padding: 1.4rem 1.5rem;
+}
+
+.feature-item {
+    display: block;
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 1.4rem;
+    transform: none;
+}
+
+.feature-item:last-child {
+    margin-bottom: 0;
+}
+
+.feature-item:hover {
+    border-left: none;
+    transform: none;
+}
+
+.feature-list:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+.feature-category h4 {
+    font-size: 0.58rem;
+    margin-bottom: 0.9rem;
+}
+
+/* The goal line is the card's lead; give it a touch more room to breathe */
+.system-card > p {
+    max-width: 68ch;
+}
+
+/* ============ Design Process: collapsible reading responses ============
+   These are course essays (2,720 words across ten of them, two-thirds of the
+   page). Collapsed by default so the page leads with project work; every word
+   is still in the DOM, just hidden, so find-in-page and search still see it. */
+
+.reading-response.dr-card {
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.reading-response .dr-card-toggle {
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.2rem 1.4rem;
+}
+
+.reading-response .rr-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    text-align: left;
+}
+
+.reading-response .rr-title {
+    font-family: var(--dr-pixel);
+    font-size: 0.62rem;
+    line-height: 1.8;
+    color: var(--dr-white);
+    letter-spacing: 0.03em;
+}
+
+.reading-response .dr-card-toggle:hover .rr-title,
+.reading-response .dr-card-toggle:focus-visible .rr-title {
+    color: var(--dr-hi);
+}
+
+.reading-response .response-date {
+    font-family: var(--dr-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--dr-accent);
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.reading-response .dr-card-body .response-content {
+    padding: 0 1.4rem 1.4rem;
+}
+
+.reading-response .response-content p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--dr-ink-dim);
+    margin-bottom: 1rem;
+}
+
+/* ============ Projects: scroll-reveal on long detail sections ============
+   The deeper half of each long project opens by itself when you reach that
+   section. Default state here is OPEN so that with no JS the text is simply
+   there; js/dr-ui.js adds .dr-collapsed at init and removes it on scroll. */
+
+.project-more.dr-card {
+    margin-top: 2rem;
+    background: none;
+    border: none;
+    clip-path: none;
+}
+
+.project-more .dr-card-body {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.55s var(--dr-slam),
+                opacity 0.45s ease;
+    opacity: 1;
+}
+
+.project-more.dr-collapsed .dr-card-body {
+    grid-template-rows: 0fr;
+    opacity: 0;
+}
+
+.project-more .dr-card-body > div {
+    overflow: hidden;
+}
+
+/* Spacing lives on the content, not on the clipped wrapper, so a collapsed
+   block measures exactly 0 instead of leaking its padding. */
+.project-more .dr-card-body > div > *:first-child {
+    margin-top: 1.5rem;
+}
+
+
+/* ============ Gallery images that must not be cropped ============
+   .env-image-container locks a 16/9 box and covers it, which is right for
+   screenshots but crops charts and diagrams. These show the whole image and
+   let it set its own height instead. */
+
+.env-image-container.gallery-fit {
+    aspect-ratio: auto;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+}
+
+.env-image-container.gallery-fit img {
+    width: 100%;
+    height: auto;
+    max-height: 460px;
+    object-fit: contain;
+}
+
+/* A single wide chart reads better spanning the full row than sitting in a
+   half-width column. */
+#rldrone .environment-gallery {
+    grid-template-columns: 1fr;
+}
+
+#rldrone .env-image-container.gallery-fit img {
+    max-height: 520px;
+}
+
+/* Preview thumbnails for chart/diagram projects. The default .preview-image
+   covers a fixed 250px box, which crops the labels off a diagram and makes it
+   unreadable at thumbnail size. These letterbox instead. */
+.preview-image.preview-fit {
+    background: rgba(0, 0, 0, 0.45);
+    padding: 0.9rem;
+}
+
+.preview-image.preview-fit img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Animated BDX clip. Served as MP4 rather than the 9.1MB GIF — same motion,
+   ~39x smaller. Sized to behave exactly like the <img> it replaced. */
+.bdx-clip {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============ Pointer parallax ============
+   js/dr-ui.js writes --dr-px / --dr-py as -1..1 offsets from viewport centre,
+   and only does so on the About page. Everywhere else they stay 0, so these
+   rules need no page scoping — the layers simply don't move.
+
+   Each layer multiplies the offset by its own depth, so the far background
+   slides far and the near photo barely shifts: the same relationship the
+   homepage artwork uses (sky 0.30 down to nearest gravestone 0.010).
+
+   These use `translate`, NOT `transform`. The aurora and slash layers already
+   animate `transform` and the photo carries a rotate; `translate` is a separate
+   property that composes with them instead of overwriting. */
+
+:root {
+    --dr-px: 0;
+    --dr-py: 0;
+    --dr-parallax-ease: 0.45s cubic-bezier(.2, .49, .32, .99);
+}
+
+html::before {                    /* aurora glow - farthest, moves most */
+    translate: calc(var(--dr-px) * 150px) calc(var(--dr-py) * 150px);
+    transition: translate var(--dr-parallax-ease);
+}
+
+/* These are position:fixed and sized to the viewport, so shifting them by
+   ~100px would expose a bare strip at the edge. Bleed them outward by more
+   than the maximum travel. */
+body::before,
+body::after {
+    inset: -200px -200px;
+}
+
+body::after {                     /* diagonal slash */
+    translate: calc(var(--dr-px) * 110px) calc(var(--dr-py) * 110px);
+    transition: translate var(--dr-parallax-ease);
+    width: auto;
+    height: auto;
+}
+
+body::before {                    /* halftone field */
+    translate: calc(var(--dr-px) * 80px) calc(var(--dr-py) * 80px);
+    transition: translate var(--dr-parallax-ease);
+}
+
+/* Foreground drifts against the background, which is what sells the depth.
+   Kept smaller than the background so reading stays comfortable. */
+.dr-photo {
+    translate: calc(var(--dr-px) * -34px) calc(var(--dr-py) * -34px);
+    transition: translate 0.5s cubic-bezier(.2, .49, .32, .99),
+                box-shadow 0.28s ease;
+}
+
+/* ---- Content drift, per page ----
+   Two tiers, matching About: the "near" tier (titles, jump bars, the About
+   dialogue) drifts ~24px, the panels behind them ~16px. Everything uses
+   `translate`, never `transform`, because many of these already carry a
+   transform from the irregular-tilt block or their own hover states. */
+
+.dr-dialogue-wrap,
+.dr-title-block,
+.experience-container h1,
+.projects-container h1,
+.systems-container h1,
+.process-container h1,
+.contact-container h1,
+.mini-timeline,
+.projects-jump,
+.systems-jump {
+    translate: calc(var(--dr-px) * -24px) calc(var(--dr-py) * -24px);
+    transition: translate 0.55s cubic-bezier(.2, .49, .32, .99);
+}
+
+.dr-panel,
+.experience-item,
+.experience-photo,
+.projects-group,
+.project-preview,
+.featured-project,
+.system-card,
+.philosophy-section,
+.project-showcase,
+.literature-section,
+.reading-response,
+.contact-item,
+.social-item {
+    translate: calc(var(--dr-px) * -16px) calc(var(--dr-py) * -16px);
+    transition: translate 0.55s cubic-bezier(.2, .49, .32, .99);
+}
+
+/* Elements that drift shouldn't also light up on hover: the highlight flickers
+   as the element slides out from under the cursor. Same call already made for
+   the About dialogue and photo. */
+.experience-item:hover,
+.project-preview:hover,
+.featured-project:hover,
+.system-card:hover,
+.reading-response:hover,
+.philosophy-section:hover,
+.project-showcase:hover,
+.contact-item:hover,
+.social-item:hover {
+    box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html::before,
+    body::before,
+    body::after,
+    .dr-photo,
+    .dr-dialogue-wrap,
+    .dr-title-block,
+    .dr-panel,
+    .experience-container h1,
+    .projects-container h1,
+    .systems-container h1,
+    .process-container h1,
+    .contact-container h1,
+    .mini-timeline,
+    .projects-jump,
+    .systems-jump,
+    .experience-item,
+    .experience-photo,
+    .projects-group,
+    .project-preview,
+    .featured-project,
+    .system-card,
+    .philosophy-section,
+    .project-showcase,
+    .literature-section,
+    .reading-response,
+    .contact-item,
+    .social-item {
+        translate: none !important;
+    }
+}
+
+/* ============ Prototypes: three columns, side by side ============
+   Only three systems exist, so they sit in one row instead of stacking into a
+   very tall page. Each column is narrow and vertical, which means the padding,
+   video and feature rows all need to come down in scale to suit. */
+
+.systems-container {
+    max-width: 1500px;            /* wider than the 1200px stacked layout needed */
+}
+
+.systems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    align-items: start;
+}
+
+.systems-grid .system-card {
+    padding: 1.6rem 1.4rem;
+    margin-bottom: 0;
+}
+
+.systems-grid .system-badge {
+    font-size: 0.46rem;
+    padding: 0.5rem 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.systems-grid .system-card h2 {
+    font-size: 0.72rem;
+    line-height: 1.65;
+    padding-left: 0.7rem;
+    border-left-width: 5px;
+}
+
+.systems-grid .system-card .subtitle {
+    font-size: 0.82rem;
+    margin-bottom: 1.2rem;
+}
+
+.systems-grid .system-card > p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    max-width: none;
+}
+
+.systems-grid .video-container {
+    margin: 1.2rem 0 1.6rem;
+    box-shadow: 5px 5px 0 var(--dr-accent-deep);
+}
+
+.systems-grid .feature-category {
+    margin-bottom: 1.4rem;
+}
+
+.systems-grid .feature-category h4 {
+    font-size: 0.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.systems-grid .feature-list {
+    padding: 1rem 1.1rem;
+}
+
+.systems-grid .feature-item {
+    margin-bottom: 1rem;
+}
+
+.systems-grid .feature-title {
+    font-size: 0.92rem;
+}
+
+.systems-grid .feature-description {
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
+/* Two up, then single column, as the row stops fitting */
+@media (max-width: 1180px) {
+    .systems-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 780px) {
+    .systems-grid { grid-template-columns: 1fr; }
+    .systems-grid .system-card { padding: 1.7rem 1.2rem; }
+}
+
+/* ============ Design Process: compact three-column showcases ============
+   Same treatment as the prototypes page. The two project showcases and the
+   Endangered Species block sit in one row rather than stacking, with the
+   interior scaled down to suit a third of the width. The philosophy intro and
+   the reading-response list stay full width: one is a short lead-in, the other
+   is a list that reads better wide. */
+
+.process-container {
+    max-width: 1500px;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    align-items: start;
+    margin-bottom: 3rem;
+}
+
+.process-grid > * {
+    margin: 0 !important;
+    padding: 1.6rem 1.4rem;
+}
+
+.process-grid h2 {
+    font-size: 0.72rem;
+    line-height: 1.65;
+    padding-left: 0.7rem;
+    border-left-width: 5px;
+}
+
+.process-grid .project-subtitle {
+    font-size: 0.82rem;
+    margin-bottom: 1.2rem;
+}
+
+.process-grid p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.process-grid h3 {
+    font-size: 0.64rem;
+    line-height: 1.7;
+}
+
+.process-grid h4 {
+    font-size: 0.5rem;
+    line-height: 1.8;
+}
+
+/* Images and the inline-styled scroll panes were sized for a full-width
+   column; cap them so a third-width card doesn't blow out. */
+.process-grid img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 260px;
+    object-fit: contain;
+}
+
+.process-grid .project-showcase-image > div,
+.process-grid .process-scroll {
+    max-height: 260px !important;
+}
+
+.process-grid .medium-tag,
+.process-grid .tool-tag {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.6rem;
+}
+
+.process-grid .project-link,
+.process-grid .doc-link {
+    font-size: 0.44rem;
+    padding: 0.6rem 0.8rem;
+}
+
+.process-grid .process-phase,
+.process-grid .process-reflection {
+    padding-left: 0.7rem;
+    border-left-width: 3px;
+}
+
+@media (max-width: 1180px) {
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 780px) {
+    .process-grid { grid-template-columns: 1fr; }
+}

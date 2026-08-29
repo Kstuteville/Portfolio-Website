@@ -1,0 +1,15 @@
+# Commercial art pack (Sunnyside World V2.1) — licensed for use in this
+# project, NOT for redistribution. This repo is public, so it must never
+# be committed.
+pixelartassets/
+
+# The pixel-town experiment, taken off the site but kept on disk.
+# Nothing in here is referenced by the live site.
+_archive/
+
+# 9MB source GIF. The site serves websitepngs/bdx.mp4 instead (same motion,
+# ~39x smaller); the GIF is kept locally only as the original.
+websitepngs/bdx.gif
+
+# macOS
+.DS_Store
