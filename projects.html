@@ -110,6 +110,45 @@
             object-fit: cover;
         }
 
+        .preview-image.preview-fit img,
+        .env-image-container.paper-preview img {
+            object-fit: contain;
+            background: #fff;
+        }
+
+        .preview-image.video-thumbnail {
+            position: relative;
+        }
+
+        .video-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 68px;
+            height: 48px;
+            border-radius: 12px;
+            background: #e62117;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 3px 14px rgba(0, 0, 0, 0.55);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .video-play::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-top: 9px solid transparent;
+            border-bottom: 9px solid transparent;
+            border-left: 15px solid #fff;
+            transform: translate(-35%, -50%);
+        }
+
+        .video-project:hover .video-play {
+            background: #ff2b20;
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+
         .preview-content {
             padding: 2rem;
         }
@@ -1154,13 +1193,13 @@
                 <div class="projects-overview">
                 <a href="#rldrone" class="project-preview featured">
                     <div class="preview-image preview-fit">
-                        <img src="websitepngs/rlchart.png" alt="PPO vs PID controller comparison diagram">
+                        <img src="websitepngs/Screenshot 2026-11-09 at 4.09.48 PM.png" alt="First page of Perceived Emergent Behavior in Learned Drone Locomotion for Game NPCs">
                     </div>
                     <div class="preview-content">
-                        <div class="preview-badge">Research · NYU Tandon</div>
+                        <div class="preview-badge">Motion in Games 2026 · Accepted</div>
                         <h3>Physics-Based RL Locomotion for Enemy AI</h3>
                         <p class="subtitle">From Robotics to Game Feel</p>
-                        <p>Does physics-based reinforcement-learning locomotion make an NPC drone feel more alive? A Unity testbed that hot-swaps PPO and PID controllers onto the same physics body, holding everything constant except how motor thrust is computed.</p>
+                        <p>Paper accepted to Motion in Games 2026. This NYU Tandon study tests whether physics-based reinforcement-learning locomotion makes an NPC drone feel more alive.</p>
                         <div class="preview-tags">
                             <span class="preview-tag">Reinforcement Learning</span>
                             <span class="preview-tag">PPO</span>
@@ -1218,6 +1257,25 @@
                 <h2 class="group-title">Games &amp; Interactive</h2>
                 <p class="group-blurb">Playable projects, from procedural dungeons to a thesis RPG.</p>
                 <div class="projects-overview">
+                <a href="#gaussiansplat" class="project-preview featured video-project">
+                    <div class="preview-image video-thumbnail">
+                        <img src="https://i.ytimg.com/vi/Y_nhDuBqkNc/hqdefault.jpg" alt="Gaussian splat virtual production scene captured with Xgrids and rendered in Unreal Engine">
+                        <span class="video-play" aria-hidden="true"></span>
+                    </div>
+                    <div class="preview-content">
+                        <div class="preview-badge">Virtual Production</div>
+                        <h3>Gaussian Splat Virtual Production</h3>
+                        <p class="subtitle">Xgrids Scanning · Unreal Engine</p>
+                        <p>A virtual production video built from scenes scanned with Xgrids and rendered in Unreal Engine.</p>
+                        <div class="preview-tags">
+                            <span class="preview-tag">Gaussian Splatting</span>
+                            <span class="preview-tag">Xgrids</span>
+                            <span class="preview-tag">Unreal Engine</span>
+                        </div>
+                    </div>
+                    <div class="expand-indicator">View project and videos ↓</div>
+                </a>
+
                 <a href="#ironlabyrinth" class="project-preview featured">
                     <div class="preview-image">
                         <img src="websitepngs/Screenshot 2025-11-04 at 12.07.51 AM.png" alt="Veilbound Environment">
@@ -1642,9 +1700,11 @@
 
             <!-- RL drone locomotion research -->
             <div class="featured-project" id="rldrone">
-                <div class="featured-badge">Research · NYU Tandon</div>
+                <div class="featured-badge">Paper Accepted · Motion in Games 2026</div>
                 <h2>Physics-Based RL Locomotion for Enemy AI</h2>
                 <p class="subtitle">From Robotics to Game Feel</p>
+
+                <p>This NYU Tandon paper has been accepted to Motion in Games 2026.</p>
 
                 <p>For our AI for Games course at NYU Tandon, we ran a research playtest around a single question: <strong>does physics-based reinforcement-learning locomotion make an NPC drone feel more alive?</strong></p>
 
@@ -1686,13 +1746,15 @@
                 <p><strong>Team &amp; advisors:</strong> built with Peter Perry and Jessenth Ebenezer Sankar, with guidance from Julian Togelius and Tim Merino.</p>
 
                 <div class="project-links" style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                    <!-- PLACEHOLDER: replace href with the direct paper URL when available -->
-                    <span class="doc-link" style="opacity:0.65; cursor:default;">Pilot paper — link coming soon</span>
+                    <span class="doc-link" style="opacity:0.65; cursor:default;">Accepted paper · PDF link pending</span>
                 </div>
 
                 <div class="project-subsection">
                     <h4>Project Gallery</h4>
                     <div class="environment-gallery">
+                        <div class="env-image-container paper-preview">
+                            <img src="websitepngs/Screenshot 2026-11-09 at 4.09.48 PM.png" alt="First page of the accepted paper, Perceived Emergent Behavior in Learned Drone Locomotion for Game NPCs">
+                        </div>
                         <div class="env-image-container gallery-fit">
                             <img src="websitepngs/rlchart.png" alt="Results chart comparing PPO and PID drone locomotion">
                         </div>
@@ -2415,6 +2477,42 @@
 
                 
             
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featured-project" id="gaussiansplat" style="margin-top: 4rem;">
+                <div class="featured-badge">Virtual Production · Unreal Engine</div>
+                <h2>Gaussian Splat Virtual Production</h2>
+                <p class="subtitle">Xgrids Scanning · Unreal Engine Rendering</p>
+                <p>A virtual production study using environments scanned with Xgrids and rendered in Unreal Engine.</p>
+
+                <div class="project-subsection">
+                    <h4>Final Video</h4>
+                    <div class="cinematic-showcase">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/Y_nhDuBqkNc"
+                                    title="Gaussian Splat Virtual Production in Unreal Engine"
+                                    loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-subsection">
+                    <h4>See the Process</h4>
+                    <div class="cinematic-showcase">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/l-vdTdm9_Fo"
+                                    title="Gaussian Splat Virtual Production Process"
+                                    loading="lazy"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
                 </div>
